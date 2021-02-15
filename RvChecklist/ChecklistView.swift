@@ -18,11 +18,18 @@ struct ChecklistView: View {
 
                 List(listItems) { listItem in
                     NavigationLink(destination: DetailView(listItem: listItem)) {
-                        Text(listItem.title)
+                        HStack {
+                            if listItem.isDone {
+                                Image(systemName: "checkmark.square")
+                            } else {
+                                Image(systemName: "square")
+                            }
+                            Text(listItem.title)
+                        }
                     }
                 }.listStyle(PlainListStyle())
                 .navigationBarHidden(true)
-//                .navigationBarTitle("Checklist")
+//                .navigationBarTitle("RV Checklist")
             }
         }
     }
@@ -42,8 +49,9 @@ struct ContentView_Previews: PreviewProvider {
 
 struct ChecklistHeader: View {
     var body: some View {
-        ZStack(alignment: .leading, content: {
+        ZStack(alignment: .topLeading, content: {
             Image("truck-rv").resizable().aspectRatio(contentMode: .fit)
+            Text("RV Checklist").foregroundColor(.white).font(.title2).fontWeight(.semibold)
         })
     }
 }

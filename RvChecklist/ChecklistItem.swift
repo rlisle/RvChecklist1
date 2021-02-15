@@ -20,7 +20,8 @@ extension ChecklistItem: Identifiable { }
 let placeholder = "camera"
 
 let checklistData = [
-  ChecklistItem(title: "Retract Bedroom slide", description: "Retract Bedroom Slide", imageName: placeholder),
+    ChecklistItem(title: "Start Checklist", description: "Start new checklist", imageName: placeholder, isDone: true),
+    ChecklistItem(title: "Retract Bedroom slide", description: "Retract Bedroom Slide", imageName: placeholder),
     ChecklistItem(title: "Retract Main Slides", description: "Retract Livingroom Slides", imageName: placeholder),
     ChecklistItem(title: "Retract Ramp Awning", description: "Retract Ramp Awning", imageName: placeholder),
     ChecklistItem(title: "Close Ramp", description: "Close and latch ramp", imageName: placeholder),
