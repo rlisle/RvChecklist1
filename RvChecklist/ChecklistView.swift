@@ -10,11 +10,7 @@ import SwiftUI
 struct ChecklistView: View {
 
     init() {
-         // this is not the same as manipulating the proxy directly
-         let appearance = UINavigationBarAppearance()
-
-         // this overrides everything you have set up earlier.
-         appearance.configureWithTransparentBackground()
+         UINavigationBarAppearance().configureWithTransparentBackground()
     }
     
     @State var listItems: [ChecklistItem] = Checklists.lists[1].list
@@ -27,29 +23,16 @@ struct ChecklistView: View {
             
             VStack {
                 ChecklistHeader()
-
-                List(listItems) { listItem in
-                    NavigationLink(destination: DetailView(listItem: listItem)) {
-                        HStack {
-                            if listItem.isDone {
-                                Image(systemName: "checkmark.square")
-                            } else {
-                                Image(systemName: "square")
-                            }
-                            Text(listItem.title)
-                        }
-                    }
-                }.listStyle(PlainListStyle())
+                ChecklistScrollView(listItems: $listItems)
             }
             .edgesIgnoringSafeArea([.top])
-//            .navigationBarTitleDisplayMode(.inline)
-//            .navigationBarTitle(Text(""), displayMode: .large)
             .toolbar {
                 ToolbarItem {
                     Menu("List Type") {
                         ForEach(Checklists.lists) { list in
                             Button(list.name) {
                                 selectedListType = list.name
+                                listItems = Checklists.checklist(named: selectedListType!)
                             }
                         }
                     }.foregroundColor(.white)
@@ -80,5 +63,25 @@ struct ChecklistHeader: View {
             Image("truck-rv").resizable().aspectRatio(contentMode: .fit)
             Text("RV Checklist").foregroundColor(.white).font(.title2).fontWeight(.semibold).padding(.top, 30)
         })
+    }
+}
+
+struct ChecklistScrollView: View {
+    
+    @Binding var listItems: [ChecklistItem]
+    
+    var body: some View {
+        List(listItems) { listItem in
+            NavigationLink(destination: DetailView(listItem: listItem)) {
+                HStack {
+                    if listItem.isDone {
+                        Image(systemName: "checkmark.square")
+                    } else {
+                        Image(systemName: "square")
+                    }
+                    Text(listItem.title)
+                }
+            }
+        }.listStyle(PlainListStyle())
     }
 }
