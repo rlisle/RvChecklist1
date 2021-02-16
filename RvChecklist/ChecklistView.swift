@@ -41,7 +41,7 @@ struct ChecklistView: View {
                     }
                 }.listStyle(PlainListStyle())
             }
-            .edgesIgnoringSafeArea([.top, .bottom])
+            .edgesIgnoringSafeArea([.top])
 //            .navigationBarTitleDisplayMode(.inline)
 //            .navigationBarTitle(Text(""), displayMode: .large)
             .toolbar {
