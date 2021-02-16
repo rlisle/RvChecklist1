@@ -61,5 +61,9 @@ struct Checklists {
                   list: [
                   ])
     ]
+    
+    static func checklist(named: String) -> [ChecklistItem] {
+        return lists.filter { $0.name == named }.first!.list
+    }
 }
 

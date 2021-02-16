@@ -23,18 +23,16 @@ struct ChecklistView: View {
             
             VStack {
                 ChecklistHeader()
-
-                ChecklistScrollView()
+                ChecklistScrollView(listItems: $listItems)
             }
             .edgesIgnoringSafeArea([.top])
-//            .navigationBarTitleDisplayMode(.inline)
-//            .navigationBarTitle(Text(""), displayMode: .large)
             .toolbar {
                 ToolbarItem {
                     Menu("List Type") {
                         ForEach(Checklists.lists) { list in
                             Button(list.name) {
                                 selectedListType = list.name
+                                listItems = Checklists.checklist(named: selectedListType!)
                             }
                         }
                     }.foregroundColor(.white)
