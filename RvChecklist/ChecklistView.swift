@@ -11,8 +11,12 @@ struct ChecklistView: View {
 
     @State var listItems: [ChecklistItem] = Checklists.lists[1].list
     
+    @State var selectedListType: String?
+    
     var body: some View {
+        
         NavigationView {
+            
             VStack {
                 ChecklistHeader()
 
@@ -30,6 +34,18 @@ struct ChecklistView: View {
                 }.listStyle(PlainListStyle())
                 .navigationBarHidden(true)
 //                .navigationBarTitle("RV Checklist")
+            }
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem {
+                    Menu("List Type") {
+                        ForEach(Checklists.lists) { list in
+                            Button(list.name) {
+                                selectedListType = list.name
+                            }
+                        }
+                    }
+                }
             }
         }
     }
