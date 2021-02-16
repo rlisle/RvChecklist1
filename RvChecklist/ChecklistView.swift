@@ -9,10 +9,22 @@ import SwiftUI
 
 struct ChecklistView: View {
 
-    @State var listItems = checklistData
+    init() {
+         // this is not the same as manipulating the proxy directly
+         let appearance = UINavigationBarAppearance()
+
+         // this overrides everything you have set up earlier.
+         appearance.configureWithTransparentBackground()
+    }
+    
+    @State var listItems: [ChecklistItem] = Checklists.lists[1].list
+    
+    @State var selectedListType: String?
     
     var body: some View {
+        
         NavigationView {
+            
             VStack {
                 ChecklistHeader()
 
@@ -28,10 +40,25 @@ struct ChecklistView: View {
                         }
                     }
                 }.listStyle(PlainListStyle())
-                .navigationBarHidden(true)
-//                .navigationBarTitle("RV Checklist")
+            }
+            .edgesIgnoringSafeArea([.top])
+//            .navigationBarTitleDisplayMode(.inline)
+//            .navigationBarTitle(Text(""), displayMode: .large)
+            .toolbar {
+                ToolbarItem {
+                    Menu("List Type") {
+                        ForEach(Checklists.lists) { list in
+                            Button(list.name) {
+                                selectedListType = list.name
+                            }
+                        }
+                    }.foregroundColor(.white)
+                }
             }
         }
+        //                .navigationBarHidden(true)
+        .navigationBarTitle("RV Checklist")
+        .foregroundColor(.black)
     }
     
     func clearChecklist() {
@@ -49,9 +76,9 @@ struct ContentView_Previews: PreviewProvider {
 
 struct ChecklistHeader: View {
     var body: some View {
-        ZStack(alignment: .topLeading, content: {
+        ZStack(alignment: .top, content: {
             Image("truck-rv").resizable().aspectRatio(contentMode: .fit)
-            Text("RV Checklist").foregroundColor(.white).font(.title2).fontWeight(.semibold)
+            Text("RV Checklist").foregroundColor(.white).font(.title2).fontWeight(.semibold).padding(.top, 30)
         })
     }
 }

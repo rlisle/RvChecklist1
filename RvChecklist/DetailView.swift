@@ -45,7 +45,7 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
   static var previews: some View {
-    DetailView(listItem: checklistData[0])
+    DetailView(listItem: Checklists.lists[1].list[0])
   }
 }
 
