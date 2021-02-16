@@ -9,6 +9,14 @@ import SwiftUI
 
 struct ChecklistView: View {
 
+    init() {
+         // this is not the same as manipulating the proxy directly
+         let appearance = UINavigationBarAppearance()
+
+         // this overrides everything you have set up earlier.
+         appearance.configureWithTransparentBackground()
+    }
+    
     @State var listItems: [ChecklistItem] = Checklists.lists[1].list
     
     @State var selectedListType: String?
@@ -32,10 +40,10 @@ struct ChecklistView: View {
                         }
                     }
                 }.listStyle(PlainListStyle())
-                .navigationBarHidden(true)
-//                .navigationBarTitle("RV Checklist")
             }
-            .navigationBarTitleDisplayMode(.inline)
+            .edgesIgnoringSafeArea([.top, .bottom])
+//            .navigationBarTitleDisplayMode(.inline)
+//            .navigationBarTitle(Text(""), displayMode: .large)
             .toolbar {
                 ToolbarItem {
                     Menu("List Type") {
@@ -44,10 +52,13 @@ struct ChecklistView: View {
                                 selectedListType = list.name
                             }
                         }
-                    }
+                    }.foregroundColor(.white)
                 }
             }
         }
+        //                .navigationBarHidden(true)
+        .navigationBarTitle("RV Checklist")
+        .foregroundColor(.black)
     }
     
     func clearChecklist() {
@@ -65,9 +76,9 @@ struct ContentView_Previews: PreviewProvider {
 
 struct ChecklistHeader: View {
     var body: some View {
-        ZStack(alignment: .topLeading, content: {
+        ZStack(alignment: .top, content: {
             Image("truck-rv").resizable().aspectRatio(contentMode: .fit)
-            Text("RV Checklist").foregroundColor(.white).font(.title2).fontWeight(.semibold)
+            Text("RV Checklist").foregroundColor(.white).font(.title2).fontWeight(.semibold).padding(.top, 30)
         })
     }
 }
