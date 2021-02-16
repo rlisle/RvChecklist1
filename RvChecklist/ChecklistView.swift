@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChecklistView: View {
 
-    @State var listItems = checklistData
+    @State var listItems: [ChecklistItem] = Checklists.lists[1].list
     
     var body: some View {
         NavigationView {
