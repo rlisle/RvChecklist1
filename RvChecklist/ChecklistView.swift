@@ -77,11 +77,10 @@ struct ChecklistScrollView: View {
                     Text(listItem.title).strikethrough(listItem.isDone)
                     Spacer()
                     Image(systemName: listItem.isDone ? "checkmark.square" : "square")
-//                }
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    listItems.toggleDone(to: listItem)
-                }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            listItems.toggleDone(to: listItem)
+                        }
                 }
             }
         }.listStyle(PlainListStyle())
