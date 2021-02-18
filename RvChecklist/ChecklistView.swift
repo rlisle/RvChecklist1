@@ -74,8 +74,9 @@ struct ChecklistScrollView: View {
         List(listItems) { listItem in
 //            NavigationLink(destination: DetailView(listItem: listItem)) {
                 HStack {
-                    Image(systemName: listItem.isDone ? "checkmark.square" : "square")
                     Text(listItem.title).strikethrough(listItem.isDone)
+                    Spacer()
+                    Image(systemName: listItem.isDone ? "checkmark.square" : "square")
                 }
                 .contentShape(Rectangle())
                 .onTapGesture {
