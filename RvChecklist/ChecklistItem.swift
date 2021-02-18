@@ -7,24 +7,18 @@
 
 import SwiftUI
 
-struct ChecklistItem {
+struct ChecklistItem: Identifiable, Equatable {
+    let id = UUID()
     let title: String
     let description: String
     let imageName: String
     var isDone = false
 }
 
-extension ChecklistItem: Hashable, Identifiable {
-  var id: some Hashable { title }
-}
-
-struct Checklist {
+struct Checklist: Identifiable, Equatable {
+    let id = UUID()
     let name: String
     let list: [ChecklistItem]
-}
-
-extension Checklist: Hashable, Identifiable {
-  var id: some Hashable { name }
 }
 
 struct Checklists {
