@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct DetailView: View {
-  let listItem: ChecklistItem
+    
+  var listItem: ChecklistItem
   
   var body: some View {
-    VStack {
+    ScrollView {
       Text(listItem.name)
         .font(.title2)
         .multilineTextAlignment(.center)
