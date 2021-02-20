@@ -17,6 +17,8 @@
 		27550E1F25D8162700894F4D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27550E1E25D8162700894F4D /* DetailView.swift */; };
 		27550E2425D863F000894F4D /* DestinationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27550E2325D863F000894F4D /* DestinationMap.swift */; };
 		27550E2925D8649300894F4D /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27550E2825D8649300894F4D /* Trip.swift */; };
+		2784A0C025E14794000BE229 /* checklistData.json in Resources */ = {isa = PBXBuildFile; fileRef = 2784A0BF25E14794000BE229 /* checklistData.json */; };
+		2784A0CB25E15535000BE229 /* modelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2784A0CA25E15535000BE229 /* modelData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		27550E1E25D8162700894F4D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		27550E2325D863F000894F4D /* DestinationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationMap.swift; sourceTree = "<group>"; };
 		27550E2825D8649300894F4D /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		2784A0BF25E14794000BE229 /* checklistData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checklistData.json; sourceTree = "<group>"; };
+		2784A0CA25E15535000BE229 /* modelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modelData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,14 +108,11 @@
 			isa = PBXGroup;
 			children = (
 				27550DC825D57C8800894F4D /* RvChecklistApp.swift */,
-				27550DCA25D57C8800894F4D /* ChecklistView.swift */,
-				27550DCC25D57C8800894F4D /* Assets.xcassets */,
 				27550DD125D57C8800894F4D /* Info.plist */,
+				2784A0D425E157D5000BE229 /* Model */,
+				2784A0D325E157CE000BE229 /* Resources */,
+				2784A0D225E157C7000BE229 /* Views */,
 				27550DCE25D57C8800894F4D /* Preview Content */,
-				27550E1925D718E000894F4D /* ChecklistItem.swift */,
-				27550E1E25D8162700894F4D /* DetailView.swift */,
-				27550E2325D863F000894F4D /* DestinationMap.swift */,
-				27550E2825D8649300894F4D /* Trip.swift */,
 			);
 			path = RvChecklist;
 			sourceTree = "<group>";
@@ -140,6 +141,35 @@
 				27550DE725D57C8800894F4D /* Info.plist */,
 			);
 			path = RvChecklistUITests;
+			sourceTree = "<group>";
+		};
+		2784A0D225E157C7000BE229 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				27550DCA25D57C8800894F4D /* ChecklistView.swift */,
+				27550E1E25D8162700894F4D /* DetailView.swift */,
+				27550E2325D863F000894F4D /* DestinationMap.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		2784A0D325E157CE000BE229 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				27550DCC25D57C8800894F4D /* Assets.xcassets */,
+				2784A0BF25E14794000BE229 /* checklistData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		2784A0D425E157D5000BE229 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				27550E1925D718E000894F4D /* ChecklistItem.swift */,
+				2784A0CA25E15535000BE229 /* modelData.swift */,
+				27550E2825D8649300894F4D /* Trip.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27550DD025D57C8800894F4D /* Preview Assets.xcassets in Resources */,
+				2784A0C025E14794000BE229 /* checklistData.json in Resources */,
 				27550DCD25D57C8800894F4D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +307,7 @@
 				27550E2425D863F000894F4D /* DestinationMap.swift in Sources */,
 				27550E1F25D8162700894F4D /* DetailView.swift in Sources */,
 				27550E1A25D718E000894F4D /* ChecklistItem.swift in Sources */,
+				2784A0CB25E15535000BE229 /* modelData.swift in Sources */,
 				27550DC925D57C8800894F4D /* RvChecklistApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

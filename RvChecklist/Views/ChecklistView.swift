@@ -13,7 +13,7 @@ struct ChecklistView: View {
          UINavigationBarAppearance().configureWithTransparentBackground()
     }
     
-    @State var listItems: [ChecklistItem] = Checklists.lists[1].list
+    @State var listItems: [ChecklistItem] = checklist
     
     @State var selectedListType: String?
     
@@ -29,10 +29,12 @@ struct ChecklistView: View {
             .toolbar {
                 ToolbarItem {
                     Menu("List Type") {
-                        ForEach(Checklists.lists) { list in
-                            Button(list.name) {
-                                selectedListType = list.name
-                                listItems = Checklists.checklist(named: selectedListType!)
+                        //TODO: map/reduce unique list of categories
+                        ForEach(Array(Set(listItems.map { $0.category })), id: \.self) { list in
+                            Button(list) {
+                                selectedListType = list
+                                //TODO:
+                                //listItems = Checklists.checklist(named: selectedListType!)
                             }
                         }
                     }.foregroundColor(.white)
@@ -74,7 +76,7 @@ struct ChecklistScrollView: View {
         List(listItems) { listItem in
             NavigationLink(destination: DetailView(listItem: listItem)) {
                 HStack {
-                    Text(listItem.title).strikethrough(listItem.isDone)
+                    Text(listItem.name).strikethrough(listItem.isDone)
                     Spacer()
                     Image(systemName: listItem.isDone ? "checkmark.square" : "square")
                         .contentShape(Rectangle())

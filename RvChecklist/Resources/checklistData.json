@@ -1,0 +1,58 @@
+[
+    {
+        "name": "Start Checklist",
+        "category": "Pre-Trip",
+        "id": 1001,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Start a new checklist"
+    },
+    {
+        "name": "Tire Pressures",
+        "category": "Pre-Trip",
+        "id": 1002,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Check all tire pressures. Truck front: ?? psi, Truck rear: ?? psi, RV ?? psi"
+    },
+    {
+        "name": "Retract Bedroom Slide",
+        "category": "Departure",
+        "id": 1003,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Retrack the bedroom slide. Switch is located on front panel"
+    },
+    {
+        "name": "Drop Landing Gear",
+        "category": "Arrival",
+        "id": 1004,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Position pads under landing gear. Then lower landing gear until kingpin just begins to lift off of the hitch. Switch is located outside the RV on the leading wall under the kingpin."
+    },
+    {
+        "name": "Fill Water Tank",
+        "category": "Freeze",
+        "id": 1005,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Fill the fresh water tank. While connected to city water, turn the water valve sideways to the 'Tank' setting. Monitor the tank level using the guage on the front panel. Restore to 'City' setting when full."
+    },
+    {
+        "name": "Replace Heated Hose",
+        "category": "Thaw",
+        "id": 1006,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Turn off water. Remove and store the heated water hose. Reconnect the normal water hose. Turn water back on. Ensure the water valve is set to 'City'"
+    },
+    {
+        "name": "Run Generator Monthly",
+        "category": "Maintenance",
+        "id": 1007,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Turn off all major power usage (A/Cs, Heaters, Microwave, etc). Start generator. Turn of city power at the post. Let generator run for 20-30 minutes. If possible, turn on 1 A/C unit to provide a load on the generator. Then turn power back on, and shut down generator."
+    }
+]

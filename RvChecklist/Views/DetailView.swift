@@ -12,7 +12,7 @@ struct DetailView: View {
   
   var body: some View {
     VStack {
-      Text(listItem.title)
+      Text(listItem.name)
         .font(.title2)
         .multilineTextAlignment(.center)
         .lineLimit(3)
@@ -26,7 +26,7 @@ struct DetailView: View {
 //        }
 //      }
       
-      Image(listItem.imageName)
+        listItem.image
         .resizable()
         .frame(maxWidth: 300, maxHeight: 600)
         .aspectRatio(contentMode: .fit)
@@ -45,7 +45,7 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
   static var previews: some View {
-    DetailView(listItem: Checklists.lists[1].list[0])
+    DetailView(listItem: checklist[0])
   }
 }
 
