@@ -53,12 +53,6 @@ struct ChecklistView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChecklistView()
-    }
-}
-
 struct ChecklistHeader: View {
     var body: some View {
         ZStack(alignment: .top, content: {
@@ -95,3 +89,15 @@ private extension Array where Element == ChecklistItem {
         self[index].isDone.toggle()
     }
 }
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            ChecklistView()
+            ChecklistHeader()
+                .previewLayout(.fixed(width: 300, height: 210))
+            //ChecklistScrollView(listItems: checklist)
+        }
+    }
+}
+
