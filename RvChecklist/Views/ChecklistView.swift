@@ -94,9 +94,14 @@ private extension Array where Element == ChecklistItem {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ChecklistView()
+            ForEach(["iPhone SE (2nd generation)", "iPhone XS Max"], id: \.self) { deviceName in
+                ChecklistView()
+                    .previewDevice(PreviewDevice(rawValue: deviceName))
+                    .previewDisplayName(deviceName)
+            }
             ChecklistHeader()
                 .previewLayout(.fixed(width: 300, height: 210))
+                .previewDisplayName("Header")
             //ChecklistScrollView(listItems: checklist)
         }
     }
