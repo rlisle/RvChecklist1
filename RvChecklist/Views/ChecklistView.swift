@@ -41,9 +41,6 @@ struct ChecklistView: View {
                 }
             }
         }
-        //                .navigationBarHidden(true)
-        .navigationBarTitle("RV Checklist")
-        .foregroundColor(.black)
     }
     
     func clearChecklist() {
