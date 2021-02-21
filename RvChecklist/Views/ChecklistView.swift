@@ -13,17 +13,33 @@ struct ChecklistView: View {
          UINavigationBarAppearance().configureWithTransparentBackground()
     }
     
-    @State var listItems: [ChecklistItem] = checklist
+    @State private var listItems: [ChecklistItem] = checklist
     
-    @State var selectedListType: String?
-    
+    @State private var category = "Departure"
+
+    var filteredChecklist: [ChecklistItem] {
+           checklist.filter { item in
+               (item.category == category)
+           }
+       }
+
     var body: some View {
         
         NavigationView {
             
             VStack {
                 ChecklistHeader()
-                ChecklistScrollView()
+//                ChecklistScrollView(category: category)
+                NavigationView {
+                    List(filteredChecklist) { listItem in
+                        NavigationLink(destination: DetailView(listItem: listItem)) {
+                            ChecklistRow(listItem: listItem)
+                        }
+                    }
+                    .navigationTitle("Checklist")
+                    .listStyle(PlainListStyle())
+                }
+
             }
             .edgesIgnoringSafeArea([.top])
             .toolbar {
@@ -32,9 +48,7 @@ struct ChecklistView: View {
                         //TODO: map/reduce unique list of categories
                         ForEach(Array(Set(listItems.map { $0.category })), id: \.self) { list in
                             Button(list) {
-                                selectedListType = list
-                                //TODO:
-                                //listItems = Checklists.checklist(named: selectedListType!)
+                                category = list
                             }
                         }
                     }.foregroundColor(.white)
@@ -59,28 +73,28 @@ struct ChecklistHeader: View {
     }
 }
 
-struct ChecklistScrollView: View {
-    
-    @State private var category = "Departure"
-    
-    var filteredChecklist: [ChecklistItem] {
-           checklist.filter { item in
-               (item.category == category)
-           }
-       }
-
-    var body: some View {
-        NavigationView {
-            List(filteredChecklist) { listItem in
-                NavigationLink(destination: DetailView(listItem: listItem)) {
-                    ChecklistRow(listItem: listItem)
-                }
-            }
-            .navigationTitle("Checklist")
-            .listStyle(PlainListStyle())
-        }
-    }
-}
+//struct ChecklistScrollView: View {
+//
+//    @Binding var category = "Departure"
+//
+//    var filteredChecklist: [ChecklistItem] {
+//           checklist.filter { item in
+//               (item.category == category)
+//           }
+//       }
+//
+//    var body: some View {
+//        NavigationView {
+//            List(filteredChecklist) { listItem in
+//                NavigationLink(destination: DetailView(listItem: listItem)) {
+//                    ChecklistRow(listItem: listItem)
+//                }
+//            }
+//            .navigationTitle("Checklist")
+//            .listStyle(PlainListStyle())
+//        }
+//    }
+//}
 
 struct ChecklistRow: View {
     
@@ -111,7 +125,7 @@ private extension Array where Element == ChecklistItem {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            ForEach(["iPhone SE (2nd generation)", "iPhone XS Max"], id: \.self) { deviceName in
+            ForEach(["iPhone 11 Pro"], id: \.self) { deviceName in
                 ChecklistView()
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)
