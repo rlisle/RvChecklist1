@@ -13,12 +13,11 @@ struct ChecklistView: View {
          UINavigationBarAppearance().configureWithTransparentBackground()
     }
     
-    @State private var listItems: [ChecklistItem] = checklist
-    
-    @State private var category = "Departure"
+    @EnvironmentObject var modelData: ModelData
+    @State private var category = "Pre-Trip"
 
     var filteredChecklist: [ChecklistItem] {
-           checklist.filter { item in
+        modelData.checklist.filter { item in
                (item.category == category)
            }
        }
@@ -46,7 +45,7 @@ struct ChecklistView: View {
                 ToolbarItem {
                     Menu("List Type") {
                         //TODO: map/reduce unique list of categories
-                        ForEach(Array(Set(listItems.map { $0.category })), id: \.self) { list in
+                        ForEach(Array(Set(modelData.checklist.map { $0.category })), id: \.self) { list in
                             Button(list) {
                                 category = list
                             }
@@ -58,8 +57,8 @@ struct ChecklistView: View {
     }
     
     func clearChecklist() {
-        for index in 0..<listItems.count {
-            listItems[index].isDone = false
+        for index in 0..<modelData.checklist.count {
+            modelData.checklist[index].isDone = false
         }
     }
 }
@@ -127,12 +126,13 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             ForEach(["iPhone 11 Pro"], id: \.self) { deviceName in
                 ChecklistView()
+                    .environmentObject(ModelData())
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)
             }
-            ChecklistHeader()
-                .previewLayout(.fixed(width: 300, height: 210))
-                .previewDisplayName("Header")
+//            ChecklistHeader()
+//                .previewLayout(.fixed(width: 300, height: 210))
+//                .previewDisplayName("Header")
             //ChecklistScrollView(listItems: checklist)
         }
     }
