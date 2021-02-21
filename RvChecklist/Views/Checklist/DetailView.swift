@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct DetailView: View {
-    
+
+    @EnvironmentObject var modelData: ModelData
   var listItem: ChecklistItem
   
+    var listItemIndex: Int {
+        modelData.checklist.firstIndex(where: { $0.id == listItem.id })!
+    }
+
   var body: some View {
     ScrollView {
       Text(listItem.name)
@@ -45,8 +50,11 @@ struct DetailView: View {
 }
 
 struct DetailView_Previews: PreviewProvider {
+    static let modelData = ModelData()
+
   static var previews: some View {
-    DetailView(listItem: ModelData().checklist[0])
+    DetailView(listItem: modelData.checklist[0])
+        .environmentObject(modelData)
   }
 }
 

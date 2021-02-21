@@ -97,19 +97,25 @@ struct ChecklistHeader: View {
 
 struct ChecklistRow: View {
     
+    @EnvironmentObject var modelData: ModelData
     var listItem: ChecklistItem
+
+    var listItemIndex: Int {
+        modelData.checklist.firstIndex(where: { $0.id == listItem.id })!
+    }
 
     var body: some View {
 
         HStack {
             Text(listItem.name).strikethrough(listItem.isDone)
             Spacer()
-            Image(systemName: listItem.isDone ? "checkmark.square" : "square")
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    //TODO:
-                    //listItems.toggleDone(to: listItem)
-                }
+            Checkmark(isDone: $modelData.checklist[listItemIndex].isDone)
+//            Image(systemName: listItem.isDone ? "checkmark.square" : "square")
+//                .contentShape(Rectangle())
+//                .onTapGesture {
+//                    //TODO:
+//                    //listItem.isDone.toggle()
+//                }
         }
     }
 }

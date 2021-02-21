@@ -17,6 +17,7 @@
 		27550E1F25D8162700894F4D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27550E1E25D8162700894F4D /* DetailView.swift */; };
 		27550E2425D863F000894F4D /* DestinationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27550E2325D863F000894F4D /* DestinationMap.swift */; };
 		27550E2925D8649300894F4D /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27550E2825D8649300894F4D /* Trip.swift */; };
+		275E64EF25E29A310070E6AA /* Checkmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E64EE25E29A310070E6AA /* Checkmark.swift */; };
 		2784A0C025E14794000BE229 /* checklistData.json in Resources */ = {isa = PBXBuildFile; fileRef = 2784A0BF25E14794000BE229 /* checklistData.json */; };
 		2784A0CB25E15535000BE229 /* modelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2784A0CA25E15535000BE229 /* modelData.swift */; };
 /* End PBXBuildFile section */
@@ -55,6 +56,7 @@
 		27550E1E25D8162700894F4D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		27550E2325D863F000894F4D /* DestinationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationMap.swift; sourceTree = "<group>"; };
 		27550E2825D8649300894F4D /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
+		275E64EE25E29A310070E6AA /* Checkmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkmark.swift; sourceTree = "<group>"; };
 		2784A0BF25E14794000BE229 /* checklistData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = checklistData.json; sourceTree = "<group>"; };
 		2784A0CA25E15535000BE229 /* modelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modelData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,12 +145,29 @@
 			path = RvChecklistUITests;
 			sourceTree = "<group>";
 		};
-		2784A0D225E157C7000BE229 /* Views */ = {
+		275E64F525E29C9B0070E6AA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				275E64EE25E29A310070E6AA /* Checkmark.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		275E64F625E29CA90070E6AA /* Checklist */ = {
 			isa = PBXGroup;
 			children = (
 				27550DCA25D57C8800894F4D /* ChecklistView.swift */,
 				27550E1E25D8162700894F4D /* DetailView.swift */,
 				27550E2325D863F000894F4D /* DestinationMap.swift */,
+			);
+			path = Checklist;
+			sourceTree = "<group>";
+		};
+		2784A0D225E157C7000BE229 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				275E64F625E29CA90070E6AA /* Checklist */,
+				275E64F525E29C9B0070E6AA /* Helpers */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -305,6 +324,7 @@
 				27550E2925D8649300894F4D /* Trip.swift in Sources */,
 				27550DCB25D57C8800894F4D /* ChecklistView.swift in Sources */,
 				27550E2425D863F000894F4D /* DestinationMap.swift in Sources */,
+				275E64EF25E29A310070E6AA /* Checkmark.swift in Sources */,
 				27550E1F25D8162700894F4D /* DetailView.swift in Sources */,
 				27550E1A25D718E000894F4D /* ChecklistItem.swift in Sources */,
 				2784A0CB25E15535000BE229 /* modelData.swift in Sources */,
