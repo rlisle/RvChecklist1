@@ -23,7 +23,7 @@ struct ChecklistView: View {
             
             VStack {
                 ChecklistHeader()
-                ChecklistScrollView(listItems: $listItems)
+                ChecklistScrollView()
             }
             .edgesIgnoringSafeArea([.top])
             .toolbar {
@@ -61,25 +61,43 @@ struct ChecklistHeader: View {
 
 struct ChecklistScrollView: View {
     
-    @Binding var listItems: [ChecklistItem]
-    
     var body: some View {
         NavigationView {
-            List(listItems) { listItem in
+            List(checklist) { listItem in
                 NavigationLink(destination: DetailView(listItem: listItem)) {
-                    HStack {
-                        Text(listItem.name).strikethrough(listItem.isDone)
-                        Spacer()
-                        Image(systemName: listItem.isDone ? "checkmark.square" : "square")
-                            .contentShape(Rectangle())
-                            .onTapGesture {
-                                listItems.toggleDone(to: listItem)
-                            }
-                    }
+                    ChecklistRow(listItem: listItem)
+//                    HStack {
+//                        Text(listItem.name).strikethrough(listItem.isDone)
+//                        Spacer()
+//                        Image(systemName: listItem.isDone ? "checkmark.square" : "square")
+//                            .contentShape(Rectangle())
+//                            .onTapGesture {
+//                                listItems.toggleDone(to: listItem)
+//                            }
+//                    }
                 }
             }
             .navigationTitle("Checklist")
             .listStyle(PlainListStyle())
+        }
+    }
+}
+
+struct ChecklistRow: View {
+    
+    var listItem: ChecklistItem
+
+    var body: some View {
+
+        HStack {
+            Text(listItem.name).strikethrough(listItem.isDone)
+            Spacer()
+            Image(systemName: listItem.isDone ? "checkmark.square" : "square")
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    //TODO:
+                    //listItems.toggleDone(to: listItem)
+                }
         }
     }
 }
