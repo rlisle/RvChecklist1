@@ -61,20 +61,19 @@ struct ChecklistHeader: View {
 
 struct ChecklistScrollView: View {
     
+    @State private var category = "Departure"
+    
+    var filteredChecklist: [ChecklistItem] {
+           checklist.filter { item in
+               (item.category == category)
+           }
+       }
+
     var body: some View {
         NavigationView {
-            List(checklist) { listItem in
+            List(filteredChecklist) { listItem in
                 NavigationLink(destination: DetailView(listItem: listItem)) {
                     ChecklistRow(listItem: listItem)
-//                    HStack {
-//                        Text(listItem.name).strikethrough(listItem.isDone)
-//                        Spacer()
-//                        Image(systemName: listItem.isDone ? "checkmark.square" : "square")
-//                            .contentShape(Rectangle())
-//                            .onTapGesture {
-//                                listItems.toggleDone(to: listItem)
-//                            }
-//                    }
                 }
             }
             .navigationTitle("Checklist")

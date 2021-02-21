@@ -157,7 +157,6 @@
 			isa = PBXGroup;
 			children = (
 				27550DCC25D57C8800894F4D /* Assets.xcassets */,
-				2784A0BF25E14794000BE229 /* checklistData.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -168,6 +167,7 @@
 				27550E1925D718E000894F4D /* ChecklistItem.swift */,
 				2784A0CA25E15535000BE229 /* modelData.swift */,
 				27550E2825D8649300894F4D /* Trip.swift */,
+				2784A0BF25E14794000BE229 /* checklistData.json */,
 			);
 			path = Model;
 			sourceTree = "<group>";

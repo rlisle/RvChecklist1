@@ -1,0 +1,194 @@
+[
+    {
+        "name": "Start Checklist",
+        "category": "Pre-Trip",
+        "id": 1001,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Start a new checklist"
+    },
+    {
+        "name": "Tire Pressures",
+        "category": "Pre-Trip",
+        "id": 1002,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Check all tire pressures. Truck front: ?? psi, Truck rear: ?? psi, RV ?? psi"
+    },
+    {
+        "name": "Retract Bedroom Slide",
+        "category": "Departure",
+        "id": 1003,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Retrack the bedroom slide. Switch is located on front panel"
+    },
+    {
+        "name": "Retract Main Slides",
+        "category": "Departure",
+        "id": 1008,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Retrack the living room slides. Switch is located on front panel"
+    },
+    {
+        "name": "Retract Ramp Awning",
+        "category": "Departure",
+        "id": 1009,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Disconnect ramp awning arms and slide into end rail. Retrack the ramp awning. Switch is located on rear panel"
+    },
+    {
+        "name": "Close Ramp",
+        "category": "Departure",
+        "id": 1010,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Remove all furniture on the ramp deck. Roll up carpet. Raise and latch ramp."
+    },
+    {
+        "name": "Latch Door Handles",
+        "category": "Departure",
+        "id": 1011,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Close both door handles so they cover door to prevent accidental opening during travel."
+    },
+    {
+        "name": "Retract Rear Awning",
+        "category": "Departure",
+        "id": 1012,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Retract the rear awning. The switch is located on the rear panel."
+    },
+    {
+        "name": "Retract Front Awning",
+        "category": "Departure",
+        "id": 1013,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Retract the front awning. Switch is located on front panel"
+    },
+    {
+        "name": "Drop Landing Gear",
+        "category": "Arrival",
+        "id": 1004,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Position pads under landing gear. Then lower landing gear until kingpin just begins to lift off of the hitch. Switch is located outside the RV on the leading wall under the kingpin."
+    },
+    {
+        "name": "Fill Water Tank",
+        "category": "Freeze",
+        "id": 1005,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Fill the fresh water tank. While connected to city water, turn the water valve sideways to the 'Tank' setting. Monitor the tank level using the guage on the front panel. Restore to 'City' setting when full."
+    },
+    {
+        "name": "Fill Water Jugs",
+        "category": "Freeze",
+        "id": 1014,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Fill the collapsing water jugs."
+    },
+    {
+        "name": "Drip Faucets",
+        "category": "Freeze",
+        "id": 1015,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "During freezing weather, keep all sink faucets slowly dripping."
+    },
+    {
+        "name": "Connect Heated Hose",
+        "category": "Freeze",
+        "id": 1016,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Remove normal water hose and connect heated hose. Plug into power post."
+    },
+    {
+        "name": "Disconnect & Drain Other Hoses",
+        "category": "Freeze",
+        "id": 1017,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Disconnect and drain other garden hoses"
+    },
+    {
+        "name": "Cover Water Post",
+        "category": "Freeze",
+        "id": 1018,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Cover water/power post with plastic bag and insulating blankets if available"
+    },
+    {
+        "name": "Cover Windows",
+        "category": "Freeze",
+        "id": 1019,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Cover windows with blankets to provide insulation"
+    },
+    {
+        "name": "Close Ramp",
+        "category": "Freeze",
+        "id": 1020,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "I very cold weather expected, close ramp"
+    },
+    {
+        "name": "Cover Roof A/C Units",
+        "category": "Freeze",
+        "id": 1021,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Cover roof A/C units with large plastic bags and duck tape securely"
+    },
+    {
+        "name": "Seal Slide-out Edges",
+        "category": "Freeze",
+        "id": 1022,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Seal slide out edges with cloth snakes to prevent air leaks"
+    },
+    {
+        "name": "Replace Heated Hose",
+        "category": "Thaw",
+        "id": 1006,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Turn off water. Remove and store the heated water hose. Reconnect the normal water hose. Turn water back on. Ensure the water valve is set to 'City'"
+    },
+    {
+        "name": "Uncover A/C Units",
+        "category": "Thaw",
+        "id": 1023,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Remove plastic bags from roof A/C units"
+    },
+    {
+        "name": "Run Generator Monthly",
+        "category": "Maintenance",
+        "id": 1007,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Turn off all major power usage (A/Cs, Heaters, Microwave, etc). Start generator. Turn of city power at the post. Let generator run for 20-30 minutes. If possible, turn on 1 A/C unit to provide a load on the generator. Then turn power back on, and shut down generator."
+    },
+    {
+        "name": "Inspect Roof for Leaks",
+        "category": "Maintenance",
+        "id": 1024,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Inspect roof for cracks and leaks every few months."
+    }
+]
