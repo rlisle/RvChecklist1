@@ -31,10 +31,13 @@ struct ChecklistView: View {
                         //TODO: map/reduce unique list of categories
                         ForEach(Array(Set(modelData.checklist.map { $0.category })), id: \.self) { list in
                             Button(list) {
+                                //
                                 category = list
                             }
                         }
-                    }.foregroundColor(.white)
+                    }
+                    .foregroundColor(.white)
+                    .font(.subheadline)
                 }
             }
         }
