@@ -16,29 +16,13 @@ struct ChecklistView: View {
     @EnvironmentObject var modelData: ModelData
     @State private var category = "Pre-Trip"
 
-    var filteredChecklist: [ChecklistItem] {
-        modelData.checklist.filter { item in
-               (item.category == category)
-           }
-       }
-
     var body: some View {
         
         NavigationView {
             
             VStack {
                 ChecklistHeader()
-//                ChecklistScrollView(category: category)
-                NavigationView {
-                    List(filteredChecklist) { listItem in
-                        NavigationLink(destination: DetailView(listItem: listItem)) {
-                            ChecklistRow(listItem: listItem)
-                        }
-                    }
-                    .navigationTitle("Checklist")
-                    .listStyle(PlainListStyle())
-                }
-
+                ChecklistScrollView(category: category)
             }
             .edgesIgnoringSafeArea([.top])
             .toolbar {
@@ -63,30 +47,6 @@ struct ChecklistView: View {
     }
 }
 
-//struct ChecklistScrollView: View {
-//
-//    @Binding var category = "Departure"
-//
-//    var filteredChecklist: [ChecklistItem] {
-//           checklist.filter { item in
-//               (item.category == category)
-//           }
-//       }
-//
-//    var body: some View {
-//        NavigationView {
-//            List(filteredChecklist) { listItem in
-//                NavigationLink(destination: DetailView(listItem: listItem)) {
-//                    ChecklistRow(listItem: listItem)
-//                }
-//            }
-//            .navigationTitle("Checklist")
-//            .listStyle(PlainListStyle())
-//        }
-//    }
-//}
-
-
 private extension Array where Element == ChecklistItem {
     mutating func toggleDone(to item: ChecklistItem) {
         guard let index = self.firstIndex( where: { $0 == item }) else { return }
@@ -103,7 +63,6 @@ struct ContentView_Previews: PreviewProvider {
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)
             }
-            //ChecklistScrollView(listItems: checklist)
         }
     }
 }
