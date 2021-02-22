@@ -17,6 +17,9 @@ struct Checkmark: View {
         }) {
             Image(systemName: isDone ? "checkmark.square" : "square")
                 .contentShape(Rectangle())
+                .onTapGesture {
+                    isDone.toggle()
+                }
         }
     }
 }

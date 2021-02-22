@@ -110,12 +110,6 @@ struct ChecklistRow: View {
             Text(listItem.name).strikethrough(listItem.isDone)
             Spacer()
             Checkmark(isDone: $modelData.checklist[listItemIndex].isDone)
-//            Image(systemName: listItem.isDone ? "checkmark.square" : "square")
-//                .contentShape(Rectangle())
-//                .onTapGesture {
-//                    //TODO:
-//                    //listItem.isDone.toggle()
-//                }
         }
     }
 }
