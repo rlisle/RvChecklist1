@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct RvChecklistApp: App {
+    
+    @StateObject private var modelData = ModelData()
+    
     var body: some Scene {
         WindowGroup {
             ChecklistView()
+                .environmentObject(modelData)
         }
     }
 }

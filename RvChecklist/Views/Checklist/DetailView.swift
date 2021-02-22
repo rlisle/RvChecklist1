@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct DetailView: View {
-  let listItem: ChecklistItem
+
+    @EnvironmentObject var modelData: ModelData
+  var listItem: ChecklistItem
   
+    var listItemIndex: Int {
+        modelData.checklist.firstIndex(where: { $0.id == listItem.id })!
+    }
+
   var body: some View {
-    VStack {
-      Text(listItem.title)
+    ScrollView {
+      Text(listItem.name)
         .font(.title2)
         .multilineTextAlignment(.center)
         .lineLimit(3)
@@ -26,7 +32,7 @@ struct DetailView: View {
 //        }
 //      }
       
-      Image(listItem.imageName)
+        listItem.image
         .resizable()
         .frame(maxWidth: 300, maxHeight: 600)
         .aspectRatio(contentMode: .fit)
@@ -44,8 +50,11 @@ struct DetailView: View {
 }
 
 struct DetailView_Previews: PreviewProvider {
+    static let modelData = ModelData()
+
   static var previews: some View {
-    DetailView(listItem: Checklists.lists[1].list[0])
+    DetailView(listItem: modelData.checklist[0])
+        .environmentObject(modelData)
   }
 }
 
