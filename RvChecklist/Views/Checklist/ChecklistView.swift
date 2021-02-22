@@ -63,15 +63,6 @@ struct ChecklistView: View {
     }
 }
 
-struct ChecklistHeader: View {
-    var body: some View {
-        ZStack(alignment: .top, content: {
-            Image("truck-rv").resizable().aspectRatio(contentMode: .fit)
-            Text("RV Checklist").foregroundColor(.white).font(.title2).fontWeight(.semibold).padding(.top, 30)
-        })
-    }
-}
-
 //struct ChecklistScrollView: View {
 //
 //    @Binding var category = "Departure"
@@ -95,24 +86,6 @@ struct ChecklistHeader: View {
 //    }
 //}
 
-struct ChecklistRow: View {
-    
-    @EnvironmentObject var modelData: ModelData
-    var listItem: ChecklistItem
-
-    var listItemIndex: Int {
-        modelData.checklist.firstIndex(where: { $0.id == listItem.id })!
-    }
-
-    var body: some View {
-
-        HStack {
-            Text(listItem.name).strikethrough(listItem.isDone)
-            Spacer()
-            Checkmark(isDone: $modelData.checklist[listItemIndex].isDone)
-        }
-    }
-}
 
 private extension Array where Element == ChecklistItem {
     mutating func toggleDone(to item: ChecklistItem) {
@@ -130,9 +103,6 @@ struct ContentView_Previews: PreviewProvider {
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)
             }
-//            ChecklistHeader()
-//                .previewLayout(.fixed(width: 300, height: 210))
-//                .previewDisplayName("Header")
             //ChecklistScrollView(listItems: checklist)
         }
     }
