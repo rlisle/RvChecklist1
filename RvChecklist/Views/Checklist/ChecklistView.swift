@@ -60,19 +60,25 @@ struct ChecklistView: View {
         //TODO: display screen to enter name, date, etc.
         
         // then clear isDone on all trip items
-        
+        clearChecklist(category: "Pre-Trip")
+        clearChecklist(category: "Departure")
+        clearChecklist(category: "Arrival")
     }
     
     func startNewFreeze() {
         //TODO: enter freeze date
         
         // then clear isDone on all freeze/thaw items
-        
+        clearChecklist(category: "Freeze")
+        clearChecklist(category: "Thaw")
     }
     
-    func clearChecklist() {
+    func clearChecklist(category: String?) {
         for index in 0..<modelData.checklist.count {
-            modelData.checklist[index].isDone = false
+            if modelData.checklist[index].category == category {
+                print("Clearing item")
+                modelData.checklist[index].isDone = false
+            }
         }
     }
 }
