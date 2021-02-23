@@ -25,7 +25,7 @@ struct ChecklistScrollView: View {
                     ChecklistRow(listItem: listItem)
                 }
             }
-            .navigationTitle("Checklist")
+            .navigationTitle(category)
             .listStyle(PlainListStyle())
         }
     }

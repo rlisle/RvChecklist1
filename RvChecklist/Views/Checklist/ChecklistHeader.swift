@@ -9,13 +9,15 @@ import SwiftUI
 
 struct ChecklistHeader: View {
     var body: some View {
-        ZStack(alignment: .top, content: {
-            Image("truck-rv").resizable().aspectRatio(contentMode: .fit)
+        ZStack(alignment: .topLeading, content: {
+            Image("truck-rv").resizable()
+                .aspectRatio(contentMode: .fit)
             Text("RV Checklist")
                 .foregroundColor(.white)
-                .font(.title2)
-                .fontWeight(.semibold)
-                .padding(.top, 30)
+                .font(.subheadline)
+                .fontWeight(.bold)
+                .padding(.top, 32.0)
+                .padding(.leading, 12)
         })
     }
 }
