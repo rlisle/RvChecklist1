@@ -16,6 +16,22 @@
         "description": "Check all tire pressures. Truck front: ?? psi, Truck rear: ?? psi, RV ?? psi"
     },
     {
+        "name": "Dump Tanks",
+        "category": "Pre-Trip",
+        "id": 1025,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Dump both black and gray tanks"
+    },
+    {
+        "name": "Fill Water Tank",
+        "category": "Pre-Trip",
+        "id": 1026,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Fill fresh water tank appropriately"
+    },
+    {
         "name": "Retract Bedroom Slide",
         "category": "Departure",
         "id": 1003,

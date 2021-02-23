@@ -9,13 +9,13 @@ import SwiftUI
 
 struct ChecklistView: View {
 
+    @EnvironmentObject var modelData: ModelData
+    @State private var category = "Pre-Trip"
+
     init() {
          UINavigationBarAppearance().configureWithTransparentBackground()
     }
     
-    @EnvironmentObject var modelData: ModelData
-    @State private var category = "Pre-Trip"
-
     var body: some View {
         
         NavigationView {
@@ -27,20 +27,47 @@ struct ChecklistView: View {
             .edgesIgnoringSafeArea([.top])
             .toolbar {
                 ToolbarItem {
-                    Menu("List Type") {
-                        //TODO: map/reduce unique list of categories
-                        ForEach(Array(Set(modelData.checklist.map { $0.category })), id: \.self) { list in
-                            Button(list) {
-                                //
-                                category = list
+                    Menu("Actions") {
+                        
+                        Section(header: Text("List Type")) {
+                            //TODO: map/reduce unique list of categories
+                            ForEach(Array(Set(modelData.checklist.map { $0.category })), id: \.self) { list in
+                                Button(list) {
+                                    //
+                                    category = list
+                                }
                             }
                         }
+                        
+                        Section {
+                            Button("Start New Trip") {
+                                startNewTrip()
+                            }
+                            Button("New Freeze") {
+                                startNewFreeze()
+                            }
+                        }
+                        
                     }
                     .foregroundColor(.white)
                     .font(.subheadline)
                 }
             }
         }
+    }
+    
+    func startNewTrip() {
+        //TODO: display screen to enter name, date, etc.
+        
+        // then clear isDone on all trip items
+        
+    }
+    
+    func startNewFreeze() {
+        //TODO: enter freeze date
+        
+        // then clear isDone on all freeze/thaw items
+        
     }
     
     func clearChecklist() {
