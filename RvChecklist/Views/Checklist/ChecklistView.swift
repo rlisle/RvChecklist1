@@ -27,7 +27,7 @@ struct ChecklistView: View {
             .edgesIgnoringSafeArea([.top])
             .toolbar {
                 ToolbarItem {
-                    Menu("Actions") {
+                    Menu {
                         
                         Section(header: Text("List Type")) {
                             //TODO: map/reduce unique list of categories
@@ -48,6 +48,8 @@ struct ChecklistView: View {
                             }
                         }
                         
+                    } label: {
+                        Label("", systemImage:"ellipsis.circle.fill")
                     }
                     .foregroundColor(.white)
                     .font(.subheadline)
