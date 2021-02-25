@@ -13,7 +13,7 @@
         "id": 1002,
         "isDone": false,
         "imageName": "placeholder",
-        "description": "Check all tire pressures. Truck front: ?? psi, Truck rear: ?? psi, RV ?? psi"
+        "description": "Check all tire pressures. Truck front: 80 psi, Truck rear: 65 psi, RV 110 psi"
     },
     {
         "name": "Dump Tanks",
@@ -30,6 +30,30 @@
         "isDone": false,
         "imageName": "placeholder",
         "description": "Fill fresh water tank appropriately"
+    },
+    {
+        "name": "Fill-up Fuel Tanks",
+        "category": "Pre-Trip",
+        "id": 1027,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Calculate amount of fuel needed, and fill tanks appropriately. For shorter trips, get enough for entire trip. For example, Inks Lake is 68 miles. Figure 7.5 if hilly, or 9-11 if < 65 mph. Main tank is 50 gallons, aux tank about 50 more. So fill main tank if entire trip < 500 miles. Fill aux also if < 1000 miles."
+    },
+    {
+        "name": "Inspect Roof",
+        "category": "Pre-Trip",
+        "id": 1028,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Ensure everything on roof looks ok. Check for leaks, cracks or other damage"
+    },
+    {
+        "name": "Inspect Under RV",
+        "category": "Pre-Trip",
+        "id": 1029,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Ensure everything under RV looks ok. Check for leaks, and verify flaps under RV not coming loose."
     },
     {
         "name": "Retract Bedroom Slide",
@@ -94,117 +118,5 @@
         "isDone": false,
         "imageName": "placeholder",
         "description": "Position pads under landing gear. Then lower landing gear until kingpin just begins to lift off of the hitch. Switch is located outside the RV on the leading wall under the kingpin."
-    },
-    {
-        "name": "Fill Water Tank",
-        "category": "Freeze",
-        "id": 1005,
-        "isDone": false,
-        "imageName": "placeholder",
-        "description": "Fill the fresh water tank. While connected to city water, turn the water valve sideways to the 'Tank' setting. Monitor the tank level using the guage on the front panel. Restore to 'City' setting when full."
-    },
-    {
-        "name": "Fill Water Jugs",
-        "category": "Freeze",
-        "id": 1014,
-        "isDone": false,
-        "imageName": "placeholder",
-        "description": "Fill the collapsing water jugs."
-    },
-    {
-        "name": "Drip Faucets",
-        "category": "Freeze",
-        "id": 1015,
-        "isDone": false,
-        "imageName": "placeholder",
-        "description": "During freezing weather, keep all sink faucets slowly dripping."
-    },
-    {
-        "name": "Connect Heated Hose",
-        "category": "Freeze",
-        "id": 1016,
-        "isDone": false,
-        "imageName": "placeholder",
-        "description": "Remove normal water hose and connect heated hose. Plug into power post."
-    },
-    {
-        "name": "Disconnect & Drain Other Hoses",
-        "category": "Freeze",
-        "id": 1017,
-        "isDone": false,
-        "imageName": "placeholder",
-        "description": "Disconnect and drain other garden hoses"
-    },
-    {
-        "name": "Cover Water Post",
-        "category": "Freeze",
-        "id": 1018,
-        "isDone": false,
-        "imageName": "placeholder",
-        "description": "Cover water/power post with plastic bag and insulating blankets if available"
-    },
-    {
-        "name": "Cover Windows",
-        "category": "Freeze",
-        "id": 1019,
-        "isDone": false,
-        "imageName": "placeholder",
-        "description": "Cover windows with blankets to provide insulation"
-    },
-    {
-        "name": "Close Ramp",
-        "category": "Freeze",
-        "id": 1020,
-        "isDone": false,
-        "imageName": "placeholder",
-        "description": "I very cold weather expected, close ramp"
-    },
-    {
-        "name": "Cover Roof A/C Units",
-        "category": "Freeze",
-        "id": 1021,
-        "isDone": false,
-        "imageName": "placeholder",
-        "description": "Cover roof A/C units with large plastic bags and duck tape securely"
-    },
-    {
-        "name": "Seal Slide-out Edges",
-        "category": "Freeze",
-        "id": 1022,
-        "isDone": false,
-        "imageName": "placeholder",
-        "description": "Seal slide out edges with cloth snakes to prevent air leaks"
-    },
-    {
-        "name": "Replace Heated Hose",
-        "category": "Thaw",
-        "id": 1006,
-        "isDone": false,
-        "imageName": "placeholder",
-        "description": "Turn off water. Remove and store the heated water hose. Reconnect the normal water hose. Turn water back on. Ensure the water valve is set to 'City'"
-    },
-    {
-        "name": "Uncover A/C Units",
-        "category": "Thaw",
-        "id": 1023,
-        "isDone": false,
-        "imageName": "placeholder",
-        "description": "Remove plastic bags from roof A/C units"
-    },
-    {
-        "name": "Run Generator Monthly",
-        "category": "Maintenance",
-        "id": 1007,
-        "isDone": false,
-        "imageName": "placeholder",
-        "description": "Turn off all major power usage (A/Cs, Heaters, Microwave, etc). Start generator. Turn of city power at the post. Let generator run for 20-30 minutes. If possible, turn on 1 A/C unit to provide a load on the generator. Then turn power back on, and shut down generator."
-    },
-    {
-        "name": "Inspect Roof for Leaks",
-        "category": "Maintenance",
-        "id": 1024,
-        "isDone": false,
-        "imageName": "placeholder",
-        "description": "Inspect roof for cracks and leaks every few months."
     }
 ]
