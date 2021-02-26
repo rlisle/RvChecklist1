@@ -18,30 +18,23 @@ struct DetailView: View {
 
   var body: some View {
     ScrollView {
-      Text(listItem.name)
+      Text(listItem.name)                   // Title
         .font(.title2)
         .multilineTextAlignment(.center)
         .lineLimit(3)
-      
-//      Button(action: {  }) {
-//        HStack(alignment: .firstTextBaseline) {
-//          Image(systemName: "mappin.and.ellipse")
-//
-//          Text(listItem.description)
-//            .font(.headline)
-//        }
-//      }
-      
-        listItem.image
+        
+        Divider()
+
+        Text(listItem.description)          // Description
+        .multilineTextAlignment(.leading)
+        .lineLimit(20)
+        
+        Divider()
+        
+        listItem.image                      // Optional image
         .resizable()
         .frame(maxWidth: 300, maxHeight: 600)
         .aspectRatio(contentMode: .fit)
-      
-      Divider()
-      
-        Text(listItem.description)
-        .multilineTextAlignment(.leading)
-        .lineLimit(20)
     }
     .padding()
     .navigationBarTitleDisplayMode(.inline)
@@ -53,7 +46,7 @@ struct DetailView_Previews: PreviewProvider {
     static let modelData = ModelData()
 
   static var previews: some View {
-    DetailView(listItem: modelData.checklist[0])
+    DetailView(listItem: modelData.checklist[1])
         .environmentObject(modelData)
   }
 }
