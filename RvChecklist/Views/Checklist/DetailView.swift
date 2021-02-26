@@ -41,8 +41,8 @@ struct DetailView: View {
     }
     
     var body: some View {
-        ScrollView {
-            
+
+        VStack {
             
             Text(listItem.name)                   // Title
                 .font(.title2)
@@ -54,7 +54,6 @@ struct DetailView: View {
             let headerString = "<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></header>"
             
             HTMLStringView(htmlContent: headerString + listItem.description)
-                .frame(width: .infinity, height: 800)
         }
         .padding()
         .navigationBarTitleDisplayMode(.inline)
