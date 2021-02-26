@@ -32,44 +32,33 @@ struct Test: View {
 }
 
 struct DetailView: View {
-
+    
     @EnvironmentObject var modelData: ModelData
-  var listItem: ChecklistItem
-  
+    var listItem: ChecklistItem
+    
     var listItemIndex: Int {
         modelData.checklist.firstIndex(where: { $0.id == listItem.id })!
     }
-
-  var body: some View {
-    ScrollView {
-//        Color.yellow
-        
-        VStack {
-        
-      Text(listItem.name)                   // Title
-        .font(.title2)
-        .multilineTextAlignment(.center)
-        .lineLimit(3)
-        
-        Divider()
-
-        let headerString = "<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></header>"
-        
-        HTMLStringView(htmlContent: headerString + listItem.description)
-        
-//        .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .frame(width: .infinity, height: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
-//    .frame(minWidth: 0,
-//                    maxWidth: .infinity,
-//                    minHeight: 0,
-//                    maxHeight: .infinity,
-//                    alignment: .topLeading
+    
+    var body: some View {
+        ScrollView {
+            
+            
+            Text(listItem.name)                   // Title
+                .font(.title2)
+                .multilineTextAlignment(.center)
+                .lineLimit(3)
+            
+            Divider()
+            
+            let headerString = "<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></header>"
+            
+            HTMLStringView(htmlContent: headerString + listItem.description)
+                .frame(width: .infinity, height: 800)
         }
+        .padding()
+        .navigationBarTitleDisplayMode(.inline)
     }
-    .padding()
-    .navigationBarTitleDisplayMode(.inline)
-
-  }
 }
 
 struct DetailView_Previews: PreviewProvider {
