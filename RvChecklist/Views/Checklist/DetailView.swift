@@ -5,7 +5,31 @@
 //  Created by Ron Lisle on 2/13/21.
 //
 
+import WebKit
 import SwiftUI
+
+struct HTMLStringView: UIViewRepresentable {
+    let htmlContent: String
+
+    func makeUIView(context: Context) -> WKWebView {
+        return WKWebView()
+    }
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        uiView.loadHTMLString(htmlContent, baseURL: nil)
+    }
+}
+
+struct Test: View {
+    var body: some View {
+        VStack {
+            Text("Testing HTML Content")
+            Spacer()
+            HTMLStringView(htmlContent: "<h1>This is HTML String</h1>")
+            Spacer()
+        }
+    }
+}
 
 struct DetailView: View {
 
@@ -18,6 +42,10 @@ struct DetailView: View {
 
   var body: some View {
     ScrollView {
+//        Color.yellow
+        
+        VStack {
+        
       Text(listItem.name)                   // Title
         .font(.title2)
         .multilineTextAlignment(.center)
@@ -25,16 +53,18 @@ struct DetailView: View {
         
         Divider()
 
-        Text(listItem.description)          // Description
-        .multilineTextAlignment(.leading)
-        .lineLimit(20)
+        let headerString = "<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></header>"
         
-        Divider()
+        HTMLStringView(htmlContent: headerString + listItem.description)
         
-        listItem.image                      // Optional image
-        .resizable()
-        .frame(maxWidth: 300, maxHeight: 600)
-        .aspectRatio(contentMode: .fit)
+//        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .frame(width: .infinity, height: 600, alignment: /*@START_MENU_TOKEN@*/.center/*@END_MENU_TOKEN@*/)
+//    .frame(minWidth: 0,
+//                    maxWidth: .infinity,
+//                    minHeight: 0,
+//                    maxHeight: .infinity,
+//                    alignment: .topLeading
+        }
     }
     .padding()
     .navigationBarTitleDisplayMode(.inline)
@@ -46,7 +76,7 @@ struct DetailView_Previews: PreviewProvider {
     static let modelData = ModelData()
 
   static var previews: some View {
-    DetailView(listItem: modelData.checklist[1])
+    DetailView(listItem: modelData.checklist[4])
         .environmentObject(modelData)
   }
 }

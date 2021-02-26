@@ -13,7 +13,7 @@
         "id": 1002,
         "isDone": false,
         "imageName": "placeholder",
-        "description": "Check all tire pressures. Truck front: 80 psi, Truck rear: 65 psi, RV 110 psi"
+        "description": "<h1>Check all tire pressures</h1><ul><li>Truck front: 80 psi</li><li>Truck rear: 65 psi</li><li>RV 110 psi</li></ul>"
     },
     {
         "name": "Dump Tanks",
@@ -37,7 +37,7 @@
         "id": 1027,
         "isDone": false,
         "imageName": "placeholder",
-        "description": "Calculate amount of fuel needed, and fill tanks appropriately. For shorter trips, get enough for entire trip. For example, Inks Lake is 68 miles. Figure 7.5 if hilly, or 9-11 if < 65 mph. Main tank is 50 gallons, aux tank about 50 more. So fill main tank if entire trip < 500 miles. Fill aux also if < 1000 miles."
+        "description": "Calculate amount of fuel needed, and fill tanks appropriately.<p>For shorter trips, get enough for entire trip. <p>For example:<ul><li>Inks Lake is 68 miles.</li><li>Figure 7.5 if hilly, or 9-11 if < 65 mph.</li><li>Main tank is 50 gallons</li><li>Aux tank about 50 more.</li><li>So fill main tank if entire trip < 500 miles.</li><li>Fill aux also if < 1000 miles.</li></ul>"
     },
     {
         "name": "Inspect Roof",
