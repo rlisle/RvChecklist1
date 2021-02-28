@@ -18,7 +18,7 @@
     {
         "name": "Dump Tanks",
         "category": "Pre-Trip",
-        "id": 1025,
+        "id": 1003,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Dump both black and gray tanks"
@@ -26,7 +26,7 @@
     {
         "name": "Fill Water Tank",
         "category": "Pre-Trip",
-        "id": 1026,
+        "id": 1004,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Fill fresh water tank appropriately"
@@ -34,7 +34,7 @@
     {
         "name": "Fill-up Fuel Tanks",
         "category": "Pre-Trip",
-        "id": 1027,
+        "id": 1005,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Calculate amount of fuel needed, and fill tanks appropriately.<p>For shorter trips, get enough for entire trip. <p>For example:<ul><li>Inks Lake is 68 miles.</li><li>Figure 7.5 if hilly, or 9-11 if < 65 mph.</li><li>Main tank is 50 gallons</li><li>Aux tank about 50 more.</li><li>So fill main tank if entire trip < 500 miles.</li><li>Fill aux also if < 1000 miles.</li></ul>"
@@ -42,7 +42,7 @@
     {
         "name": "Inspect Roof",
         "category": "Pre-Trip",
-        "id": 1028,
+        "id": 1006,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Ensure everything on roof looks ok. Check for leaks, cracks or other damage"
@@ -50,7 +50,7 @@
     {
         "name": "Inspect Under RV",
         "category": "Pre-Trip",
-        "id": 1029,
+        "id": 1007,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Ensure everything under RV looks ok. Check for leaks, and verify flaps under RV not coming loose."
@@ -58,7 +58,7 @@
     {
         "name": "Retract Bedroom Slide",
         "category": "Departure",
-        "id": 1003,
+        "id": 1101,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Retrack the bedroom slide. Switch is located on front panel"
@@ -66,7 +66,7 @@
     {
         "name": "Retract Main Slides",
         "category": "Departure",
-        "id": 1008,
+        "id": 1102,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Retrack the living room slides. Switch is located on front panel"
@@ -74,7 +74,7 @@
     {
         "name": "Retract Ramp Awning",
         "category": "Departure",
-        "id": 1009,
+        "id": 1103,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Disconnect ramp awning arms and slide into end rail. Retrack the ramp awning. Switch is located on rear panel"
@@ -82,7 +82,7 @@
     {
         "name": "Close Ramp",
         "category": "Departure",
-        "id": 1010,
+        "id": 1104,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Remove all furniture on the ramp deck. Roll up carpet. Raise and latch ramp."
@@ -90,7 +90,7 @@
     {
         "name": "Latch Door Handles",
         "category": "Departure",
-        "id": 1011,
+        "id": 1105,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Close both door handles so they cover door to prevent accidental opening during travel."
@@ -98,7 +98,7 @@
     {
         "name": "Retract Rear Awning",
         "category": "Departure",
-        "id": 1012,
+        "id": 1106,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Retract the rear awning. The switch is located on the rear panel."
@@ -106,17 +106,106 @@
     {
         "name": "Retract Front Awning",
         "category": "Departure",
-        "id": 1013,
+        "id": 1107,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Retract the front awning. Switch is located on front panel"
     },
     {
-        "name": "Drop Landing Gear",
+        "name": "Disconnect Propane",
+        "category": "Departure",
+        "id": 1108,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Turn off and disconnect big propane tank.<p>Turn off 30 lb tanks while travelling."
+    },
+    {
+        "name": "Connect Truck",
+        "category": "Departure",
+        "id": 1109,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Hitch up trailer to truck.<ol><li>Drop tailgate</li><li>Release 5th wheel hitch handle</li><li>Back in truck until kingpin close to hitch</li><li>Raise landing gear until truck and trailer at same height (-1/2 inch)</li><li>Backup truck until hitch latches</li><li>Insert pin to lock hitch</li><li>Connect trailer electrical cable to side connector inside bed</li><li>Connect safety wire to hitch handle</li><li>Rock truck to ensure good latching</li><ol>"
+    },
+    {
+        "name": "Raise Landing Gear and Level Up",
+        "category": "Departure",
+        "id": 1110,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Raise the Level-Up and front landing gear.<p>Level-up control is in the basement.<p>Select manual, then retract."
+    },
+    {
+        "name": "Lower Landing Gear",
         "category": "Arrival",
-        "id": 1004,
+        "id": 1201,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Position pads under landing gear. Then lower landing gear until kingpin just begins to lift off of the hitch. Switch is located outside the RV on the leading wall under the kingpin."
-    }
+    },
+    {
+        "name": "Extend Bedroom Slide",
+        "category": "Arrival",
+        "id": 1202,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Extend the bedroom slide.<p>Switch is located on front panel.<p>Check to ensure nothing has fallen between the slide edges and walls."
+    },
+    {
+        "name": "Extend Main Slides",
+        "category": "Arrival",
+        "id": 1203,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Extend the living room slides.<p>Switch is located on front panel.<p>Check to ensure nothing has fallen between the slide edges and walls."
+    },
+    {
+        "name": "Open Ramp",
+        "category": "Arrival",
+        "id": 1204,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Restore ramp patio.<ul><li>Lower ramp</li><li>Setup railings</li><li>Replace carpet</li><li>Replace all furniture on the ramp deck</li></ul>"
+    },
+    {
+        "name": "Extend Ramp Awning",
+        "category": "Arrival",
+        "id": 1205,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Extend ramp awning and reconnect ramp awning arms.<p>Switch is located on rear panel"
+    },
+    {
+        "name": "Restore Door Steps and Handles",
+        "category": "Arrival",
+        "id": 1206,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Open both door handles and lower steps."
+    },
+    {
+        "name": "Extend Rear Awning",
+        "category": "Arrival",
+        "id": 1207,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Extend the rear awning. The switch is located on the rear panel."
+    },
+    {
+        "name": "Extend Front Awning",
+        "category": "Arrival",
+        "id": 1208,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Extend the front awning. Switch is located on front panel"
+    },
+    {
+        "name": "Turn on Propane",
+        "category": "Arrival",
+        "id": 1209,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Turn on 30 lb tanks."
+    },
+
 ]
