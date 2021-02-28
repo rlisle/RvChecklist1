@@ -26,60 +26,9 @@ struct ChecklistView: View {
             }
             .edgesIgnoringSafeArea([.top])
             .toolbar {
-                ToolbarItem {
-                    Menu {
-                        
-                        Section(header: Text("List Type")) {
-                            //TODO: map/reduce unique list of categories
-                            ForEach(Array(Set(modelData.checklist.map { $0.category })), id: \.self) { list in
-                                Button(list) {
-                                    //
-                                    category = list
-                                }
-                            }
-                        }
-                        
-                        Section {
-                            Button("Start New Trip") {
-                                startNewTrip()
-                            }
-                            Button("New Freeze") {
-                                startNewFreeze()
-                            }
-                        }
-                        
-                    } label: {
-                        Label("", systemImage:"ellipsis.circle.fill")
-                    }
-                    .foregroundColor(.white)
-                    .font(.subheadline)
+                ToolbarItem(placement: .primaryAction) {
+                    ToolbarView(category: $category)
                 }
-            }
-        }
-    }
-    
-    func startNewTrip() {
-        //TODO: display screen to enter name, date, etc.
-        
-        // then clear isDone on all trip items
-        clearChecklist(category: "Pre-Trip")
-        clearChecklist(category: "Departure")
-        clearChecklist(category: "Arrival")
-    }
-    
-    func startNewFreeze() {
-        //TODO: enter freeze date
-        
-        // then clear isDone on all freeze/thaw items
-        clearChecklist(category: "Freeze")
-        clearChecklist(category: "Thaw")
-    }
-    
-    func clearChecklist(category: String?) {
-        for index in 0..<modelData.checklist.count {
-            if modelData.checklist[index].category == category {
-                print("Clearing item")
-                modelData.checklist[index].isDone = false
             }
         }
     }
@@ -104,4 +53,3 @@ struct ContentView_Previews: PreviewProvider {
         }
     }
 }
-
