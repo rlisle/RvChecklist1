@@ -10,6 +10,7 @@ import SwiftUI
 struct ChecklistScrollView: View {
 
     @EnvironmentObject var modelData: ModelData
+    //TODO: category will identify the scroll-to point
     var category: String
 
     var filteredChecklist: [ChecklistItem] {
@@ -20,10 +21,13 @@ struct ChecklistScrollView: View {
 
     var body: some View {
         NavigationView {
-            List(filteredChecklist) { listItem in
-                NavigationLink(destination: DetailView(listItem: listItem)) {
-                    ChecklistRow(listItem: listItem)
-                }
+//            List(filteredChecklist) { listItem in
+            List {
+                ForEach(filteredChecklist) { listItem in
+                        NavigationLink(destination: DetailView(listItem: listItem)) {
+                            ChecklistRow(listItem: listItem)
+                        }
+                    }
             }
             .navigationTitle(category)
             .listStyle(PlainListStyle())
