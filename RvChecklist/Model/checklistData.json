@@ -56,6 +56,14 @@
         "description": "Ensure everything under RV looks ok. Check for leaks, and verify flaps under RV not coming loose."
     },
     {
+        "name": "Plan Route",
+        "category": "Pre-Trip",
+        "id": 1008,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Plan route for the trip.<p>Use RV Trip Wizard to identify stops.<p>Identify fuel requirements."
+    },
+    {
         "name": "Retract Bedroom Slide",
         "category": "Departure",
         "id": 1101,
@@ -136,6 +144,22 @@
         "description": "Raise the Level-Up and front landing gear.<p>Level-up control is in the basement.<p>Select manual, then retract."
     },
     {
+        "name": "Disconnect Shore Power",
+        "category": "Departure",
+        "id": 1111,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Disconnect A/C power cable, and stow away in box in back of truck"
+    },
+    {
+        "name": "Connect Shore Power",
+        "category": "Arrival",
+        "id": 1200,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Connect A/C power cable from cable in box in back of truck"
+    },
+    {
         "name": "Lower Landing Gear",
         "category": "Arrival",
         "id": 1201,
@@ -207,5 +231,20 @@
         "imageName": "placeholder",
         "description": "Turn on 30 lb tanks."
     },
-
+    {
+        "name": "Connect Water Hose",
+        "category": "Arrival",
+        "id": 1210,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Connect and turn on water hose."
+    },
+    {
+        "name": "Connect Sewer Hose",
+        "category": "Arrival",
+        "id": 1211,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Optionally, connected sewer hose to 1 or both sewer fittings.<p>For shorter stays, may skip this, or just connect the front to allow showers."
+    }
 ]
