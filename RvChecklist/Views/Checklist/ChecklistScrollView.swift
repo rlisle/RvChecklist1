@@ -13,21 +13,47 @@ struct ChecklistScrollView: View {
     //TODO: category will identify the scroll-to point
     var category: String
 
-    var filteredChecklist: [ChecklistItem] {
+    var preTripChecklist: [ChecklistItem] {
         modelData.checklist.filter { item in
-               (item.category == category)
+               (item.category == "Pre-Trip")
            }
        }
 
+    var departureChecklist: [ChecklistItem] {
+        modelData.checklist.filter { item in
+               (item.category == "Departure")
+           }
+       }
+    
+    var arrivalChecklist: [ChecklistItem] {
+        modelData.checklist.filter { item in
+               (item.category == "Arrival")
+           }
+       }
     var body: some View {
         NavigationView {
-//            List(filteredChecklist) { listItem in
             List {
-                ForEach(filteredChecklist) { listItem in
+                Section(header: Text("Pre-Trip")) {
+                    ForEach(preTripChecklist) { listItem in
                         NavigationLink(destination: DetailView(listItem: listItem)) {
                             ChecklistRow(listItem: listItem)
                         }
                     }
+                }
+                Section(header: Text("Departure")) {
+                    ForEach(departureChecklist) { listItem in
+                        NavigationLink(destination: DetailView(listItem: listItem)) {
+                            ChecklistRow(listItem: listItem)
+                        }
+                    }
+                }
+                Section(header: Text("Arrival")) {
+                    ForEach(arrivalChecklist) { listItem in
+                        NavigationLink(destination: DetailView(listItem: listItem)) {
+                            ChecklistRow(listItem: listItem)
+                        }
+                    }
+                }
             }
             .navigationTitle(category)
             .listStyle(PlainListStyle())
