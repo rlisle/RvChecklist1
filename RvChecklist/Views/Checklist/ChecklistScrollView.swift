@@ -10,12 +10,13 @@ import SwiftUI
 struct ChecklistScrollView: View {
 
     @EnvironmentObject var modelData: ModelData
-    //TODO: category will identify the scroll-to point
-    var category: String
+    var showCompleted: Bool
 
     var preTripChecklist: [ChecklistItem] {
         modelData.checklist.filter { item in
-               (item.category == "Pre-Trip")
+               (item.category == "Pre-Trip"
+                    && (item.isDone == false
+                        || showCompleted == true))
            }
        }
 
@@ -55,7 +56,7 @@ struct ChecklistScrollView: View {
                     }
                 }
             }
-            .navigationTitle(category)
+            //.navigationTitle(category)
             .listStyle(PlainListStyle())
         }
     }
@@ -65,7 +66,7 @@ struct ChecklistScrollView_Previews: PreviewProvider {
     static let modelData = ModelData()
 
     static var previews: some View {
-        ChecklistScrollView(category: "Departure")
+        ChecklistScrollView(showCompleted: true)
             .environmentObject(modelData)
     }
 }

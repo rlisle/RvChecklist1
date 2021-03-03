@@ -10,26 +10,29 @@ import SwiftUI
 struct ToolbarView: View {
     
     @EnvironmentObject var modelData: ModelData
-    @Binding var category: String
+    @Binding var showCompleted: Bool
     
     var body: some View {
         
         Menu {
 
-            Section(header: Text("List Type")) {
-                //TODO: map/reduce unique list of categories
-                ForEach(Array(Set(modelData.checklist.map { $0.category })), id: \.self) { list in
-                    Button(list) {
-                        //
-                        category = list
-                    }
-                }
-            }
+//            Section(header: Text("List Type")) {
+//                //TODO: map/reduce unique list of categories
+//                ForEach(Array(Set(modelData.checklist.map { $0.category })), id: \.self) { list in
+//                    Button(list) {
+//                        //
+//                        category = list
+//                    }
+//                }
+//            }
 
             Section {
                 Button("Start New Trip") {
                     startNewTrip()
                 }
+            }
+            Section {
+                Toggle("Show Completed Items", isOn: $showCompleted)
             }
 
         } label: {
@@ -60,7 +63,7 @@ struct ToolbarView: View {
 
 struct ToolbarView_Previews: PreviewProvider {
     static var previews: some View {
-        ToolbarView(category: .constant("Departure"))
+        ToolbarView(showCompleted: .constant(true))
             .environmentObject(ModelData())
     }
 }
