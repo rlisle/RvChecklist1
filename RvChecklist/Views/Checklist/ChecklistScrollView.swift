@@ -33,21 +33,21 @@ struct ChecklistScrollView: View {
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Pre-Trip")) {
+                Section(header: Text("Pre-Trip (\(preTripChecklist.count) items)")) {
                     ForEach(preTripChecklist) { listItem in
                         NavigationLink(destination: DetailView(listItem: listItem)) {
                             ChecklistRow(listItem: listItem)
                         }
                     }
                 }
-                Section(header: Text("Departure")) {
+                Section(header: Text("Departure (\(departureChecklist.count) items)")) {
                     ForEach(departureChecklist) { listItem in
                         NavigationLink(destination: DetailView(listItem: listItem)) {
                             ChecklistRow(listItem: listItem)
                         }
                     }
                 }
-                Section(header: Text("Arrival")) {
+                Section(header: Text("Arrival (\(arrivalChecklist.count) items)")) {
                     ForEach(arrivalChecklist) { listItem in
                         NavigationLink(destination: DetailView(listItem: listItem)) {
                             ChecklistRow(listItem: listItem)
