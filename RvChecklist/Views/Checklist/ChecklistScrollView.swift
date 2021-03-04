@@ -56,8 +56,8 @@ struct ChecklistScrollView: View {
                     }
                 }
             }
-            //.navigationTitle(category)
-            .listStyle(PlainListStyle())
+            .navigationBarHidden(true)
+            .animation(.easeInOut)
         }
     }
 }

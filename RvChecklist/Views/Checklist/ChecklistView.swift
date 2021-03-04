@@ -22,6 +22,8 @@ struct ChecklistView: View {
             
             VStack {
                 ChecklistHeader()
+                    .border(Color.yellow)
+                Toggle("Show Completed Items", isOn: $showCompleted).padding(16)
                 ChecklistScrollView(showCompleted: showCompleted)
             }
             .edgesIgnoringSafeArea([.top])
