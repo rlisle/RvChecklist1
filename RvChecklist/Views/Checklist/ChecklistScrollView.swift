@@ -12,44 +12,43 @@ struct ChecklistScrollView: View {
     @EnvironmentObject var modelData: ModelData
     var showCompleted: Bool
 
-    var preTripChecklist: [ChecklistItem] {
-        modelData.checklist.filter { item in
-               (item.category == "Pre-Trip"
-                    && (item.isDone == false
-                        || showCompleted == true))
-           }
-       }
-
-    var departureChecklist: [ChecklistItem] {
-        modelData.checklist.filter { item in
-               (item.category == "Departure")
-           }
-       }
+    func category(_ category: String) -> [ChecklistItem] {
+        return modelData.checklist.filter { $0.category == category }
+    }
     
-    var arrivalChecklist: [ChecklistItem] {
-        modelData.checklist.filter { item in
-               (item.category == "Arrival")
-           }
-       }
+    func done(_ list: [ChecklistItem]) -> [ChecklistItem] {
+        return list.filter { $0.isDone == true }
+    }
+    
+    func todo(_ list: [ChecklistItem]) -> [ChecklistItem] {
+        return list.filter { $0.isDone == false }
+    }
+
     var body: some View {
         NavigationView {
             List {
-                Section(header: Text("Pre-Trip (\(preTripChecklist.count) items)")) {
-                    ForEach(preTripChecklist) { listItem in
+                let pretrip = category("Pre-Trip")
+                var filteredPretrip = showCompleted ? pretrip : todo(pretrip)
+                Section(header: Text("Pre-Trip (\(todo(pretrip).count) of \(pretrip.count) items)")) {
+                    ForEach(filteredPretrip) { listItem in
                         NavigationLink(destination: DetailView(listItem: listItem)) {
                             ChecklistRow(listItem: listItem)
                         }
                     }
                 }
-                Section(header: Text("Departure (\(departureChecklist.count) items)")) {
-                    ForEach(departureChecklist) { listItem in
+                let departure = category("Departure")
+                var filteredDeparture = showCompleted ? departure : todo(departure)
+                Section(header: Text("Departure (\(todo(departure).count) of \(departure.count) items)")) {
+                    ForEach(filteredDeparture) { listItem in
                         NavigationLink(destination: DetailView(listItem: listItem)) {
                             ChecklistRow(listItem: listItem)
                         }
                     }
                 }
-                Section(header: Text("Arrival (\(arrivalChecklist.count) items)")) {
-                    ForEach(arrivalChecklist) { listItem in
+                let arrival = category("Arrival")
+                var filteredArrival = showCompleted ? arrival : todo(arrival)
+                Section(header: Text("Arrival (\(todo(arrival).count) of \(arrival.count) items)")) {
+                    ForEach(filteredArrival) { listItem in
                         NavigationLink(destination: DetailView(listItem: listItem)) {
                             ChecklistRow(listItem: listItem)
                         }
@@ -66,7 +65,7 @@ struct ChecklistScrollView_Previews: PreviewProvider {
     static let modelData = ModelData()
 
     static var previews: some View {
-        ChecklistScrollView(showCompleted: true)
+        ChecklistScrollView(showCompleted: false)
             .environmentObject(modelData)
     }
 }
