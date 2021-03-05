@@ -27,33 +27,9 @@ struct ChecklistScrollView: View {
     var body: some View {
         NavigationView {
             List {
-                let pretrip = category("Pre-Trip")
-                var filteredPretrip = showCompleted ? pretrip : todo(pretrip)
-                Section(header: Text("Pre-Trip (\(todo(pretrip).count) of \(pretrip.count) items)")) {
-                    ForEach(filteredPretrip) { listItem in
-                        NavigationLink(destination: DetailView(listItem: listItem)) {
-                            ChecklistRow(listItem: listItem)
-                        }
-                    }
-                }
-                let departure = category("Departure")
-                var filteredDeparture = showCompleted ? departure : todo(departure)
-                Section(header: Text("Departure (\(todo(departure).count) of \(departure.count) items)")) {
-                    ForEach(filteredDeparture) { listItem in
-                        NavigationLink(destination: DetailView(listItem: listItem)) {
-                            ChecklistRow(listItem: listItem)
-                        }
-                    }
-                }
-                let arrival = category("Arrival")
-                var filteredArrival = showCompleted ? arrival : todo(arrival)
-                Section(header: Text("Arrival (\(todo(arrival).count) of \(arrival.count) items)")) {
-                    ForEach(filteredArrival) { listItem in
-                        NavigationLink(destination: DetailView(listItem: listItem)) {
-                            ChecklistRow(listItem: listItem)
-                        }
-                    }
-                }
+                ListSection(section: "Pre-Trip", showCompleted: showCompleted)
+                ListSection(section: "Departure", showCompleted: showCompleted)
+                ListSection(section: "Arrival", showCompleted: showCompleted)
             }
             .navigationBarHidden(true)
             .animation(.easeInOut)
@@ -68,4 +44,38 @@ struct ChecklistScrollView_Previews: PreviewProvider {
         ChecklistScrollView(showCompleted: false)
             .environmentObject(modelData)
     }
+}
+
+struct ListSection: View {
+    
+    @EnvironmentObject var modelData: ModelData
+    
+    var section: String
+    var showCompleted: Bool
+
+    var body: some View {
+        let items = category(section)
+        let filteredItems = showCompleted ? items : todo(items)
+
+        Section(header: Text("\(section) (\(todo(items).count) of \(items.count) items)")) {
+            ForEach(filteredItems) { listItem in
+                NavigationLink(destination: DetailView(listItem: listItem)) {
+                    ChecklistRow(listItem: listItem)
+                }
+            }
+        }
+    }
+    
+    private func category(_ category: String) -> [ChecklistItem] {
+        return modelData.checklist.filter { $0.category == category }
+    }
+    
+    private func done(_ list: [ChecklistItem]) -> [ChecklistItem] {
+        return list.filter { $0.isDone == true }
+    }
+    
+    private func todo(_ list: [ChecklistItem]) -> [ChecklistItem] {
+        return list.filter { $0.isDone == false }
+    }
+
 }
