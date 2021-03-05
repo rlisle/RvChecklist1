@@ -128,9 +128,17 @@
         "description": "Turn off and disconnect big propane tank.<p>Turn off 30 lb tanks while travelling."
     },
     {
-        "name": "Connect Truck",
+        "name": "Turn Off Water Heater",
         "category": "Departure",
         "id": 1109,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Turn off both propane and electric water heater switches. <p>Switches are located on the front panel."
+    },
+    {
+        "name": "Connect Truck",
+        "category": "Departure",
+        "id": 1110,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Hitch up trailer to truck.<ol><li>Drop tailgate</li><li>Release 5th wheel hitch handle</li><li>Back in truck until kingpin close to hitch</li><li>Raise landing gear until truck and trailer at same height (-1/2 inch)</li><li>Backup truck until hitch latches</li><li>Insert pin to lock hitch</li><li>Connect trailer electrical cable to side connector inside bed</li><li>Connect safety wire to hitch handle</li><li>Rock truck to ensure good latching</li><ol>"
@@ -138,7 +146,7 @@
     {
         "name": "Raise Landing Gear and Level Up",
         "category": "Departure",
-        "id": 1110,
+        "id": 1111,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Raise the Level-Up and front landing gear.<p>Level-up control is in the basement.<p>Select manual, then retract."
@@ -146,7 +154,7 @@
     {
         "name": "Disconnect Shore Power",
         "category": "Departure",
-        "id": 1111,
+        "id": 1112,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Disconnect A/C power cable, and stow away in box in back of truck"
@@ -232,9 +240,17 @@
         "description": "Turn on 30 lb tanks."
     },
     {
-        "name": "Connect Water Hose",
+        "name": "Turn On Water Heater",
         "category": "Arrival",
         "id": 1210,
+        "isDone": false,
+        "imageName": "placeholder",
+        "description": "Turn on electric water heater if shore power is available. Otherwise turn on propane water heater switch. <p>Switches are located on the front panel."
+    },
+    {
+        "name": "Connect Water Hose",
+        "category": "Arrival",
+        "id": 1211,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Connect and turn on water hose."
@@ -242,7 +258,7 @@
     {
         "name": "Connect Sewer Hose",
         "category": "Arrival",
-        "id": 1211,
+        "id": 1212,
         "isDone": false,
         "imageName": "placeholder",
         "description": "Optionally, connected sewer hose to 1 or both sewer fittings.<p>For shorter stays, may skip this, or just connect the front to allow showers."
