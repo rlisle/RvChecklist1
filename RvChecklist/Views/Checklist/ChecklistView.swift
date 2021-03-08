@@ -28,7 +28,7 @@ struct ChecklistView: View {
             .edgesIgnoringSafeArea([.top])
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    ToolbarView(showCompleted: $showCompleted)
+                    ToolbarView(/*showCompleted: $showCompleted*/)
                 }
             }
         }
