@@ -11,7 +11,7 @@ struct ChecklistView: View {
 
     @EnvironmentObject var modelData: ModelData
     @State private var showCompleted = false
-    @State var isDrawerOpen: Bool = false
+    @State var isSideMenuOpen: Bool = false
 
     init() {
          UINavigationBarAppearance().configureWithTransparentBackground()
@@ -20,7 +20,7 @@ struct ChecklistView: View {
     var body: some View {
         
         ZStack {
-            if !self.isDrawerOpen {
+            if !self.isSideMenuOpen {
                 NavigationView {
                     
                     VStack {
@@ -31,29 +31,29 @@ struct ChecklistView: View {
                     .edgesIgnoringSafeArea([.top])
                          .navigationBarItems(leading: Button(action: {
                              DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                 self.isDrawerOpen.toggle()
+                                 self.isSideMenuOpen.toggle()
                              }
                          }) {
                              Image(systemName: "sidebar.left")
                                 .foregroundColor(.white)
                          })
-
-                    //                    .toolbar {
-//                        ToolbarItem(placement: .primaryAction) {
-//                            ToolbarView(showCompleted: $showCompleted)
-//                        }
-//                    }
                 }
             }
-            NavigationDrawer(isOpen: self.isDrawerOpen)
+            SideMenu(width: 270,
+                     isOpen: self.isSideMenuOpen,
+                     menuClose: self.openMenu)
 
         }
         .background(Color.white)
                 .onTapGesture {
-                    if self.isDrawerOpen {
-                        self.isDrawerOpen.toggle()
+                    if self.isSideMenuOpen {
+                        self.isSideMenuOpen.toggle()
                     }
                 }
+    }
+    
+    func openMenu() {
+        self.isSideMenuOpen.toggle()
     }
 }
 
