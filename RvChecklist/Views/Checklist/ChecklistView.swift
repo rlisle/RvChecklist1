@@ -11,6 +11,7 @@ struct ChecklistView: View {
 
     @EnvironmentObject var modelData: ModelData
     @State private var showCompleted = false
+    @State var isDrawerOpen: Bool = false
 
     init() {
          UINavigationBarAppearance().configureWithTransparentBackground()
@@ -18,20 +19,41 @@ struct ChecklistView: View {
     
     var body: some View {
         
-        NavigationView {
-            
-            VStack {
-                ChecklistHeader()
-                Toggle("Show Completed Items", isOn: $showCompleted).padding(16)
-                ChecklistScrollView(showCompleted: showCompleted)
-            }
-            .edgesIgnoringSafeArea([.top])
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    ToolbarView(showCompleted: $showCompleted)
+        ZStack {
+            if !self.isDrawerOpen {
+                NavigationView {
+                    
+                    VStack {
+                        ChecklistHeader()
+                        Toggle("Show Completed Items", isOn: $showCompleted).padding(16)
+                        ChecklistScrollView(showCompleted: showCompleted)
+                    }
+                    .edgesIgnoringSafeArea([.top])
+                         .navigationBarItems(leading: Button(action: {
+                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                 self.isDrawerOpen.toggle()
+                             }
+                         }) {
+                             Image(systemName: "sidebar.left")
+                                .foregroundColor(.white)
+                         })
+
+                    //                    .toolbar {
+//                        ToolbarItem(placement: .primaryAction) {
+//                            ToolbarView(showCompleted: $showCompleted)
+//                        }
+//                    }
                 }
             }
+            NavigationDrawer(isOpen: self.isDrawerOpen)
+
         }
+        .background(Color.white)
+                .onTapGesture {
+                    if self.isDrawerOpen {
+                        self.isDrawerOpen.toggle()
+                    }
+                }
     }
 }
 

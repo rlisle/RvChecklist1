@@ -1,20 +1,19 @@
 //
-//  ToolbarView.swift
+//  DrawerContent.swift
 //  RvChecklist
 //
-//  Created by Ron Lisle on 2/27/21.
+//  Created by Ron Lisle on 3/6/21.
 //
 
 import SwiftUI
 
-struct ToolbarView: View {
-    
+struct DrawerContent: View {
     @EnvironmentObject var modelData: ModelData
 //    @Binding var showCompleted: Bool
     
     var body: some View {
         
-        Menu {
+        List {
 
 //            Section(header: Text("List Type")) {
 //                //TODO: map/reduce unique list of categories
@@ -35,11 +34,7 @@ struct ToolbarView: View {
 //                Toggle("Show Completed Items", isOn: $showCompleted)
 //            }
 
-        } label: {
-            Label("", systemImage:"ellipsis.circle.fill")
         }
-        .foregroundColor(.white)
-        .font(.subheadline)
     }
     
     func startNewTrip() {
@@ -61,9 +56,8 @@ struct ToolbarView: View {
     }
 }
 
-struct ToolbarView_Previews: PreviewProvider {
+struct DrawerContent_Previews: PreviewProvider {
     static var previews: some View {
-        ToolbarView()
-            .environmentObject(ModelData())
+        DrawerContent()
     }
 }
