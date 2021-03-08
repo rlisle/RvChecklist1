@@ -10,9 +10,15 @@ import Combine
 
 final class ModelData: ObservableObject {
     @Published var checklist: [ChecklistItem] = load("checklistData.json")
+
+    func checklist(_ category: String) -> [ChecklistItem] {
+        return checklist.filter { $0.category == category }
+    }
+
 }
 
-
+// For now we're loading from a json file.
+// Later we'll want to loud from iCloud or another cloud server
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
     

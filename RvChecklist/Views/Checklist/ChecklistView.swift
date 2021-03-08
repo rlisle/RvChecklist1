@@ -10,7 +10,7 @@ import SwiftUI
 struct ChecklistView: View {
 
     @EnvironmentObject var modelData: ModelData
-    @State private var category = "Pre-Trip"
+    @State private var showCompleted = false
 
     init() {
          UINavigationBarAppearance().configureWithTransparentBackground()
@@ -22,12 +22,13 @@ struct ChecklistView: View {
             
             VStack {
                 ChecklistHeader()
-                ChecklistScrollView(category: category)
+                Toggle("Show Completed Items", isOn: $showCompleted).padding(16)
+                ChecklistScrollView(showCompleted: showCompleted)
             }
             .edgesIgnoringSafeArea([.top])
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    ToolbarView(category: $category)
+                    ToolbarView(showCompleted: $showCompleted)
                 }
             }
         }
