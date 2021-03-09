@@ -29,9 +29,12 @@ struct ToolbarView: View {
 
         } label: {
             Text("Trips" /*, systemImage:"ellipsis.circle.fill"*/)
+                .foregroundColor(.white)
+                .font(.headline)
+                .padding(2)
+                .background(Color(.gray))
+                //.opacity(0.5)
         }
-        .foregroundColor(.white)
-        .font(.subheadline)
     }
     
     func startNewTrip() {

@@ -57,7 +57,7 @@ struct ListSection: View {
         let items = category(section)
         let filteredItems = showCompleted ? items : todo(items)
 
-        Section(header: Text("\(section) (\(todo(items).count) of \(items.count) items)")) {
+        Section(header: Text("\(section) (\(done(items).count) of \(items.count) items done)")) {
             ForEach(filteredItems) { listItem in
                 NavigationLink(destination: DetailView(listItem: listItem)) {
                     ChecklistRow(listItem: listItem)
