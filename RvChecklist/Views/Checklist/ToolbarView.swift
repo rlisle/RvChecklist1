@@ -21,10 +21,10 @@ struct ToolbarView: View {
                 }
             }
             Section(header: Text("Current")) {
-                Text("<todo>")
+                Text("<TODO: current trip>")
             }
             Section(header: Text("Previous")) {
-                Text("<todo>")
+                Text("<TODO: previous trip>")
             }
 
         } label: {
