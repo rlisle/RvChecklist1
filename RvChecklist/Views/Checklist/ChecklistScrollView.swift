@@ -10,6 +10,8 @@ import SwiftUI
 struct ChecklistScrollView: View {
 
     @EnvironmentObject var modelData: ModelData
+    @State var selectedTrip: String
+ 
     var showCompleted: Bool
 
     func category(_ category: String) -> [ChecklistItem] {
@@ -26,7 +28,7 @@ struct ChecklistScrollView: View {
 
     var body: some View {
         List {
-            TripSection()
+            TripSection(selectedTrip: selectedTrip)
             ListSection(section: "Pre-Trip", showCompleted: showCompleted)
             ListSection(section: "Departure", showCompleted: showCompleted)
             ListSection(section: "Arrival", showCompleted: showCompleted)
@@ -38,7 +40,7 @@ struct ChecklistScrollView_Previews: PreviewProvider {
     static let modelData = ModelData()
 
     static var previews: some View {
-        ChecklistScrollView(showCompleted: false)
+        ChecklistScrollView(selectedTrip: "Inks Lake", showCompleted: false)
             .environmentObject(modelData)
     }
 }
@@ -83,10 +85,15 @@ struct ListSection: View {
 
 struct TripSection: View {
     
+    @EnvironmentObject var modelData: ModelData
+    @State var selectedTrip: String
+    
     var body: some View {
         
         Section(header: Text("Trip")) {
-            Text("Inks Lake")
+            NavigationLink(destination: TripList(selectedTrip: selectedTrip)) {
+                Text(selectedTrip)
+            }
         }
     }
     

@@ -10,6 +10,8 @@ import SwiftUI
 struct ChecklistView: View {
 
     @EnvironmentObject var modelData: ModelData
+    
+    @State var selectedTrip = "Inks Lake"
     @State private var showCompleted = false
     @State var isPresented = false
 
@@ -26,7 +28,7 @@ struct ChecklistView: View {
                 NavigationView {
                     VStack {
                     Toggle("Show Completed Items", isOn: $showCompleted).padding(16)
-                    ChecklistScrollView(showCompleted: showCompleted)
+                        ChecklistScrollView(selectedTrip: selectedTrip, showCompleted: showCompleted)
                     .navigationBarHidden(true)
                     .animation(.easeInOut)
                     }

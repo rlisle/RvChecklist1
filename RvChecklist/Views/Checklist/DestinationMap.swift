@@ -41,6 +41,7 @@ struct DestinationMap: View {
 
 struct LocationMap_Previews: PreviewProvider {
   static var previews: some View {
-    DestinationMap(trip: tripData[0], coordinate: CLLocationCoordinate2D())
+    let trip = Trip(id: 1, destinationName: "Inks Lake", description: "Default trip info")
+    DestinationMap(trip: trip, coordinate: CLLocationCoordinate2D())
   }
 }
