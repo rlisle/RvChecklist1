@@ -11,7 +11,7 @@ import Combine
 final class ModelData: ObservableObject {
     @Published var checklist: [ChecklistItem] = load("checklistData.json")
 
-    func checklist(_ category: String) -> [ChecklistItem] {
+    func checklist(category: String) -> [ChecklistItem] {
         return checklist.filter { $0.category == category }
     }
 
