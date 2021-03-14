@@ -10,13 +10,14 @@ import SwiftUI
 struct ToolbarView: View {
     
     @EnvironmentObject var modelData: ModelData
+    @State var isPresented: Bool
     
     var body: some View {
         
         Menu {
 
             Section {
-                Button("Start New Trip") {
+                Button("Add New Trip") {
                     startNewTrip()
                 }
             }
@@ -39,6 +40,7 @@ struct ToolbarView: View {
     
     func startNewTrip() {
         //TODO: display screen to enter name, date, etc.
+        isPresented.toggle()
         
         // then clear isDone on all trip items
         clearChecklist(category: "Pre-Trip")
@@ -58,7 +60,7 @@ struct ToolbarView: View {
 
 struct ToolbarView_Previews: PreviewProvider {
     static var previews: some View {
-        ToolbarView()
+        ToolbarView(isPresented: false)
             .environmentObject(ModelData())
     }
 }

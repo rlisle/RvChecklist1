@@ -10,7 +10,9 @@ import SwiftUI
 struct ChecklistView: View {
 
     @EnvironmentObject var modelData: ModelData
+    @State var trips: [Trip] = []
     @State private var showCompleted = false
+    @State var isPresented = false
 
     init() {
          UINavigationBarAppearance().configureWithTransparentBackground()
@@ -25,14 +27,30 @@ struct ChecklistView: View {
                 Toggle("Show Completed Items", isOn: $showCompleted).padding(16)
                 ChecklistScrollView(showCompleted: showCompleted)
             }
+            .sheet(isPresented: $isPresented) {
+                AddTrip { destination, description, date in
+//                    self.addTrip(destination: destination, description: description, date: date)
+                    self.isPresented = false
+                }
+            }
             .edgesIgnoringSafeArea([.top])
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    ToolbarView(/*showCompleted: $showCompleted*/)
+                    ToolbarView(isPresented: isPresented)
                 }
             }
         }
     }
+    
+    func deleteTrip(at offsets: IndexSet) {
+//      trips.remove(atOffsets: offsets)
+    }
+
+//    func addTrip(destination: String, description: String, date: Date) {
+//        let newTrip = Trip(destinationName: destination, description: description, date: date)
+//      movies.append(newMovie)
+//    }
+
 }
 
 private extension Array where Element == ChecklistItem {

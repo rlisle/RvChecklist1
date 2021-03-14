@@ -21,12 +21,12 @@ struct DestinationMap: View {
             }
             .padding()
             
-            Map(coordinateRegion: $region, annotationItems: [trip]) { currentTrip in
-                MapMarker(coordinate: currentTrip.coordinate)
-            }
+//            Map(coordinateRegion: $region, annotationItems: [trip]) { currentTrip in
+////                MapMarker(coordinate: currentTrip.coordinate)
+//            }
             .ignoresSafeArea()
             .onAppear {
-                region.center = trip.coordinate
+//                region.center = trip.coordinate
                 region.span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02) }
         }
     }

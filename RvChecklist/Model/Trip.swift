@@ -13,14 +13,15 @@ struct Trip: Identifiable {
     let destinationName: String
     let description: String
     let date: Date
-    let lengthOfStay: Int
-    let coordinate: CLLocationCoordinate2D
+//    let lengthOfStay: Int
+//    let coordinate: CLLocationCoordinate2D
 }
 
 let tripData = [
     Trip(destinationName: "Inks Lake",
          description: "Inks Lake State Park, site 286",
-         date: Date(),
-         lengthOfStay: 5,
-         coordinate: CLLocationCoordinate2D(latitude: 30.732393, longitude: -98.366089))
+         date: Date()
+//         lengthOfStay: 5,
+//         coordinate: CLLocationCoordinate2D(latitude: 30.732393, longitude: -98.366089)
+    )
 ]
