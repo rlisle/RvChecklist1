@@ -10,7 +10,6 @@ import SwiftUI
 struct ChecklistView: View {
 
     @EnvironmentObject var modelData: ModelData
-    @State var trips: [Trip] = []
     @State private var showCompleted = false
     @State var isPresented = false
 
@@ -40,17 +39,17 @@ struct ChecklistView: View {
                 }
             }
             .edgesIgnoringSafeArea([.top])
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    ToolbarView(isPresented: isPresented)
-                }
-            }
+//            .toolbar {
+//                ToolbarItem(placement: .primaryAction) {
+//                    ToolbarView(isPresented: isPresented)
+//                }
+//            }
         }
     }
     
-    func deleteTrip(at offsets: IndexSet) {
+//    func deleteTrip(at offsets: IndexSet) {
 //      trips.remove(atOffsets: offsets)
-    }
+//    }
 
 //    func addTrip(destination: String, description: String, date: Date) {
 //        let newTrip = Trip(destinationName: destination, description: description, date: date)
