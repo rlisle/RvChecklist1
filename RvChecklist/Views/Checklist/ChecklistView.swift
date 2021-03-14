@@ -24,8 +24,14 @@ struct ChecklistView: View {
             
             VStack {
                 ChecklistHeader()
-                Toggle("Show Completed Items", isOn: $showCompleted).padding(16)
-                ChecklistScrollView(showCompleted: showCompleted)
+                NavigationView {
+                    VStack {
+                    Toggle("Show Completed Items", isOn: $showCompleted).padding(16)
+                    ChecklistScrollView(showCompleted: showCompleted)
+                    .navigationBarHidden(true)
+                    .animation(.easeInOut)
+                    }
+                }
             }
             .sheet(isPresented: $isPresented) {
                 AddTrip { destination, description, date in

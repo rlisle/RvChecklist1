@@ -25,15 +25,11 @@ struct ChecklistScrollView: View {
     }
 
     var body: some View {
-        NavigationView {
-            List {
-                TripSection()
-                ListSection(section: "Pre-Trip", showCompleted: showCompleted)
-                ListSection(section: "Departure", showCompleted: showCompleted)
-                ListSection(section: "Arrival", showCompleted: showCompleted)
-            }
-            .navigationBarHidden(true)
-            .animation(.easeInOut)
+        List {
+            TripSection()
+            ListSection(section: "Pre-Trip", showCompleted: showCompleted)
+            ListSection(section: "Departure", showCompleted: showCompleted)
+            ListSection(section: "Arrival", showCompleted: showCompleted)
         }
     }
 }
@@ -97,11 +93,11 @@ struct TripSection: View {
 //    private func category(_ category: String) -> [ChecklistItem] {
 //        return modelData.checklist.filter { $0.category == category }
 //    }
-//    
+//
 //    private func done(_ list: [ChecklistItem]) -> [ChecklistItem] {
 //        return list.filter { $0.isDone == true }
 //    }
-//    
+//
 //    private func todo(_ list: [ChecklistItem]) -> [ChecklistItem] {
 //        return list.filter { $0.isDone == false }
 //    }
