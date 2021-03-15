@@ -27,6 +27,7 @@
 		27E6B96E25FD6EEE007547AC /* AddTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B96D25FD6EEE007547AC /* AddTrip.swift */; };
 		27E6B97325FE2F48007547AC /* TripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B97225FE2F48007547AC /* TripList.swift */; };
 		27E6B98425FE4E7C007547AC /* tripData.json in Resources */ = {isa = PBXBuildFile; fileRef = 27E6B98325FE4E7C007547AC /* tripData.json */; };
+		27E6B99225FF7CF7007547AC /* DoneItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B99125FF7CF7007547AC /* DoneItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		27E6B96D25FD6EEE007547AC /* AddTrip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTrip.swift; sourceTree = "<group>"; };
 		27E6B97225FE2F48007547AC /* TripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripList.swift; sourceTree = "<group>"; };
 		27E6B98325FE4E7C007547AC /* tripData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tripData.json; sourceTree = "<group>"; };
+		27E6B99125FF7CF7007547AC /* DoneItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +210,7 @@
 				27550E2825D8649300894F4D /* Trip.swift */,
 				2784A0BF25E14794000BE229 /* checklistData.json */,
 				27E6B98325FE4E7C007547AC /* tripData.json */,
+				27E6B99125FF7CF7007547AC /* DoneItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				2728B3FA25EA73DF00F163FC /* ToolbarView.swift in Sources */,
 				27550E2425D863F000894F4D /* DestinationMap.swift in Sources */,
 				275E650125E3D95B0070E6AA /* ChecklistHeader.swift in Sources */,
+				27E6B99225FF7CF7007547AC /* DoneItem.swift in Sources */,
 				275E64EF25E29A310070E6AA /* Checkmark.swift in Sources */,
 				275E650625E3DA140070E6AA /* ChecklistScrollView.swift in Sources */,
 				27550E1F25D8162700894F4D /* DetailView.swift in Sources */,
