@@ -206,11 +206,11 @@
 			isa = PBXGroup;
 			children = (
 				27550E1925D718E000894F4D /* ChecklistItem.swift */,
-				2784A0CA25E15535000BE229 /* modelData.swift */,
+				27E6B99125FF7CF7007547AC /* DoneItem.swift */,
 				27550E2825D8649300894F4D /* Trip.swift */,
+				2784A0CA25E15535000BE229 /* modelData.swift */,
 				2784A0BF25E14794000BE229 /* checklistData.json */,
 				27E6B98325FE4E7C007547AC /* tripData.json */,
-				27E6B99125FF7CF7007547AC /* DoneItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";

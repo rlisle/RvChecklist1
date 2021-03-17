@@ -61,9 +61,10 @@ struct ChecklistView: View {
 }
 
 private extension Array where Element == ChecklistItem {
-    mutating func toggleDone(to item: ChecklistItem) {
-        guard let index = self.firstIndex( where: { $0 == item }) else { return }
-        self[index].isDone.toggle()
+    mutating func toggleDone(checkListId: Int, tripId: Int) {
+        //TODO:
+//        guard let index = self.firstIndex( where: { $0 == item }) else { return }
+//        self[index].isDone.toggle()
     }
 }
 
