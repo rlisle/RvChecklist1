@@ -8,11 +8,24 @@
 import Foundation
 import Combine
 
+/**
+ Model data consists of merging:
+ 1. Trips
+ 2. DoneItems
+ 3. ChecklistDescriptions
+ Initially, all 3 will be combined into ChecklistItem
+ Later these will be split out into separate, related items.
+ */
 final class ModelData: ObservableObject {
     @Published var checklist: [ChecklistItem] = load("checklistData.json")
 
-    func checklist(_ category: String) -> [ChecklistItem] {
+    func checklist(category: String) -> [ChecklistItem] {
         return checklist.filter { $0.category == category }
+    }
+
+    func trips() -> [String] {
+        //TODO: Sort chronologically or alphabetically
+        return Array(Set(checklist.map { $0.trip } ))
     }
 
 }

@@ -10,40 +10,37 @@ import SwiftUI
 struct ToolbarView: View {
     
     @EnvironmentObject var modelData: ModelData
-    @Binding var showCompleted: Bool
+    @State var isPresented: Bool
     
     var body: some View {
         
         Menu {
 
-//            Section(header: Text("List Type")) {
-//                //TODO: map/reduce unique list of categories
-//                ForEach(Array(Set(modelData.checklist.map { $0.category })), id: \.self) { list in
-//                    Button(list) {
-//                        //
-//                        category = list
-//                    }
-//                }
-//            }
-
             Section {
-                Button("Start New Trip") {
+                Button("Add New Trip") {
                     startNewTrip()
                 }
             }
-            Section {
-                Toggle("Show Completed Items", isOn: $showCompleted)
+            Section(header: Text("Current")) {
+                Text("<TODO: current trip>")
+            }
+            Section(header: Text("Previous")) {
+                Text("<TODO: previous trip>")
             }
 
         } label: {
-            Label("", systemImage:"ellipsis.circle.fill")
+            Text("Trips" /*, systemImage:"ellipsis.circle.fill"*/)
+                .foregroundColor(.white)
+                .font(.headline)
+                .padding(2)
+                .background(Color(.gray))
+                //.opacity(0.5)
         }
-        .foregroundColor(.white)
-        .font(.subheadline)
     }
     
     func startNewTrip() {
         //TODO: display screen to enter name, date, etc.
+        isPresented.toggle()
         
         // then clear isDone on all trip items
         clearChecklist(category: "Pre-Trip")
@@ -63,7 +60,7 @@ struct ToolbarView: View {
 
 struct ToolbarView_Previews: PreviewProvider {
     static var previews: some View {
-        ToolbarView(showCompleted: .constant(true))
+        ToolbarView(isPresented: false)
             .environmentObject(ModelData())
     }
 }

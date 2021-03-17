@@ -10,7 +10,10 @@ import SwiftUI
 struct ChecklistView: View {
 
     @EnvironmentObject var modelData: ModelData
+    
+    @State var selectedTrip = "Inks Lake"
     @State private var showCompleted = false
+    @State var isPresented = false
 
     init() {
          UINavigationBarAppearance().configureWithTransparentBackground()
@@ -22,23 +25,46 @@ struct ChecklistView: View {
             
             VStack {
                 ChecklistHeader()
-                Toggle("Show Completed Items", isOn: $showCompleted).padding(16)
-                ChecklistScrollView(showCompleted: showCompleted)
-            }
-            .edgesIgnoringSafeArea([.top])
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    ToolbarView(showCompleted: $showCompleted)
+                NavigationView {
+                    VStack {
+                    Toggle("Show Completed Items", isOn: $showCompleted).padding(16)
+                        ChecklistScrollView(selectedTrip: selectedTrip, showCompleted: showCompleted)
+                    .navigationBarHidden(true)
+                    .animation(.easeInOut)
+                    }
                 }
             }
+            .sheet(isPresented: $isPresented) {
+                AddTrip { destination, description, date in
+//                    self.addTrip(destination: destination, description: description, date: date)
+                    self.isPresented = false
+                }
+            }
+            .edgesIgnoringSafeArea([.top])
+//            .toolbar {
+//                ToolbarItem(placement: .primaryAction) {
+//                    ToolbarView(isPresented: isPresented)
+//                }
+//            }
         }
     }
+    
+//    func deleteTrip(at offsets: IndexSet) {
+//      trips.remove(atOffsets: offsets)
+//    }
+
+//    func addTrip(destination: String, description: String, date: Date) {
+//        let newTrip = Trip(destinationName: destination, description: description, date: date)
+//      movies.append(newMovie)
+//    }
+
 }
 
 private extension Array where Element == ChecklistItem {
-    mutating func toggleDone(to item: ChecklistItem) {
-        guard let index = self.firstIndex( where: { $0 == item }) else { return }
-        self[index].isDone.toggle()
+    mutating func toggleDone(checkListId: Int, tripId: Int) {
+        //TODO:
+//        guard let index = self.firstIndex( where: { $0 == item }) else { return }
+//        self[index].isDone.toggle()
     }
 }
 

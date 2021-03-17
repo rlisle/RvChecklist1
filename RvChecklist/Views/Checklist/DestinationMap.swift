@@ -21,12 +21,12 @@ struct DestinationMap: View {
             }
             .padding()
             
-            Map(coordinateRegion: $region, annotationItems: [trip]) { currentTrip in
-                MapMarker(coordinate: currentTrip.coordinate)
-            }
+//            Map(coordinateRegion: $region, annotationItems: [trip]) { currentTrip in
+////                MapMarker(coordinate: currentTrip.coordinate)
+//            }
             .ignoresSafeArea()
             .onAppear {
-                region.center = trip.coordinate
+//                region.center = trip.coordinate
                 region.span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02) }
         }
     }
@@ -41,6 +41,7 @@ struct DestinationMap: View {
 
 struct LocationMap_Previews: PreviewProvider {
   static var previews: some View {
-    DestinationMap(trip: tripData[0], coordinate: CLLocationCoordinate2D())
+    let trip = Trip(id: 1, destinationName: "Inks Lake", description: "Default trip info")
+    DestinationMap(trip: trip, coordinate: CLLocationCoordinate2D())
   }
 }
