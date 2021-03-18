@@ -11,13 +11,13 @@ struct ChecklistItem: Identifiable, Hashable, Codable {
     let id: Int
     let name: String
     let category: String
-    let description: String
+    let details: String
     let trip: String
-//    let date: Date
+    let date: Date
     var isDone: Bool
-    private var imageName: String
+    var imageName: String
     
-    var image: Image {
-        Image(imageName)
-    }
+//    var image: Image {
+//        Image(imageName)
+//    }
 }
