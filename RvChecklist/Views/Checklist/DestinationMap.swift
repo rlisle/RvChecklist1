@@ -10,14 +10,14 @@ import MapKit
 
 struct DestinationMap: View {
     
-    var trip: Trip
+    var destination: String
     var coordinate: CLLocationCoordinate2D
     @State private var region = MKCoordinateRegion()
     
     var body: some View {
         VStack {
             HStack {
-                Text(self.trip.destinationName)
+                Text(destination)
             }
             .padding()
             
@@ -41,7 +41,6 @@ struct DestinationMap: View {
 
 struct LocationMap_Previews: PreviewProvider {
   static var previews: some View {
-    let trip = Trip(id: 1, destinationName: "Inks Lake", description: "Default trip info")
-    DestinationMap(trip: trip, coordinate: CLLocationCoordinate2D())
+    DestinationMap(destination: "Inks Lake", coordinate: CLLocationCoordinate2D())
   }
 }

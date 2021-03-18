@@ -15,8 +15,8 @@ struct ChecklistItem: Identifiable, Hashable, Codable {
     let trip: String
 //    let date: Date
     var isDone: Bool
-    
     private var imageName: String
+    
     var image: Image {
         Image(imageName)
     }

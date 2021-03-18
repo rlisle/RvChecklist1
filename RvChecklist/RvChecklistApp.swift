@@ -11,7 +11,9 @@ import SwiftUI
 struct RvChecklistApp: App {
     
     @StateObject private var modelData = ModelData()
-    
+
+    let persistenceController = PersistenceController.shared
+
     var body: some Scene {
         WindowGroup {
             ChecklistView()
