@@ -64,7 +64,7 @@ struct ListSection: View {
                 print("Delete \(indexSet)!")
                 //TODO: delete item?
             })
-        }
+        }.padding([.leading], 16)
     }
     
     private func category(_ category: String) -> [ChecklistItem] {

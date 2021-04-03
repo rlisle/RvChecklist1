@@ -26,10 +26,13 @@ struct ChecklistView: View {
                 ChecklistHeader()
                 NavigationView {
                     VStack {
-                    Toggle("Show Completed Items", isOn: $showCompleted).padding(16)
+                        Toggle("Show Completed Items", isOn: $showCompleted)
+                            .padding([.all],16)
+                            .padding(EdgeInsets(top: -12, leading: 16, bottom: -12, trailing: 4))
                     ChecklistScrollView(showCompleted: showCompleted)
                     .navigationBarHidden(true)
                     .animation(.easeInOut)
+                    .padding([.horizontal], -16)
                     }
                 }
             }
