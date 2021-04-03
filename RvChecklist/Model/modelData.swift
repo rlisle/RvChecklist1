@@ -22,12 +22,6 @@ final class ModelData: ObservableObject {
     func checklist(category: String) -> [ChecklistItem] {
         return checklist.filter { $0.category == category }
     }
-
-    func trips() -> [String] {
-        //TODO: Sort chronologically or alphabetically
-        return Array(Set(checklist.map { $0.trip } ))
-    }
-
 }
 
 // For now we're loading from a json file.

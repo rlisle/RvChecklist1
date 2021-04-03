@@ -28,7 +28,7 @@ struct ChecklistView: View {
                 NavigationView {
                     VStack {
                     Toggle("Show Completed Items", isOn: $showCompleted).padding(16)
-                        ChecklistScrollView(selectedTrip: selectedTrip, showCompleted: showCompleted)
+                    ChecklistScrollView(selectedTrip: selectedTrip, showCompleted: showCompleted)
                     .navigationBarHidden(true)
                     .animation(.easeInOut)
                     }
