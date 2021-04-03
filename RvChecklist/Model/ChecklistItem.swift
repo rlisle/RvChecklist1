@@ -12,8 +12,6 @@ struct ChecklistItem: Identifiable, Hashable, Codable {
     let name: String
     let category: String
     let description: String
-    let trip: String
-//    let date: Date
     var isDone: Bool
     
     private var imageName: String

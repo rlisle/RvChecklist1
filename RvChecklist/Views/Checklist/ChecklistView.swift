@@ -11,7 +11,6 @@ struct ChecklistView: View {
 
     @EnvironmentObject var modelData: ModelData
     
-    @State var selectedTrip = "Inks Lake"
     @State private var showCompleted = false
     @State var isPresented = false
 
@@ -28,18 +27,16 @@ struct ChecklistView: View {
                 NavigationView {
                     VStack {
                     Toggle("Show Completed Items", isOn: $showCompleted).padding(16)
-                    ChecklistScrollView(selectedTrip: selectedTrip, showCompleted: showCompleted)
+                    ChecklistScrollView(showCompleted: showCompleted)
                     .navigationBarHidden(true)
                     .animation(.easeInOut)
                     }
                 }
             }
-            .sheet(isPresented: $isPresented) {
-                AddTrip { destination, description, date in
-//                    self.addTrip(destination: destination, description: description, date: date)
-                    self.isPresented = false
-                }
-            }
+//            .sheet(isPresented: $isPresented) {
+//                Text("TODO:")
+//                self.isPresented = false
+//            }
             .edgesIgnoringSafeArea([.top])
 //            .toolbar {
 //                ToolbarItem(placement: .primaryAction) {
