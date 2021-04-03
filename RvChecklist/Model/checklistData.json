@@ -45,7 +45,7 @@
         "id": 1006,
         "isDone": false,
         "imageName": "none",
-        "description": "Check the level of propane in the 2 propane tanks. Fill tanks if needed.<p>Use only 1 tank at a time. When it is empty, have it filled while running on other tank. If propane will not be available at destination, may consider filling both tanks.<p>The switch on the right side selects the gauge and will show red if tank is empty"
+        "description": "Check the level of propane in the 2 propane tanks. Fill tanks if needed.<p>Normally only 1 tank is used at a time. The tank selector points to the primary tank. When it is empty, the gauge will show red. Switch the selector to the other tank and have the empty tank filled while running on other tank.<p>If propane will not be available at destination, may consider filling both tanks.<p>The tank selector switch is on the right side and selects the primary tank. It will show red if the tank is empty, but will draw from the alternate tank if both valves are open.<p>Do not switch the selector until the primary tank is empty. Otherwise both tanks may become partially empty, making it difficult to know how much propane is available."
     },
     {
         "name": "Inspect Roof",
