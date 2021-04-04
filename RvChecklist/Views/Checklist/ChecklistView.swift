@@ -31,7 +31,7 @@ struct ChecklistView: View {
                             .padding(EdgeInsets(top: -12, leading: 16, bottom: -12, trailing: 4))
                     ChecklistScrollView(showCompleted: showCompleted)
                     .navigationBarHidden(true)
-                    .animation(.easeInOut)
+                    //.animation(.easeInOut)
                     .padding([.horizontal], -16)
                     }
                 }
@@ -60,13 +60,13 @@ struct ChecklistView: View {
 
 }
 
-private extension Array where Element == ChecklistItem {
-    mutating func toggleDone(checkListId: Int, tripId: Int) {
-        //TODO:
-//        guard let index = self.firstIndex( where: { $0 == item }) else { return }
-//        self[index].isDone.toggle()
-    }
-}
+//private extension Array where Element == ChecklistItem {
+////    mutating func toggleDone(checkListId: Int, tripId: Int) {
+////        //TODO:
+//////        guard let index = self.firstIndex( where: { $0 == item }) else { return }
+//////        self[index].isDone.toggle()
+////    }
+//}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
