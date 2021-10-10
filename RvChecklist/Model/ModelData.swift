@@ -22,6 +22,14 @@ final class ModelData: ObservableObject {
     func checklist(category: String) -> [ChecklistItem] {
         return checklist.filter { $0.category == category }
     }
+    
+    func numSelectedDone(category: String) -> Int {
+        return checklist(category: category).filter { $0.isDone }.count
+    }
+    
+    func numSelectedItems(category: String) -> Int {
+        return checklist(category: category).count
+    }
 }
 
 // For now we're loading from a json file.

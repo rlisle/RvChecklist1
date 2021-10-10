@@ -25,42 +25,108 @@ struct ChecklistView: View {
     var body: some View {
         
         NavigationView {
-            
-            VStack {
-                ChecklistHeader()
-                NavigationView {
+
+            GeometryReader { geometry in
+
+                ZStack(alignment: .leading) {   // for sidemenu
+                    
+                    // Omitting AddItem NavigationLink
+                    
                     VStack {
-                        Toggle("Show Completed Items", isOn: $showCompleted)
-                            .padding([.all],16)
-                            .padding(EdgeInsets(top: -12, leading: 16, bottom: -12, trailing: 4))
-                    ChecklistScrollView(showCompleted: showCompleted)
-                    .navigationBarHidden(true)
-                    //.animation(.easeInOut)
-                    .padding([.horizontal], -16)
-                    }
-                }
-            }
-//            .sheet(isPresented: $isPresented) {
-//                Text("TODO:")
-//                self.isPresented = false
-//            }
+                        
+                        ChecklistHeader()
+
+                        Picker(selection: $phase, label: Text("Phase")) {
+                            ForEach(phases, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        .padding(.bottom, 0)
+                        .background(Color.black)
+
+                        // Checklist Section
+                        List {
+                            
+                            Section(header:
+                                HStack {
+                                    Text(phase)
+                                    Spacer()
+                                Text("(\(modelData.numSelectedDone(category: phase)) of \(modelData.numSelectedItems(category: phase)) done)")
+                                }
+                                .padding(.vertical, 8)
+                            ) {
+                                
+                                
+                                if(modelData.numSelectedItems(category: phase) == 0) {
+                                    Text("No \(phase) items found")
+                                } else {
+                                    ForEach(modelData.checklist(category: phase)) { item in
+                                        
+                                      NavigationLink(destination: DetailView(listItem: item)) {
+                                          ChecklistRow(listItem: item)
+                                      }
+                                    }
+                                    .onMove(perform: onMove)
+                                    .onDelete(perform: onDelete)
+                                }
+
+
+                            } // Pre-Trip Section
+                            .textCase(nil)
+                            
+
+                        } // List
+                        .padding(.top, -8)
+                        .listStyle(PlainListStyle())    // Changed from GroupedListStyle
+                        //.animation(.easeInOut)
+
+                        
+                    }//VStack
+                }//ZStack
+            } //GeometryReader
             .edgesIgnoringSafeArea([.top])
-//            .toolbar {
-//                ToolbarItem(placement: .primaryAction) {
-//                    ToolbarView(isPresented: isPresented)
-//                }
-//            }
         }
     }
-    
-//    func deleteTrip(at offsets: IndexSet) {
-//      trips.remove(atOffsets: offsets)
-//    }
+        
+    private func onDelete(offsets: IndexSet) {
+        print("onDelete \(offsets)")
+//        for index in offsets {
+//            let item = items.filter { isShown(item:$0) && $0.category == phase }[index]
+//            viewContext.delete(item)
+//        }
+    }
 
-//    func addTrip(destination: String, description: String, date: Date) {
-//        let newTrip = Trip(destinationName: destination, description: description, date: date)
-//      movies.append(newMovie)
+    // There's a bug that causes onMove to break if another gesture recognizer is attached.
+    private func onMove(source: IndexSet, destination: Int) {
+//        let list = items.filter { isShown(item:$0) && $0.category == phase }
+//        var revisedItems = list.sorted(by: { $0.sequence < $1.sequence })
+//        revisedItems.move(fromOffsets: source, toOffset: destination)
+//        var index: Int16 = 1000    // TODO: may want to set different values for each category
+//        for item in revisedItems {
+//            item.sequence = index
+//            index += 10
+//        }
+//        do {
+//            try viewContext.save()
+//        } catch {
+//            let nsError = error as NSError
+//            print("Error saving updated sequences: \(nsError), \(nsError.userInfo)")
+//        }
+    }
+
+//    func numSelectedDone() -> Int {
+//        return modelData.listItems.filter { $0.category == phase && $0.isDone }.count
 //    }
+//    
+//    func numSelectedItems() -> Int {
+//        return modelData.listItems.filter { $0.category == phase }.count
+//    }
+    
+    func isShown(item: ChecklistItem) -> Bool {
+        return showCompleted == true || item.isDone == false
+    }
+
 
 }
 
