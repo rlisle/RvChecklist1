@@ -11,7 +11,7 @@ import SwiftUI
 
 struct MenuView: View {
     
-    @Environment(\.managedObjectContext) private var viewContext
+    @EnvironmentObject var modelData: ModelData
 
     @Binding var showMenu: Bool
     @Binding var showCompleted: Bool
@@ -22,14 +22,8 @@ struct MenuView: View {
             
             Section(header: Text("Actions")) {
                 
-                MenuRowView(title: "Add Item", iconName: "plus", action: {
-                    selection = "Add"
-                    withAnimation {
-                        showMenu = false
-                    }
-                })
                 MenuRowView(title: "Uncheck All", iconName: "square", action: {
-                    uncheckAll()
+                    modelData.uncheckAll()
                     withAnimation {
                         showMenu = false
                     }
@@ -47,17 +41,6 @@ struct MenuView: View {
                 })
                 .padding(.bottom, 60)
             }
-
-            Section(header: Text("Danger!")){
-
-                MenuRowView(title: "Reset List", iconName: "clear", action: {
-                    resetChecklist()
-                    withAnimation {
-                        showMenu = false
-                    }
-                })
-            
-            }
             
             Spacer()
         }
@@ -68,30 +51,6 @@ struct MenuView: View {
         .foregroundColor(.gray)
         .edgesIgnoringSafeArea(.all)
     }
-    
-    private func resetChecklist() {
-        do {
-            
-            //TODO: issue warning that all photos will be lost
-            
-            print("Clearing checklist")
-//            try PersistenceController.reloadChecklist(context: viewContext)
-            try viewContext.save()
-        } catch {
-            print("Error reseting checklist \(error)")
-        }
-    }
-    
-    private func uncheckAll() {
-        do {
-            print("Uncheck all checkboxes")
-//            PersistenceController.shared.uncheckChecklist()
-            try viewContext.save()
-        } catch {
-            print("Error uncheck checklist \(error)")
-        }
-    }
-
 }
 
 struct MenuView_Previews: PreviewProvider {

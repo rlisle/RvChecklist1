@@ -23,6 +23,12 @@ final class ModelData: ObservableObject {
         return checklist.filter { $0.category == category }
     }
     
+    func uncheckAll() {
+        for index in 0..<checklist.count {
+            checklist[index].isDone = false
+        }
+    }
+    
     func numSelectedDone(category: String) -> Int {
         return checklist(category: category).filter { $0.isDone }.count
     }

@@ -11,18 +11,13 @@ struct ChecklistView: View {
 
     @EnvironmentObject var modelData: ModelData
     
-    @State private var showCompleted = false
-//    @State var isPresented = false
+    @State private var showCompleted = true
     @State private var showMenu = false
     @State private var menuSelection: String? = nil
     @State private var phase = "Pre-Trip"
     private var phases = ["Pre-Trip", "Departure", "Arrival"]
 
-//    init() {
-//         UINavigationBarAppearance().configureWithTransparentBackground()
-//    }
     init() {
-        print("ContentView init")
         UISegmentedControl.appearance().backgroundColor = .black
         UISegmentedControl.appearance().selectedSegmentTintColor = .selectable
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
@@ -37,8 +32,15 @@ struct ChecklistView: View {
 
                 ZStack(alignment: .leading) {   // for sidemenu
                     
-                    // Omitting AddItem NavigationLink
-                    
+                    // Omitting NavigationLink since not used now
+//                    Group {
+//                        // Side menu selected destinations
+//                        NavigationLink(destination: AddItem(),
+//                                       tag: "Add",
+//                                       selection: $menuSelection,
+//                                       label: { EmptyView() })
+//                    }
+
                     VStack {
                         
                         ChecklistHeader()
@@ -68,16 +70,13 @@ struct ChecklistView: View {
                                 if(modelData.numSelectedItems(category: phase) == 0) {
                                     Text("No \(phase) items found")
                                 } else {
-                                    ForEach(modelData.checklist(category: phase)) { item in
+                                    ForEach(modelData.checklist(category: phase).filter { isShown(item:$0) }, id: \.self) { item in
                                         
                                       NavigationLink(destination: DetailView(listItem: item)) {
                                           ChecklistRow(listItem: item)
                                       }
                                     }
-                                    .onMove(perform: onMove)
-                                    .onDelete(perform: onDelete)
                                 }
-
 
                             } // Pre-Trip Section
                             .textCase(nil)
@@ -126,17 +125,6 @@ struct ChecklistView: View {
                             Image(systemName: "line.horizontal.3")
                                 .imageScale(.large)
                         }
-                    ),
-                    trailing: (
-                        HStack {
-                            EditButton()
-                            Button(action: {
-                                menuSelection = "Add"
-                            }) {
-                                Image(systemName: "plus")
-                                    .imageScale(.large)
-                            }
-                        }
                     )
                 ) // navigationBarItems
 
@@ -147,40 +135,6 @@ struct ChecklistView: View {
 
     }
         
-    private func onDelete(offsets: IndexSet) {
-        print("onDelete \(offsets)")
-//        for index in offsets {
-//            let item = items.filter { isShown(item:$0) && $0.category == phase }[index]
-//            viewContext.delete(item)
-//        }
-    }
-
-    // There's a bug that causes onMove to break if another gesture recognizer is attached.
-    private func onMove(source: IndexSet, destination: Int) {
-//        let list = items.filter { isShown(item:$0) && $0.category == phase }
-//        var revisedItems = list.sorted(by: { $0.sequence < $1.sequence })
-//        revisedItems.move(fromOffsets: source, toOffset: destination)
-//        var index: Int16 = 1000    // TODO: may want to set different values for each category
-//        for item in revisedItems {
-//            item.sequence = index
-//            index += 10
-//        }
-//        do {
-//            try viewContext.save()
-//        } catch {
-//            let nsError = error as NSError
-//            print("Error saving updated sequences: \(nsError), \(nsError.userInfo)")
-//        }
-    }
-
-//    func numSelectedDone() -> Int {
-//        return modelData.listItems.filter { $0.category == phase && $0.isDone }.count
-//    }
-//    
-//    func numSelectedItems() -> Int {
-//        return modelData.listItems.filter { $0.category == phase }.count
-//    }
-    
     func isShown(item: ChecklistItem) -> Bool {
         return showCompleted == true || item.isDone == false
     }
