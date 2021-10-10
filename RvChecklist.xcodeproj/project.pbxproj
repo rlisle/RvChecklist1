@@ -26,6 +26,7 @@
 		27A13EB6271331D200254439 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A13EB5271331D200254439 /* MenuView.swift */; };
 		27A13EB82713321E00254439 /* MenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A13EB72713321E00254439 /* MenuRowView.swift */; };
 		27A13EBB2713338800254439 /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A13EBA2713338800254439 /* NavigationBarModifier.swift */; };
+		27A13EBD2713348300254439 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A13EBC2713348300254439 /* Colors.swift */; };
 		27E6B96E25FD6EEE007547AC /* AddChecklist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E6B96D25FD6EEE007547AC /* AddChecklist.swift */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +72,7 @@
 		27A13EB5271331D200254439 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		27A13EB72713321E00254439 /* MenuRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowView.swift; sourceTree = "<group>"; };
 		27A13EBA2713338800254439 /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
+		27A13EBC2713348300254439 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		27E6B96D25FD6EEE007547AC /* AddChecklist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddChecklist.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -163,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				275E64EE25E29A310070E6AA /* Checkmark.swift */,
+				27A13EBC2713348300254439 /* Colors.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27550DCB25D57C8800894F4D /* ChecklistView.swift in Sources */,
+				27A13EBD2713348300254439 /* Colors.swift in Sources */,
 				27A13EB6271331D200254439 /* MenuView.swift in Sources */,
 				27E6B96E25FD6EEE007547AC /* AddChecklist.swift in Sources */,
 				2728B3FA25EA73DF00F163FC /* ToolbarView.swift in Sources */,

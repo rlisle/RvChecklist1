@@ -18,8 +18,15 @@ struct ChecklistView: View {
     @State private var phase = "Pre-Trip"
     private var phases = ["Pre-Trip", "Departure", "Arrival"]
 
+//    init() {
+//         UINavigationBarAppearance().configureWithTransparentBackground()
+//    }
     init() {
-         UINavigationBarAppearance().configureWithTransparentBackground()
+        print("ContentView init")
+        UISegmentedControl.appearance().backgroundColor = .black
+        UISegmentedControl.appearance().selectedSegmentTintColor = .selectable
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
     }
     
     var body: some View {
@@ -135,7 +142,6 @@ struct ChecklistView: View {
 
                 
             } //GeometryReader
-//            .edgesIgnoringSafeArea([.top])
         }//NavigationView
         .accentColor( .black)   // Sets back button color
 
