@@ -83,10 +83,62 @@ struct ChecklistView: View {
 
                         
                     }//VStack
-                }//ZStack
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .offset(x: self.showMenu ? geometry.size.width/2 : 0)
+                    .disabled(self.showMenu ? true : false)
+                    if self.showMenu {
+                        // Close side menu (This breaks onMove
+                        let drag = DragGesture()
+                            .onEnded {
+                                if $0.translation.width < -100 {
+                                    withAnimation {
+                                        self.showMenu = false
+                                    }
+                                }
+                            }
+
+                        MenuView(showMenu: $showMenu,
+                                 showCompleted: $showCompleted,
+                                 selection: $menuSelection)
+                            .frame(width: geometry.size.width/2)
+                            .transition(.move(edge: .leading))
+                        .gesture(drag)
+
+                    }
+
+                }//ZStack for sidemenu
+                .blackNavigation
+                .navigationBarTitle("RV Checklist", displayMode: .inline)
+                .navigationBarItems(
+                    leading: (
+                        Button(action: {
+                            withAnimation {
+                                self.showMenu.toggle()
+                            }
+                        }) {
+                            Image(systemName: "line.horizontal.3")
+                                .imageScale(.large)
+                        }
+                    ),
+                    trailing: (
+                        HStack {
+                            EditButton()
+                            Button(action: {
+                                menuSelection = "Add"
+                            }) {
+                                Image(systemName: "plus")
+                                    .imageScale(.large)
+                            }
+                        }
+                    )
+                ) // navigationBarItems
+
+                
             } //GeometryReader
-            .edgesIgnoringSafeArea([.top])
-        }
+//            .edgesIgnoringSafeArea([.top])
+        }//NavigationView
+        .accentColor( .black)   // Sets back button color
+
     }
         
     private func onDelete(offsets: IndexSet) {
