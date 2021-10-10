@@ -1,5 +1,5 @@
 //
-//  modelData.swift
+//  ModelData.swift
 //  RvChecklist
 //
 //  Created by Ron Lisle on 2/20/21.

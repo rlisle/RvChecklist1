@@ -12,7 +12,11 @@ struct ChecklistView: View {
     @EnvironmentObject var modelData: ModelData
     
     @State private var showCompleted = false
-    @State var isPresented = false
+//    @State var isPresented = false
+    @State private var showMenu = false
+    @State private var menuSelection: String? = nil
+    @State private var phase = "Pre-Trip"
+    private var phases = ["Pre-Trip", "Departure", "Arrival"]
 
     init() {
          UINavigationBarAppearance().configureWithTransparentBackground()
