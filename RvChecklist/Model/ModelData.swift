@@ -7,22 +7,67 @@
 
 import Foundation
 import Combine
+import SwiftMQTT
 
-/**
- Model data consists of merging:
- 1. Trips
- 2. DoneItems
- 3. ChecklistDescriptions
- Initially, all 3 will be combined into ChecklistItem
- Later these will be split out into separate, related items.
- */
 final class ModelData: ObservableObject {
+    
     @Published var checklist: [ChecklistItem] = load("checklistData.json")
+    var mqttSession: MQTTSession!
+    
+    init() {
+        establishConnection()
+    }
 
+    func establishConnection() {
+        let host = "localhost"
+        let port: UInt16 = 1883
+        let clientID = "rvchecklist"
+        
+        mqttSession = MQTTSession(host: host, port: port, clientID: clientID, cleanSession: true, keepAlive: 15, useSSL: false)
+        mqttSession.delegate = self
+        print("MQTT trying to connect to \(host) on port \(port) for clientID \(clientID)")
+
+        mqttSession.connect { (error) in
+            if error == .none {
+                print("MQTT connected.")
+                self.subscribeToChannel()
+            } else {
+                print("MQTT error occurred during connection:")
+                print(error.description)
+            }
+        }
+    }
+    
+    func subscribeToChannel() {
+        let channel = "#"
+        print("MQTT subscribing to \(channel)")
+        mqttSession.subscribe(to: channel, delivering: .atLeastOnce) { (error) in
+            if error == .none {
+                print("MQTT subscribed to \(channel)")
+                self.syncStatus()
+            } else {
+                print("MQTT error occurred during subscription:")
+                print(error.description)
+            }
+        }
+    }
+    
     func checklist(category: String) -> [ChecklistItem] {
         return checklist.filter { $0.category == category }
     }
     
+    func syncStatus() {
+        
+        print("Syncing status...")
+        mqttSession.publish("FrontPanel".data(using: .utf8)!, in: "patriot/getlist", delivering: .atLeastOnce, retain: false) { error in
+            if error == .none {
+                print("MQTT getlist sent")
+            } else {
+                print(error.description)
+            }
+        }
+    }
+
     func uncheckAll() {
         for index in 0..<checklist.count {
             checklist[index].isDone = false
@@ -36,6 +81,25 @@ final class ModelData: ObservableObject {
     func numSelectedItems(category: String) -> Int {
         return checklist(category: category).count
     }
+}
+
+extension ModelData: MQTTSessionDelegate {
+
+    func mqttDidReceive(message: MQTTMessage, from session: MQTTSession) {
+        print("MQTT data received on topic \(message.topic) message \(message.stringRepresentation ?? "<>")")
+    }
+
+    func mqttDidDisconnect(session: MQTTSession, error: MQTTSessionError) {
+        print("MQTT session disconnected.")
+        if error != .none {
+            print(error.description)
+        }
+    }
+
+    func mqttDidAcknowledgePing(from session: MQTTSession) {
+        print("MQTT deep-alive ping acknowledged.")
+    }
+
 }
 
 // For now we're loading from a json file.
