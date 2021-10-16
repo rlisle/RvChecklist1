@@ -17,40 +17,6 @@ final class ModelData: ObservableObject {
     init() {
         establishConnection()
     }
-
-    func establishConnection() {
-        let host = "localhost"
-        let port: UInt16 = 1883
-        let clientID = "rvchecklist"
-        
-        mqttSession = MQTTSession(host: host, port: port, clientID: clientID, cleanSession: true, keepAlive: 15, useSSL: false)
-        mqttSession.delegate = self
-        print("MQTT trying to connect to \(host) on port \(port) for clientID \(clientID)")
-
-        mqttSession.connect { (error) in
-            if error == .none {
-                print("MQTT connected.")
-                self.subscribeToChannel()
-            } else {
-                print("MQTT error occurred during connection:")
-                print(error.description)
-            }
-        }
-    }
-    
-    func subscribeToChannel() {
-        let channel = "#"
-        print("MQTT subscribing to \(channel)")
-        mqttSession.subscribe(to: channel, delivering: .atLeastOnce) { (error) in
-            if error == .none {
-                print("MQTT subscribed to \(channel)")
-                self.syncStatus()
-            } else {
-                print("MQTT error occurred during subscription:")
-                print(error.description)
-            }
-        }
-    }
     
     func checklist(category: String) -> [ChecklistItem] {
         return checklist.filter { $0.category == category }
@@ -94,12 +60,71 @@ extension ModelData: MQTTSessionDelegate {
         if error != .none {
             print(error.description)
         }
+        print("MQTT Reconnecting")
+        establishConnection()
     }
 
     func mqttDidAcknowledgePing(from session: MQTTSession) {
         print("MQTT deep-alive ping acknowledged.")
     }
 
+    // MQTT non-delegate methods
+    func establishConnection() {
+        let host = "localhost"
+        let port: UInt16 = 1883
+        let clientID = self.clientID()
+        
+        mqttSession = MQTTSession(host: host, port: port, clientID: clientID, cleanSession: true, keepAlive: 15, useSSL: false)
+        mqttSession.delegate = self
+        print("MQTT trying to connect to \(host) on port \(port) for clientID \(clientID)")
+
+        mqttSession.connect { (error) in
+            if error == .none {
+                print("MQTT connected.")
+                self.subscribeToChannel()
+            } else {
+                print("MQTT error occurred during connection:")
+                print(error.description)
+            }
+        }
+    }
+    
+    func subscribeToChannel() {
+        let channel = "#"
+        print("MQTT subscribing to \(channel)")
+        mqttSession.subscribe(to: channel, delivering: .exactlyOnce) { (error) in   //QOS0
+            if error == .none {
+                print("MQTT subscribed to \(channel)")
+                self.syncStatus()
+            } else {
+                print("MQTT error occurred during subscription:")
+                print(error.description)
+            }
+        }
+    }
+    
+    func clientID() -> String {
+
+        let userDefaults = UserDefaults.standard
+        let clientIDPersistenceKey = "clientID"
+        let clientID: String
+
+        if let savedClientID = userDefaults.object(forKey: clientIDPersistenceKey) as? String {
+            clientID = savedClientID
+        } else {
+            clientID = randomString(length: 5)
+            userDefaults.set(clientID, forKey: clientIDPersistenceKey)
+            userDefaults.synchronize()
+        }
+        
+        return clientID
+    }
+    
+    // http://stackoverflow.com/questions/26845307/generate-random-alphanumeric-string-in-swift
+    func randomString(length: Int) -> String {
+      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      return String((0..<length).map{ _ in letters.randomElement()! })
+    }
 }
 
 // For now we're loading from a json file.
@@ -124,3 +149,5 @@ func load<T: Decodable>(_ filename: String) -> T {
         fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
+
+
