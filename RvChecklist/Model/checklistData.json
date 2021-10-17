@@ -1,272 +1,306 @@
 [
     {
+        "id": "start",
         "name": "Start Checklist",
         "category": "Pre-Trip",
-        "id": 1001,
+        "order": 1001,
         "isDone": false,
         "imageName": "none",
         "description": "Start a new checklist"
     },
     {
+        "id": "tires",
         "name": "Check Tire Pressures",
         "category": "Pre-Trip",
-        "id": 1002,
+        "order": 1002,
         "isDone": false,
         "imageName": "none",
         "description": "<h1>Check all tire pressures</h1><ul><li>Truck front: 80 psi</li><li>Truck rear: 65 psi</li><li>RV 110 psi</li></ul>"
     },
     {
+        "id": "dump",
         "name": "Dump Tanks",
         "category": "Pre-Trip",
-        "id": 1003,
+        "order": 1003,
         "isDone": false,
         "imageName": "none",
         "description": "Dump both black and gray tanks"
     },
     {
+        "id": "fillWater",
         "name": "Fill Water Tank",
         "category": "Pre-Trip",
-        "id": 1004,
+        "order": 1004,
         "isDone": false,
         "imageName": "none",
         "description": "Fill fresh water tank appropriately"
     },
     {
+        "id": "fuel",
         "name": "Fill-up Fuel Tanks",
         "category": "Pre-Trip",
-        "id": 1005,
+        "order": 1005,
         "isDone": false,
         "imageName": "none",
         "description": "Calculate amount of fuel needed, and fill tanks appropriately.<p>For shorter trips, get enough for entire trip. <p>For example:<ul><li>Inks Lake is 68 miles.</li><li>Figure 7.5 if hilly, or 9-11 if < 65 mph.</li><li>Main tank is 50 gallons</li><li>Aux tank about 50 more.</li><li>So fill main tank if entire trip < 500 miles.</li><li>Fill aux also if < 1000 miles.</li></ul>"
     },
     {
+        "id": "propane",
         "name": "Fill-up Propane Tanks",
         "category": "Pre-Trip",
-        "id": 1006,
+        "order": 1006,
         "isDone": false,
         "imageName": "none",
         "description": "Check the level of propane in the 2 propane tanks. Fill tanks if needed.<p>Normally only 1 tank is used at a time. The tank selector points to the primary tank. When it is empty, the gauge will show red. Switch the selector to the other tank and have the empty tank filled while running on other tank.<p>If propane will not be available at destination, may consider filling both tanks.<p>The tank selector switch is on the right side and selects the primary tank. It will show red if the tank is empty, but will draw from the alternate tank if both valves are open.<p>Do not switch the selector until the primary tank is empty. Otherwise both tanks may become partially empty, making it difficult to know how much propane is available."
     },
     {
+        "id": "roof",
         "name": "Inspect Roof",
         "category": "Pre-Trip",
-        "id": 1007,
+        "order": 1007,
         "isDone": false,
         "imageName": "none",
         "description": "Ensure everything on roof looks ok. Check for leaks, cracks or other damage"
     },
     {
+        "id": "under",
         "name": "Inspect Under RV",
         "category": "Pre-Trip",
-        "id": 1008,
+        "order": 1008,
         "isDone": false,
         "imageName": "none",
         "description": "Ensure everything under RV looks ok. Check for leaks, and verify flaps under RV not coming loose."
     },
     {
+        "id": "route",
         "name": "Plan Route",
         "category": "Pre-Trip",
-        "id": 1009,
+        "order": 1009,
         "isDone": false,
         "imageName": "none",
         "description": "Plan route for the trip.<p>Use RV Trip Wizard to identify stops.<p>Identify fuel requirements."
     },
     {
+        "id": "bedSlideIn",
         "name": "Retract Bedroom Slide",
         "category": "Departure",
-        "id": 1101,
+        "order": 1101,
         "isDone": false,
         "imageName": "none",
         "description": "Retrack the bedroom slide. Switch is located on front panel"
     },
     {
+        "id": "LRSlidesIn",
         "name": "Retract Main Slides",
         "category": "Departure",
-        "id": 1102,
+        "order": 1102,
         "isDone": false,
         "imageName": "none",
         "description": "Retrack the living room slides. Switch is located on front panel"
     },
     {
+        "id": "rampAwningIn",
         "name": "Retract Ramp Awning",
         "category": "Departure",
-        "id": 1103,
+        "order": 1103,
         "isDone": false,
         "imageName": "none",
         "description": "Disconnect ramp awning arms and slide into end rail. Retrack the ramp awning. Switch is located on rear panel"
     },
     {
+        "id": "closeRamp",
         "name": "Close Ramp",
         "category": "Departure",
-        "id": 1104,
+        "order": 1104,
         "isDone": false,
         "imageName": "none",
         "description": "Remove all furniture on the ramp deck. Roll up carpet. Raise and latch ramp."
     },
     {
+        "id": "latchHandles",
         "name": "Latch Door Handles",
         "category": "Departure",
-        "id": 1105,
+        "order": 1105,
         "isDone": false,
         "imageName": "none",
         "description": "Close both door handles so they cover door to prevent accidental opening during travel."
     },
     {
+        "id": "rearAwningIn",
         "name": "Retract Rear Awning",
         "category": "Departure",
-        "id": 1106,
+        "order": 1106,
         "isDone": false,
         "imageName": "none",
         "description": "Retract the rear awning. The switch is located on the rear panel."
     },
     {
+        "id": "frontAwningIn",
         "name": "Retract Front Awning",
         "category": "Departure",
-        "id": 1107,
+        "order": 1107,
         "isDone": false,
         "imageName": "none",
         "description": "Retract the front awning. Switch is located on front panel"
     },
     {
+        "id": "discPropane",
         "name": "Disconnect Propane",
         "category": "Departure",
-        "id": 1108,
+        "order": 1108,
         "isDone": false,
         "imageName": "none",
         "description": "Turn off and disconnect big propane tank.<p>Turn off 30 lb tanks while travelling."
     },
     {
+        "id": "waterHeaterOff",
         "name": "Turn Off Water Heater",
         "category": "Departure",
-        "id": 1109,
+        "order": 1109,
         "isDone": false,
         "imageName": "none",
         "description": "Turn off both propane and electric water heater switches. <p>Switches are located on the front panel."
     },
     {
+        "id": "hitchTruck",
         "name": "Connect Truck",
         "category": "Departure",
-        "id": 1110,
+        "order": 1110,
         "isDone": false,
         "imageName": "none",
         "description": "Hitch up trailer to truck.<ol><li>Drop tailgate</li><li>Release 5th wheel hitch handle</li><li>Back in truck until kingpin close to hitch</li><li>Raise landing gear until truck and trailer at same height (-1/2 inch)</li><li>Backup truck until hitch latches</li><li>Insert pin to lock hitch</li><li>Connect trailer electrical cable to side connector inside bed</li><li>Connect safety wire to hitch handle</li><li>Rock truck to ensure good latching</li><ol>"
     },
     {
+        "id": "raiseLG",
         "name": "Raise Landing Gear and Level Up",
         "category": "Departure",
-        "id": 1111,
+        "order": 1111,
         "isDone": false,
         "imageName": "none",
         "description": "Raise the Level-Up and front landing gear.<p>Level-up control is in the basement.<p>Select manual, then retract."
     },
     {
+        "id": "discPower",
         "name": "Disconnect Shore Power",
         "category": "Departure",
-        "id": 1112,
+        "order": 1112,
         "isDone": false,
         "imageName": "none",
         "description": "Disconnect A/C power cable, and stow away in box in back of truck"
     },
     {
+        "id": "connectPower",
         "name": "Connect Shore Power",
         "category": "Arrival",
-        "id": 1200,
+        "order": 1200,
         "isDone": false,
         "imageName": "none",
         "description": "Connect A/C power cable from cable in box in back of truck"
     },
     {
+        "id": "lowerLG",
         "name": "Lower Landing Gear",
         "category": "Arrival",
-        "id": 1201,
+        "order": 1201,
         "isDone": false,
         "imageName": "none",
         "description": "Position pads under landing gear. Then lower landing gear until kingpin just begins to lift off of the hitch. Switch is located outside the RV on the leading wall under the kingpin."
     },
     {
+        "id": "bedSlideOut",
         "name": "Extend Bedroom Slide",
         "category": "Arrival",
-        "id": 1202,
+        "order": 1202,
         "isDone": false,
         "imageName": "none",
         "description": "Extend the bedroom slide.<p>Switch is located on front panel.<p>Check to ensure nothing has fallen between the slide edges and walls."
     },
     {
+        "id": "LRSlidesOut",
         "name": "Extend Main Slides",
         "category": "Arrival",
-        "id": 1203,
+        "order": 1203,
         "isDone": false,
         "imageName": "none",
         "description": "Extend the living room slides.<p>Switch is located on front panel.<p>Check to ensure nothing has fallen between the slide edges and walls."
     },
     {
+        "id": "openRamp",
         "name": "Open Ramp",
         "category": "Arrival",
-        "id": 1204,
+        "order": 1204,
         "isDone": false,
         "imageName": "none",
         "description": "Restore ramp patio.<ul><li>Lower ramp</li><li>Setup railings</li><li>Replace carpet</li><li>Replace all furniture on the ramp deck</li></ul>"
     },
     {
+        "id": "rampAwningOut",
         "name": "Extend Ramp Awning",
         "category": "Arrival",
-        "id": 1205,
+        "order": 1205,
         "isDone": false,
         "imageName": "none",
         "description": "Extend ramp awning and reconnect ramp awning arms.<p>Switch is located on rear panel"
     },
     {
+        "id": "openSteps",
         "name": "Restore Door Steps and Handles",
         "category": "Arrival",
-        "id": 1206,
+        "order": 1206,
         "isDone": false,
         "imageName": "none",
         "description": "Open both door handles and lower steps."
     },
     {
+        "id": "rearAwningOut",
         "name": "Extend Rear Awning",
         "category": "Arrival",
-        "id": 1207,
+        "order": 1207,
         "isDone": false,
         "imageName": "none",
         "description": "Extend the rear awning. The switch is located on the rear panel."
     },
     {
+        "id": "frontAwningOut",
         "name": "Extend Front Awning",
         "category": "Arrival",
-        "id": 1208,
+        "order": 1208,
         "isDone": false,
         "imageName": "none",
         "description": "Extend the front awning. Switch is located on front panel"
     },
     {
+        "id": "propaneOn",
         "name": "Turn on Propane",
         "category": "Arrival",
-        "id": 1209,
+        "order": 1209,
         "isDone": false,
         "imageName": "none",
         "description": "Turn on 30 lb tanks."
     },
     {
+        "id": "waterHtrOn",
         "name": "Turn On Water Heater",
         "category": "Arrival",
-        "id": 1210,
+        "order": 1210,
         "isDone": false,
         "imageName": "none",
         "description": "Turn on electric water heater if shore power is available. Otherwise turn on propane water heater switch. <p>Switches are located on the front panel."
     },
     {
+        "id": "waterHose",
         "name": "Connect Water Hose",
         "category": "Arrival",
-        "id": 1211,
+        "order": 1211,
         "isDone": false,
         "imageName": "none",
         "description": "Connect and turn on water hose."
     },
     {
+        "id": "sewerHose",
         "name": "Connect Sewer Hose",
         "category": "Arrival",
-        "id": 1212,
+        "order": 1212,
         "isDone": false,
         "imageName": "none",
         "description": "Optionally, connected sewer hose to 1 or both sewer fittings.<p>For shorter stays, may skip this, or just connect the front to allow showers."

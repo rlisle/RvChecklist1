@@ -8,9 +8,10 @@
 import SwiftUI
 
 struct ChecklistItem: Identifiable, Hashable, Codable {
-    let id: Int
+    let id: String
     let name: String
     let category: String
+    let order: Int
     let description: String
     var isDone: Bool
     

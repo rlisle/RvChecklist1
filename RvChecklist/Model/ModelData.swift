@@ -19,8 +19,9 @@ final class ModelData: ObservableObject {
     init(mqttManager: MQTTManager) {
         mqtt = mqttManager
         mqtt.messageHandler = { topic, message in
-            //TODO:
-            
+            if topic.hasPrefix("patriot/checklist") {
+                self.setItem(fromMessage: message)
+            }
         }
     }
     
@@ -40,6 +41,20 @@ final class ModelData: ObservableObject {
     
     func numSelectedItems(category: String) -> Int {
         return checklist(category: category).count
+    }
+}
+
+extension ModelData {
+    private func setItem(fromMessage: String) {
+        let components = fromMessage.components(separatedBy: ":")
+        if components.count > 1 {
+            let newState = components[1] == "1"
+            for index in 0..<checklist.count {
+                if checklist[index].id == components[0] {
+                    checklist[index].isDone = newState
+                }
+            }
+        }
     }
 }
 
@@ -88,7 +103,7 @@ class MQTTManager: MQTTSessionDelegate {
     var clientID: String = ""
 
     var session: MQTTSession?
-    var messageHandler: ((String, String?) -> Void)?
+    var messageHandler: ((String, String) -> Void)?
     
     var isSubscribed = false
     
@@ -144,7 +159,7 @@ class MQTTManager: MQTTSessionDelegate {
     func mqttDidReceive(message: MQTTMessage, from session: MQTTSession) {
         print("MQTT data received on topic \(message.topic) message \(message.stringRepresentation ?? "<>")")
         if let handler = messageHandler {
-            handler(message.topic,message.stringRepresentation)
+            handler(message.topic, message.stringRepresentation ?? "")
         }
     }
 
