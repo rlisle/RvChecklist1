@@ -27,7 +27,7 @@ struct ChecklistRow: View {
 }
 
 struct ChecklistRow_Previews: PreviewProvider {
-    static let modelData = ModelData()
+    static let modelData = ModelData(mqttManager: MQTTManager())
     static var previews: some View {
         ChecklistRow(listItem: modelData.checklist[0])
             .environmentObject(modelData)

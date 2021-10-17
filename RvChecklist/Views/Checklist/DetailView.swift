@@ -61,7 +61,7 @@ struct DetailView: View {
 }
 
 struct DetailView_Previews: PreviewProvider {
-    static let modelData = ModelData()
+    static let modelData = ModelData(mqttManager: MQTTManager())
 
   static var previews: some View {
     DetailView(listItem: modelData.checklist[4])

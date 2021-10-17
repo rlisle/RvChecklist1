@@ -61,6 +61,6 @@ struct ToolbarView: View {
 struct ToolbarView_Previews: PreviewProvider {
     static var previews: some View {
         ToolbarView(isPresented: false)
-            .environmentObject(ModelData())
+            .environmentObject(ModelData(mqttManager: MQTTManager()))
     }
 }

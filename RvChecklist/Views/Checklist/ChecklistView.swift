@@ -155,7 +155,7 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             ForEach(["iPhone 11 Pro"], id: \.self) { deviceName in
                 ChecklistView()
-                    .environmentObject(ModelData())
+                    .environmentObject(ModelData(mqttManager: MQTTManager()))
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)
             }

@@ -35,7 +35,7 @@ struct ChecklistScrollView: View {
 }
 
 struct ChecklistScrollView_Previews: PreviewProvider {
-    static let modelData = ModelData()
+    static let modelData = ModelData(mqttManager: MQTTManager())
 
     static var previews: some View {
         ChecklistScrollView(showCompleted: false)
