@@ -114,21 +114,21 @@ struct ChecklistView: View {
 
                 }//ZStack for sidemenu
                 .blackNavigation
-                .navigationBarTitle("RV Checklist", displayMode: .inline)
-                .navigationBarItems(
-                    leading: (
-                        Button(action: {
-                            withAnimation {
-                                self.showMenu.toggle()
-                            }
-                        }) {
-                            Image(systemName: "line.horizontal.3")
-                                .imageScale(.large)
-                        }
-                    )
-                ) // navigationBarItems
-
                 
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("RV Checklist")
+                .toolbar {
+                     ToolbarItem(placement: .navigationBarLeading) {
+                         Button(action: {
+                             withAnimation {
+                                 self.showMenu.toggle()
+                             }
+                         }) {
+                             Image(systemName: "line.horizontal.3")
+                                 .imageScale(.large)
+                         }
+                     }
+                }
             } //GeometryReader
         }//NavigationView
         .accentColor( .black)   // Sets back button color

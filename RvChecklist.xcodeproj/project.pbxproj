@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2728B3FA25EA73DF00F163FC /* ToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2728B3F925EA73DF00F163FC /* ToolbarView.swift */; };
+		273DA8D827242E670089D580 /* MQTTManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 273DA8D727242E670089D580 /* MQTTManager.swift */; };
 		27550DC925D57C8800894F4D /* RvChecklistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27550DC825D57C8800894F4D /* RvChecklistApp.swift */; };
 		27550DCB25D57C8800894F4D /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27550DCA25D57C8800894F4D /* ChecklistView.swift */; };
 		27550DCD25D57C8800894F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27550DCC25D57C8800894F4D /* Assets.xcassets */; };
@@ -49,6 +50,7 @@
 
 /* Begin PBXFileReference section */
 		2728B3F925EA73DF00F163FC /* ToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarView.swift; sourceTree = "<group>"; };
+		273DA8D727242E670089D580 /* MQTTManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MQTTManager.swift; sourceTree = "<group>"; };
 		27550DC525D57C8800894F4D /* RvChecklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RvChecklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27550DC825D57C8800894F4D /* RvChecklistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RvChecklistApp.swift; sourceTree = "<group>"; };
 		27550DCA25D57C8800894F4D /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
@@ -102,6 +104,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		273DA8D627242E4F0089D580 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				273DA8D727242E670089D580 /* MQTTManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		27550DBC25D57C8800894F4D = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +138,7 @@
 				27550DC825D57C8800894F4D /* RvChecklistApp.swift */,
 				27550DD125D57C8800894F4D /* Info.plist */,
 				2784A0D425E157D5000BE229 /* Model */,
+				273DA8D627242E4F0089D580 /* Network */,
 				2784A0D325E157CE000BE229 /* Resources */,
 				2784A0D225E157C7000BE229 /* Views */,
 				27550DCE25D57C8800894F4D /* Preview Content */,
@@ -371,6 +382,7 @@
 				275E64FC25E3D7F30070E6AA /* ChecklistRow.swift in Sources */,
 				27550E1A25D718E000894F4D /* ChecklistItem.swift in Sources */,
 				2784A0CB25E15535000BE229 /* ModelData.swift in Sources */,
+				273DA8D827242E670089D580 /* MQTTManager.swift in Sources */,
 				27550DC925D57C8800894F4D /* RvChecklistApp.swift in Sources */,
 				27A13EB82713321E00254439 /* MenuRowView.swift in Sources */,
 			);
