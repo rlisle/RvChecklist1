@@ -32,15 +32,6 @@ struct ChecklistView: View {
 
                 ZStack(alignment: .leading) {   // for sidemenu
                     
-                    // Omitting NavigationLink since not used now
-//                    Group {
-//                        // Side menu selected destinations
-//                        NavigationLink(destination: AddItem(),
-//                                       tag: "Add",
-//                                       selection: $menuSelection,
-//                                       label: { EmptyView() })
-//                    }
-
                     VStack {
                         
                         ChecklistHeader()
@@ -141,14 +132,6 @@ struct ChecklistView: View {
 
 
 }
-
-//private extension Array where Element == ChecklistItem {
-////    mutating func toggleDone(checkListId: Int, tripId: Int) {
-////        //TODO:
-//////        guard let index = self.firstIndex( where: { $0 == item }) else { return }
-//////        self[index].isDone.toggle()
-////    }
-//}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -70,7 +70,7 @@ class MQTTManager: MQTTSessionDelegate {
     }
 
     private func requestUpdates() {
-        publish(topic: "patriot/getlist", message: "FrontPanel")
+        publish(topic: "patriot/getlist", message: "All")
     }
 
     func publish(topic: String, message: String) {

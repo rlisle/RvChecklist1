@@ -44,7 +44,7 @@ struct DetailView: View {
 
         VStack {
             
-            Text(listItem.name)                   // Title
+            Text("Description")                   // Title (was listItem.name)
                 .font(.title2)
                 .multilineTextAlignment(.center)
                 .lineLimit(3)
@@ -56,7 +56,8 @@ struct DetailView: View {
             HTMLStringView(htmlContent: headerString + listItem.description)
         }
         .padding()
-        .navigationBarTitleDisplayMode(.inline)
+        .blackNavigation
+        .navigationTitle(listItem.name)
     }
 }
 

@@ -32,7 +32,8 @@ struct AddChecklist: View {
                     TextField("Category", text: $category)
                 }
             }
-            .navigationBarTitle(Text("Add Todo"), displayMode: .inline)
+            .navigationBarTitleDisplayMode(.inline)
+            .navigationTitle("Add Todo")
         }
     }
 

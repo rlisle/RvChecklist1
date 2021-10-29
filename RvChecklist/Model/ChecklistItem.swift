@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ChecklistItem: Identifiable, Hashable, Codable {
-    let id: String          // Used by device
+    let id: String          // Used by device (eg. RearAwning) MQTT status
     let name: String        // Title
     let category: String    // Pre-Trip, Departure, Arrival
     let order: Int          // Display sort order
