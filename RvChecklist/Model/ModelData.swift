@@ -17,8 +17,8 @@ final class ModelData: ObservableObject {
     init(mqttManager: MQTTManager) {
         mqtt = mqttManager
         mqtt.messageHandler = { topic, message in
-            if topic.hasPrefix("patriot/checklist") {
-                self.setItem(fromMessage: message)
+            if topic.hasPrefix("patriot/state/") {
+                self.setItem(fromTopic: topic, fromMessage: message)
             }
         }
     }
@@ -43,14 +43,17 @@ final class ModelData: ObservableObject {
 }
 
 extension ModelData {
-    private func setItem(fromMessage: String) {
-        let components = fromMessage.components(separatedBy: ":")
-        if components.count > 1 {
-            let newState = components[1] == "1"
-            for index in 0..<checklist.count {
-                if checklist[index].id == components[0] {
-                    checklist[index].isDone = newState
-                }
+    private func setItem(fromTopic: String, fromMessage: String) {
+        // t: patriot/state/<device> m:<value>
+        // First part of topic already checked above by caller
+        let components = fromTopic.components(separatedBy: "/")
+        guard components.count > 2 else {
+            return
+        }
+        let device = components[2].lowercased()
+        for index in 0..<checklist.count {
+            if checklist[index].id == device {  // TODO: s/b case insensitive
+                checklist[index].isDone = fromMessage != "0"
             }
         }
     }

@@ -21,7 +21,7 @@ protocol MQTTManagerProtocol {
 
 class MQTTManager: MQTTSessionDelegate {
 
-    let host = "localhost"
+    let host = "localhost"      // Temporary for testing. Change back to 192.168.??.??
     let port: UInt16 = 1883
     let subscribeTopic = "#"
     var clientID: String = ""
@@ -70,7 +70,8 @@ class MQTTManager: MQTTSessionDelegate {
     }
 
     private func requestUpdates() {
-        publish(topic: "patriot/getlist", message: "All")
+        // This requests every patriot controller to send its current devices states
+        publish(topic: "patriot/query", message: "All")
     }
 
     func publish(topic: String, message: String) {
