@@ -175,7 +175,6 @@
 		275E64F525E29C9B0070E6AA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				275E64EE25E29A310070E6AA /* Checkmark.swift */,
 				27A13EBC2713348300254439 /* Colors.swift */,
 			);
 			path = Helpers;
@@ -186,6 +185,7 @@
 			children = (
 				27550DCA25D57C8800894F4D /* ChecklistView.swift */,
 				27550E1E25D8162700894F4D /* DetailView.swift */,
+				275E64EE25E29A310070E6AA /* Checkmark.swift */,
 				275E64FB25E3D7F30070E6AA /* ChecklistRow.swift */,
 				275E650025E3D95B0070E6AA /* ChecklistHeader.swift */,
 				275E650525E3DA140070E6AA /* ChecklistScrollView.swift */,

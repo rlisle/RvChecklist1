@@ -50,7 +50,7 @@ final class ModelData: ObservableObject {
 extension ModelData {
     private func setItem(device: String, value: String) {
         for index in 0..<checklist.count {
-            if checklist[index].id == device.lowercased() {
+            if checklist[index].id.lowercased() == device.lowercased() {
                 print("DEBUG: setting device \(device) to \(value)")
                 checklist[index].isDone = value != "0"
             }

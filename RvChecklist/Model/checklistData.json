@@ -1,6 +1,6 @@
 [
     {
-        "id": "start",
+        "id": "startList",
         "name": "Start Checklist",
         "category": "Pre-Trip",
         "order": 1001,
@@ -9,7 +9,7 @@
         "description": "Start a new checklist"
     },
     {
-        "id": "tires",
+        "id": "checkTires",
         "name": "Check Tire Pressures",
         "category": "Pre-Trip",
         "order": 1002,
@@ -18,7 +18,7 @@
         "description": "<h1>Check all tire pressures</h1><ul><li>Truck front: 80 psi</li><li>Truck rear: 65 psi</li><li>RV 110 psi</li></ul>"
     },
     {
-        "id": "dump",
+        "id": "dumpTanks",
         "name": "Dump Tanks",
         "category": "Pre-Trip",
         "order": 1003,
@@ -45,7 +45,7 @@
         "description": "Calculate amount of fuel needed, and fill tanks appropriately.<p>For shorter trips, get enough for entire trip. <p>For example:<ul><li>Inks Lake is 68 miles.</li><li>Figure 7.5 if hilly, or 9-11 if < 65 mph.</li><li>Main tank is 50 gallons</li><li>Aux tank about 50 more.</li><li>So fill main tank if entire trip < 500 miles.</li><li>Fill aux also if < 1000 miles.</li></ul>"
     },
     {
-        "id": "propane",
+        "id": "fillPropane",
         "name": "Fill-up Propane Tanks",
         "category": "Pre-Trip",
         "order": 1006,
@@ -54,7 +54,7 @@
         "description": "Check the level of propane in the 2 propane tanks. Fill tanks if needed.<p>Normally only 1 tank is used at a time. The tank selector points to the primary tank. When it is empty, the gauge will show red. Switch the selector to the other tank and have the empty tank filled while running on other tank.<p>If propane will not be available at destination, may consider filling both tanks.<p>The tank selector switch is on the right side and selects the primary tank. It will show red if the tank is empty, but will draw from the alternate tank if both valves are open.<p>Do not switch the selector until the primary tank is empty. Otherwise both tanks may become partially empty, making it difficult to know how much propane is available."
     },
     {
-        "id": "roof",
+        "id": "checkRoof",
         "name": "Inspect Roof",
         "category": "Pre-Trip",
         "order": 1007,
@@ -63,7 +63,7 @@
         "description": "Ensure everything on roof looks ok. Check for leaks, cracks or other damage"
     },
     {
-        "id": "under",
+        "id": "checkUnderRV",
         "name": "Inspect Under RV",
         "category": "Pre-Trip",
         "order": 1008,
@@ -72,7 +72,7 @@
         "description": "Ensure everything under RV looks ok. Check for leaks, and verify flaps under RV not coming loose."
     },
     {
-        "id": "route",
+        "id": "planRoute",
         "name": "Plan Route",
         "category": "Pre-Trip",
         "order": 1009,
@@ -243,7 +243,7 @@
         "description": "Extend ramp awning and reconnect ramp awning arms.<p>Switch is located on rear panel"
     },
     {
-        "id": "openSteps",
+        "id": "stepsDown",
         "name": "Restore Door Steps and Handles",
         "category": "Arrival",
         "order": 1206,
@@ -279,7 +279,7 @@
         "description": "Turn on 30 lb tanks."
     },
     {
-        "id": "waterHtrOn",
+        "id": "waterHeaterOn",
         "name": "Turn On Water Heater",
         "category": "Arrival",
         "order": 1210,

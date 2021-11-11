@@ -21,7 +21,7 @@ protocol MQTTManagerProtocol {
 
 class MQTTManager: MQTTSessionDelegate {
 
-    let host = "localhost"      // Temporary for testing. Change back to 192.168.??.??
+    let host = "192.168.50.33"      // "localhost" for testing, else 192.168.50.33
     let port: UInt16 = 1883
     let subscribeTopic = "#"
     var clientID: String = ""
@@ -58,15 +58,20 @@ class MQTTManager: MQTTSessionDelegate {
     }
 
     private func subscribe() {
+        print("Subscribing...")
         session?.subscribe(to: subscribeTopic, delivering: .exactlyOnce) { (error) in
+            print("Subscribe completed, error: \(error)")
             if error == .none {
                 self.isSubscribed = true
-                self.requestUpdates()
+//                self.requestUpdates()
             } else {
                 print("MQTT subscription error:")
                 print(error.description)
             }
         }
+        //debug
+        self.requestUpdates()
+
     }
 
     private func requestUpdates() {
