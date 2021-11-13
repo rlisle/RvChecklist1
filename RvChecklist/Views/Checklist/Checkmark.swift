@@ -27,5 +27,7 @@ struct Checkmark: View {
 struct Checkmark_Previews: PreviewProvider {
     static var previews: some View {
         Checkmark(isDone: .constant(true))
+            .previewLayout(.fixed(width: 40, height: 40))
+            .previewDisplayName("Checkmark")
     }
 }

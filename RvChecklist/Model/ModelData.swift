@@ -10,7 +10,7 @@ import Combine
 
 final class ModelData: ObservableObject {
     
-    @Published var checklist: [ChecklistItem] = load("checklistData.json")
+    @Published var checklist: [ChecklistItem] = []
     
     let mqtt: MQTTManager!
     
@@ -26,6 +26,9 @@ final class ModelData: ObservableObject {
                 }
             }
         }
+        
+        // Load items after MQTT is initialized
+        initializeList()
     }
     
     func checklist(category: String) -> [ChecklistItem] {
@@ -45,9 +48,7 @@ final class ModelData: ObservableObject {
     func numSelectedItems(category: String) -> Int {
         return checklist(category: category).count
     }
-}
-
-extension ModelData {
+    
     private func setItem(device: String, value: String) {
         for index in 0..<checklist.count {
             if checklist[index].id.lowercased() == device.lowercased() {
@@ -55,28 +56,5 @@ extension ModelData {
                 checklist[index].isDone = value != "0"
             }
         }
-    }
-}
-
-// For now we're loading from a json file.
-// Later we'll want to load from iCloud or another cloud server
-func load<T: Decodable>(_ filename: String) -> T {
-    let data: Data
-    
-    guard let file = Bundle.main.url(forResource: filename, withExtension: nil) else {
-        fatalError("Couldn't find \(filename) in main bundle")
-    }
-    
-    do {
-        data = try Data(contentsOf: file)
-    } catch {
-        fatalError("Couldn't load \(filename) from main bundle:\n\(error)")
-    }
-    
-    do {
-        let decoder = JSONDecoder()
-        return try decoder.decode(T.self, from: data)
-    } catch {
-        fatalError("Couldn't parse \(filename) as \(T.self):\n\(error)")
     }
 }
