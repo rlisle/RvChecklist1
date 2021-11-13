@@ -11,61 +11,126 @@ struct ChecklistView: View {
 
     @EnvironmentObject var modelData: ModelData
     
-    @State var selectedTrip = "Inks Lake"
-    @State private var showCompleted = false
-    @State var isPresented = false
+    @State private var showCompleted = true
+    @State private var showMenu = false
+    @State private var menuSelection: String? = nil
+    @State private var phase = "Pre-Trip"
+    private var phases = ["Pre-Trip", "Departure", "Arrival"]
 
     init() {
-         UINavigationBarAppearance().configureWithTransparentBackground()
+        UISegmentedControl.appearance().backgroundColor = .black
+        UISegmentedControl.appearance().selectedSegmentTintColor = .selectable
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
     }
     
     var body: some View {
         
         NavigationView {
-            
-            VStack {
-                ChecklistHeader()
-                NavigationView {
+
+            GeometryReader { geometry in
+
+                ZStack(alignment: .leading) {   // for sidemenu
+                    
                     VStack {
-                    Toggle("Show Completed Items", isOn: $showCompleted).padding(16)
-                        ChecklistScrollView(selectedTrip: selectedTrip, showCompleted: showCompleted)
-                    .navigationBarHidden(true)
-                    .animation(.easeInOut)
+                        
+                        ChecklistHeader()
+
+                        Picker(selection: $phase, label: Text("Phase")) {
+                            ForEach(phases, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                        .pickerStyle(SegmentedPickerStyle())
+                        .padding(.bottom, 0)
+                        .background(Color.black)
+
+                        // Checklist Section
+                        List {
+                            
+                            Section(header:
+                                HStack {
+                                    Text(phase)
+                                    Spacer()
+                                Text("(\(modelData.numSelectedDone(category: phase)) of \(modelData.numSelectedItems(category: phase)) done)")
+                                }
+                                .padding(.vertical, 8)
+                            ) {
+                                
+                                
+                                if(modelData.numSelectedItems(category: phase) == 0) {
+                                    Text("No \(phase) items found")
+                                } else {
+                                    ForEach(modelData.checklist(category: phase).filter { isShown(item:$0) }, id: \.self) { item in
+                                        
+                                      NavigationLink(destination: DetailView(listItem: item)) {
+                                          ChecklistRow(listItem: item)
+                                      }
+                                    }
+                                }
+
+                            } // Pre-Trip Section
+                            .textCase(nil)
+                            
+
+                        } // List
+                        .padding(.top, -8)
+                        .listStyle(PlainListStyle())    // Changed from GroupedListStyle
+                        //.animation(.easeInOut)
+
+                        
+                    }//VStack
+                    .frame(width: geometry.size.width, height: geometry.size.height)
+                    .offset(x: self.showMenu ? geometry.size.width/2 : 0)
+                    .disabled(self.showMenu ? true : false)
+                    if self.showMenu {
+                        // Close side menu (This breaks onMove
+                        let drag = DragGesture()
+                            .onEnded {
+                                if $0.translation.width < -100 {
+                                    withAnimation {
+                                        self.showMenu = false
+                                    }
+                                }
+                            }
+
+                        MenuView(showMenu: $showMenu,
+                                 showCompleted: $showCompleted,
+                                 selection: $menuSelection)
+                            .frame(width: geometry.size.width/2)
+                            .transition(.move(edge: .leading))
+                        .gesture(drag)
+
                     }
+
+                }//ZStack for sidemenu
+                .blackNavigation
+                
+                .navigationBarTitleDisplayMode(.inline)
+                .navigationTitle("RV Checklist")
+                .toolbar {
+                     ToolbarItem(placement: .navigationBarLeading) {
+                         Button(action: {
+                             withAnimation {
+                                 self.showMenu.toggle()
+                             }
+                         }) {
+                             Image(systemName: "line.horizontal.3")
+                                 .imageScale(.large)
+                         }
+                     }
                 }
-            }
-            .sheet(isPresented: $isPresented) {
-                AddTrip { destination, description, date in
-//                    self.addTrip(destination: destination, description: description, date: date)
-                    self.isPresented = false
-                }
-            }
-            .edgesIgnoringSafeArea([.top])
-//            .toolbar {
-//                ToolbarItem(placement: .primaryAction) {
-//                    ToolbarView(isPresented: isPresented)
-//                }
-//            }
-        }
+            } //GeometryReader
+        }//NavigationView
+        .accentColor( .black)   // Sets back button color
+
     }
-    
-//    func deleteTrip(at offsets: IndexSet) {
-//      trips.remove(atOffsets: offsets)
-//    }
-
-//    func addTrip(destination: String, description: String, date: Date) {
-//        let newTrip = Trip(destinationName: destination, description: description, date: date)
-//      movies.append(newMovie)
-//    }
-
-}
-
-private extension Array where Element == ChecklistItem {
-    mutating func toggleDone(checkListId: Int, tripId: Int) {
-        //TODO:
-//        guard let index = self.firstIndex( where: { $0 == item }) else { return }
-//        self[index].isDone.toggle()
+        
+    func isShown(item: ChecklistItem) -> Bool {
+        return showCompleted == true || item.isDone == false
     }
+
+
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -73,7 +138,7 @@ struct ContentView_Previews: PreviewProvider {
         Group {
             ForEach(["iPhone 11 Pro"], id: \.self) { deviceName in
                 ChecklistView()
-                    .environmentObject(ModelData())
+                    .environmentObject(ModelData(mqttManager: MQTTManager()))
                     .previewDevice(PreviewDevice(rawValue: deviceName))
                     .previewDisplayName(deviceName)
             }

@@ -44,7 +44,7 @@ struct DetailView: View {
 
         VStack {
             
-            Text(listItem.name)                   // Title
+            Text("Description")                   // Title (was listItem.name)
                 .font(.title2)
                 .multilineTextAlignment(.center)
                 .lineLimit(3)
@@ -56,12 +56,13 @@ struct DetailView: View {
             HTMLStringView(htmlContent: headerString + listItem.description)
         }
         .padding()
-        .navigationBarTitleDisplayMode(.inline)
+        .blackNavigation
+        .navigationTitle(listItem.name)
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
-    static let modelData = ModelData()
+    static let modelData = ModelData(mqttManager: MQTTManager())
 
   static var previews: some View {
     DetailView(listItem: modelData.checklist[4])

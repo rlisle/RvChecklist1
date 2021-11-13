@@ -10,7 +10,6 @@ import SwiftUI
 struct ChecklistScrollView: View {
 
     @EnvironmentObject var modelData: ModelData
-    @State var selectedTrip: String
  
     var showCompleted: Bool
 
@@ -28,7 +27,6 @@ struct ChecklistScrollView: View {
 
     var body: some View {
         List {
-            TripSection(selectedTrip: selectedTrip)
             ListSection(section: "Pre-Trip", showCompleted: showCompleted)
             ListSection(section: "Departure", showCompleted: showCompleted)
             ListSection(section: "Arrival", showCompleted: showCompleted)
@@ -37,10 +35,10 @@ struct ChecklistScrollView: View {
 }
 
 struct ChecklistScrollView_Previews: PreviewProvider {
-    static let modelData = ModelData()
+    static let modelData = ModelData(mqttManager: MQTTManager())
 
     static var previews: some View {
-        ChecklistScrollView(selectedTrip: "Inks Lake", showCompleted: false)
+        ChecklistScrollView(showCompleted: false)
             .environmentObject(modelData)
     }
 }
@@ -66,7 +64,7 @@ struct ListSection: View {
                 print("Delete \(indexSet)!")
                 //TODO: delete item?
             })
-        }
+        }.padding([.leading], 16)
     }
     
     private func category(_ category: String) -> [ChecklistItem] {
@@ -80,33 +78,5 @@ struct ListSection: View {
     private func todo(_ list: [ChecklistItem]) -> [ChecklistItem] {
         return list.filter { $0.isDone == false }
     }
-
-}
-
-struct TripSection: View {
-    
-    @EnvironmentObject var modelData: ModelData
-    @State var selectedTrip: String
-    
-    var body: some View {
-        
-        Section(header: Text("Trip")) {
-            NavigationLink(destination: TripList(selectedTrip: selectedTrip)) {
-                Text(selectedTrip)
-            }
-        }
-    }
-    
-//    private func category(_ category: String) -> [ChecklistItem] {
-//        return modelData.checklist.filter { $0.category == category }
-//    }
-//
-//    private func done(_ list: [ChecklistItem]) -> [ChecklistItem] {
-//        return list.filter { $0.isDone == true }
-//    }
-//
-//    private func todo(_ list: [ChecklistItem]) -> [ChecklistItem] {
-//        return list.filter { $0.isDone == false }
-//    }
 
 }

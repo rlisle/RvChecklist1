@@ -10,7 +10,9 @@ import SwiftUI
 @main
 struct RvChecklistApp: App {
     
-    @StateObject private var modelData = ModelData()
+    // This is our dependency injection.
+    // Previews & Tests can inject fake data
+    @StateObject private var modelData = ModelData(mqttManager: MQTTManager())
     
     var body: some Scene {
         WindowGroup {
