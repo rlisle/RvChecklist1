@@ -29,6 +29,9 @@ final class ModelData: ObservableObject {
         
         // Load items after MQTT is initialized
         initializeList()
+        for i in 0..<checklist.count {
+            checklist[i].mqtt = self.mqtt
+        }
     }
     
     func checklist(category: String) -> [ChecklistItem] {
