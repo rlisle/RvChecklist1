@@ -176,10 +176,15 @@ extension ModelData {
                           category: "Arrival",
                           order: 3100,
                           description: "Connect and turn on water hose.<p>Route the hose up through the hole at the bottom of the water closet"),
+            ChecklistItem(id: "waterHeaterOn",
+                          name: "Turn On Water Heater",
+                          category: "Arrival",
+                          order: 3110,
+                          description: "The water heater switch is located on the front panel."),
             ChecklistItem(id: "sewerHose",
                           name: "Connect Sewer Hoses",
                           category: "Arrival",
-                          order: 3110,
+                          order: 3120,
                           description: "Optionally, connected sewer hose to 1 or both sewer fittings.<p>For shorter stays, may skip this, or just connect the front to allow showers.")
             ]
     }
