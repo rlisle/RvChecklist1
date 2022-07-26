@@ -130,7 +130,12 @@ extension ModelData {
                           category: "Departure",
                           order: 2120,
                           description: "Disconnect A/C power cable, and stow away in box in back of truck"),
-            
+            ChecklistItem(id: "pray",
+                          name: "Pray",
+                          category: "Departure",
+                          order: 2130,
+                          description: "Pray with thanksgiving for the ability to travel, and asking for a safe trip. Ask God to speak to us along our travels and to open our eyes and hears to hear what God has to say to us as we travel."),
+
             // ARRIVAL
             ChecklistItem(id: "connectPower",
                           name: "Connect Shore Power",
