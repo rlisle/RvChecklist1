@@ -18,11 +18,12 @@ final class ModelData: ObservableObject {
         mqtt = mqttManager
         mqtt.messageHandler = { topic, message in
             //TODO: refactor
-            // t: patriot/state/<device> m:<value>
-            if topic.hasPrefix("patriot/state/") {
-                let components = topic.components(separatedBy: "/")
-                if components.count > 2 {
-                    self.setItem(device: components[2], value: message)
+            // t: patriot/state/ALL/X/<checklistitem> m:<0|1>
+            let lcTopic: String = topic.lowercased()
+            if lcTopic.hasPrefix("patriot/state/all/x/") {
+                let components = lcTopic.components(separatedBy: "/")
+                if components.count > 4 {
+                    self.setItem(checklistitem: components[4], value: message)
                 }
             }
         }
@@ -52,10 +53,11 @@ final class ModelData: ObservableObject {
         return checklist(category: category).count
     }
     
-    private func setItem(device: String, value: String) {
+    // Called when MQTT reports on a checklist item (patriot/state/all/x/<checklistitem>
+    private func setItem(checklistitem: String, value: String) {
         for index in 0..<checklist.count {
-            if checklist[index].id.lowercased() == device.lowercased() {
-                print("DEBUG: setting device \(device) to \(value)")
+            if checklist[index].id.lowercased() == checklistitem.lowercased() {
+                print("DEBUG: setting checklistitem \(checklistitem) to \(value)")
                 checklist[index].isDone = value != "0"
             }
         }
