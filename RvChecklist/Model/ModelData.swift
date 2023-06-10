@@ -8,6 +8,12 @@
 import Foundation
 import Combine
 
+enum TestMode: String {
+    case off
+    case checklist
+    case settings
+}
+
 final class ModelData: ObservableObject {
     
     @Published var checklist: [ChecklistItem] = []
