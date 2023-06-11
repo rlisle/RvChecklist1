@@ -68,7 +68,7 @@ struct ChecklistView: View {
                                         ForEach(checklistItems.category(phase).filter { isShown(item:$0) }, id: \.self) { item in
                                             
                                             NavigationLink(destination: DetailView(listItem: item)) {
-                                                Text("\(item.name)")
+                                                Text("\(item.title)")
                                                 //ChecklistRow(listItem: item)
                                             }
                                         }

@@ -53,11 +53,11 @@ struct DetailView: View {
             
             let headerString = "<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no'></header>"
             
-            HTMLStringView(htmlContent: headerString + listItem.description)
+            HTMLStringView(htmlContent: headerString + listItem.text)
         }
         .padding()
         .blackNavigation
-        .navigationTitle(listItem.name)
+        .navigationTitle(listItem.title)
     }
 }
 

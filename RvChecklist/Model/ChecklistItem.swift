@@ -5,17 +5,17 @@
 //  Created by Ron Lisle on 2/12/21.
 //
 
-import SwiftUI
+import Foundation
 import SwiftData
 
 @Model
 class ChecklistItem {
 
-    var id: String          // Used by device (eg. RearAwning) MQTT status
-    var name: String        // Title
+    var name: String        // Used by device (eg. RearAwning) MQTT status
+    var title: String       // Title
     var category: String    // Pre-Trip, Departure, Arrival
     var order: Int          // Display sort order
-    var description: String // Markdown?
+    var text: String // Markdown?
     var isDone: Bool // = false {
 //        didSet {
 //            print("didSet \(id) to \(isDone)")
@@ -29,12 +29,12 @@ class ChecklistItem {
 
 //    weak var mqtt: MQTTManager?
 
-    init(id: String, name: String, category: String, order: Int, description: String, imageName: String? = nil) {
-        self.id = id
+    init(name: String, title: String, category: String, order: Int, text: String, imageName: String? = nil) {
         self.name = name
+        self.title = title
         self.category = category
         self.order = order
-        self.description = description
+        self.text = text
         self.imageName = imageName
         isDone = false
     }
@@ -42,16 +42,16 @@ class ChecklistItem {
 
 extension ChecklistItem: Identifiable {
     static func == (lhs: ChecklistItem, rhs: ChecklistItem) -> Bool {
-        return lhs.id == rhs.id
-        && lhs.name == rhs.name
+        return lhs.name == rhs.name
+        && lhs.title == rhs.title
         && lhs.category == rhs.category
     }
 }
 
 extension ChecklistItem: Hashable {
     func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
         hasher.combine(name)
+        hasher.combine(title)
         hasher.combine(category)
     }
 }

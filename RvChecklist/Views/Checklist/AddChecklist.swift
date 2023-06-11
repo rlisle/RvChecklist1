@@ -1,20 +1,20 @@
 //
-//  AddTrip.swift
+//  AddChecklist.swift
 //  RvChecklist
 //
 //  Created by Ron Lisle on 3/13/21.
 //
 
 import SwiftUI
-import MapKit
+//import MapKit
 
 struct AddChecklist: View {
-    static let DefaultTitle = "TODO:"
-    static let DefaultDescription = "How to do it..."
+    static let DefaultName = "TODO:"
+    static let DefaultText = "How to do it..."
     static let DefaultCategory = "Pre-Trip"
     
-    @State var title = ""
-    @State var description = ""
+    @State var name = ""
+    @State var text = ""
     @State var category = ""
     
     let onComplete: (String, String, String) -> Void
@@ -23,10 +23,10 @@ struct AddChecklist: View {
         NavigationView {
             Form {
                 Section(header: Text("Checklist Item")) {
-                    TextField("", text: $title)
+                    TextField("", text: $name)
                 }
                 Section(header: Text("Description")) {
-                    TextField("Description", text: $description)
+                    TextField("Description", text: $text)
                 }
                 Section(header: Text("Category")) {
                     TextField("Category", text: $category)
@@ -39,8 +39,8 @@ struct AddChecklist: View {
 
   private func addItemAction() {
     onComplete(
-      title.isEmpty ? AddChecklist.DefaultTitle : title,
-      description.isEmpty ? AddChecklist.DefaultDescription : description,
+      name.isEmpty ? AddChecklist.DefaultName : name,
+      text.isEmpty ? AddChecklist.DefaultText : text,
         category.isEmpty ? AddChecklist.DefaultCategory : category)
   }
 }
