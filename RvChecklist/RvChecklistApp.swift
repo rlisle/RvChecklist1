@@ -6,18 +6,18 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct RvChecklistApp: App {
     
-    // This is our dependency injection.
-    // Previews & Tests can inject fake data
-    @StateObject private var modelData = ModelData(mqttManager: MQTTManager())
+    @StateObject var model = ModelData(mqttManager: MQTTManager())
     
     var body: some Scene {
         WindowGroup {
             ChecklistView()
-                .environmentObject(modelData)
+            .environmentObject(model)
         }
+        .modelContainer(for: ChecklistItem.self)
     }
 }

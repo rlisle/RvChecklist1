@@ -6,26 +6,28 @@
 //
 
 import SwiftUI
+import SwiftData
 
-struct ChecklistItem {
+@Model
+class ChecklistItem {
 
-    let id: String          // Used by device (eg. RearAwning) MQTT status
-    let name: String        // Title
-    let category: String    // Pre-Trip, Departure, Arrival
-    let order: Int          // Display sort order
-    let description: String // Markdown?
-    var isDone: Bool = false {
-        didSet {
-            print("didSet \(id) to \(isDone)")
-            if oldValue != isDone {
-                print("Value changed, sending MQTT message")
-                mqtt?.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
-            }
-        }
-    }
+    var id: String          // Used by device (eg. RearAwning) MQTT status
+    var name: String        // Title
+    var category: String    // Pre-Trip, Departure, Arrival
+    var order: Int          // Display sort order
+    var description: String // Markdown?
+    var isDone: Bool // = false {
+//        didSet {
+//            print("didSet \(id) to \(isDone)")
+//            if oldValue != isDone {
+//                print("Value changed, sending MQTT message")
+//                mqtt?.publish(topic: "patriot/\(id)", message: isDone ? "100" : "0")
+//            }
+//        }
+//    }
     var imageName: String?
 
-    weak var mqtt: MQTTManager?
+//    weak var mqtt: MQTTManager?
 
     init(id: String, name: String, category: String, order: Int, description: String, imageName: String? = nil) {
         self.id = id
@@ -51,5 +53,16 @@ extension ChecklistItem: Hashable {
         hasher.combine(id)
         hasher.combine(name)
         hasher.combine(category)
+    }
+}
+
+extension Array where Element == ChecklistItem {
+    
+    func category(_ selected: String) -> [ChecklistItem] {
+        return filter { $0.category.caseInsensitiveCompare(selected) == .orderedSame }
+    }
+    
+    func done() -> [ChecklistItem] {
+      return filter { $0.isDone }
     }
 }

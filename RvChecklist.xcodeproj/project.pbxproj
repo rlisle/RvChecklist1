@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,6 +17,7 @@
 		27550DE625D57C8800894F4D /* RvChecklistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27550DE525D57C8800894F4D /* RvChecklistUITests.swift */; };
 		27550E1A25D718E000894F4D /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27550E1925D718E000894F4D /* ChecklistItem.swift */; };
 		27550E1F25D8162700894F4D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27550E1E25D8162700894F4D /* DetailView.swift */; };
+		27559A7E2A354A49008DCB3A /* PreviewSampleData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27559A7D2A354A49008DCB3A /* PreviewSampleData.swift */; };
 		275E64EF25E29A310070E6AA /* Checkmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E64EE25E29A310070E6AA /* Checkmark.swift */; };
 		275E64FC25E3D7F30070E6AA /* ChecklistRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E64FB25E3D7F30070E6AA /* ChecklistRow.swift */; };
 		275E650125E3D95B0070E6AA /* ChecklistHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E650025E3D95B0070E6AA /* ChecklistHeader.swift */; };
@@ -65,6 +66,7 @@
 		27550DE725D57C8800894F4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27550E1925D718E000894F4D /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		27550E1E25D8162700894F4D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		27559A7D2A354A49008DCB3A /* PreviewSampleData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewSampleData.swift; sourceTree = "<group>"; };
 		275E64EE25E29A310070E6AA /* Checkmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkmark.swift; sourceTree = "<group>"; };
 		275E64FB25E3D7F30070E6AA /* ChecklistRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistRow.swift; sourceTree = "<group>"; };
 		275E650025E3D95B0070E6AA /* ChecklistHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistHeader.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 			isa = PBXGroup;
 			children = (
 				27A13EBC2713348300254439 /* Colors.swift */,
+				27559A7D2A354A49008DCB3A /* PreviewSampleData.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				275E650125E3D95B0070E6AA /* ChecklistHeader.swift in Sources */,
 				275E64EF25E29A310070E6AA /* Checkmark.swift in Sources */,
 				275E650625E3DA140070E6AA /* ChecklistScrollView.swift in Sources */,
+				27559A7E2A354A49008DCB3A /* PreviewSampleData.swift in Sources */,
 				27550E1F25D8162700894F4D /* DetailView.swift in Sources */,
 				27A13EBB2713338800254439 /* NavigationBarModifier.swift in Sources */,
 				27EB50EB273FEDB100D3A69C /* Checklist.swift in Sources */,
@@ -546,7 +550,7 @@
 				DEVELOPMENT_TEAM = 65NFWK9633;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = RvChecklist/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -568,7 +572,7 @@
 				DEVELOPMENT_TEAM = 65NFWK9633;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = RvChecklist/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

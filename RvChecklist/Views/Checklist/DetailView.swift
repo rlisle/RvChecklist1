@@ -36,9 +36,9 @@ struct DetailView: View {
     @EnvironmentObject var modelData: ModelData
     var listItem: ChecklistItem
     
-    var listItemIndex: Int {
-        modelData.checklist.firstIndex(where: { $0.id == listItem.id })!
-    }
+//    var listItemIndex: Int {
+//        modelData.checklist.firstIndex(where: { $0.id == listItem.id })!
+//    }
     
     var body: some View {
 
@@ -61,12 +61,12 @@ struct DetailView: View {
     }
 }
 
-struct DetailView_Previews: PreviewProvider {
-    static let modelData = ModelData(mqttManager: MQTTManager())
-
-  static var previews: some View {
-    DetailView(listItem: modelData.checklist[4])
-        .environmentObject(modelData)
-  }
-}
+//struct DetailView_Previews: PreviewProvider {
+//    static let modelData = ModelData(mqttManager: MQTTManager())
+//
+//  static var previews: some View {
+//    DetailView(listItem: modelData.checklist[4])
+//        .environmentObject(modelData)
+//  }
+//}
 
