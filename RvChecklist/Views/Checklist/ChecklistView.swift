@@ -38,8 +38,9 @@ struct ChecklistView: View {
                             } else {
                                 ForEach(checklistItems.category(phase).filter { isShown(item:$0) }, id: \.self) { item in
                                     NavigationLink(destination: DetailView(listItem: item)) {
-                                        Text("\(item.title)")
-                                        //ChecklistRow(listItem: item)
+                                        ChecklistRow(listItem: item) {
+                                            item.isDone.toggle()
+                                        }
                                     }
                                 }
                             }

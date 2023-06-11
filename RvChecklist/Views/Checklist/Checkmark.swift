@@ -9,25 +9,28 @@ import SwiftUI
 
 struct Checkmark: View {
     
-    @Binding var isDone: Bool
+    let isDone: Bool
+    let action: () -> Void  // performs toggle action
     
     var body: some View {
         Button(action: {
-            isDone.toggle()
+            action()
         }) {
             Image(systemName: isDone ? "checkmark.square" : "square")
                 .contentShape(Rectangle())
                 .onTapGesture {
-                    isDone.toggle()
+                    action()
                 }
         }
     }
 }
 
-struct Checkmark_Previews: PreviewProvider {
-    static var previews: some View {
-        Checkmark(isDone: .constant(true))
-            .previewLayout(.fixed(width: 40, height: 40))
-            .previewDisplayName("Checkmark")
-    }
-}
+//struct Checkmark_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Checkmark(isDone: .constant(true)) {
+//            print("check")
+//        }
+//        .previewLayout(.fixed(width: 40, height: 40))
+//        .previewDisplayName("Checkmark")
+//    }
+//}
