@@ -18,7 +18,7 @@ final class ModelData: ObservableObject {
 //    
 //    @Published var checklist: [ChecklistItem] = []
 //    
-    let mqtt: MQTTManager!
+    let mqtt: MQTTManager!  //TODO: maybe this s/b singleton instead?
 //    
     init(mqttManager: MQTTManager) {
         mqtt = mqttManager

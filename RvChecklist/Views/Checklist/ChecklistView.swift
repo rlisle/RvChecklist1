@@ -62,7 +62,7 @@ struct ChecklistView: View {
                                 ) {
                                     
                                     
-                                    if(checklistItems.category(phase).done().count == 0) {
+                                    if(checklistItems.category(phase).todo().count == 0) {
                                         Text("No \(phase) items found")
                                     } else {
                                         ForEach(checklistItems.category(phase).filter { isShown(item:$0) }, id: \.self) { item in
@@ -135,7 +135,6 @@ struct ChecklistView: View {
     func isShown(item: ChecklistItem) -> Bool {
         return showCompleted == true || item.isDone == false
     }
-
 
 }
 

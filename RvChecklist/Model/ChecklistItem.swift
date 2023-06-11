@@ -65,4 +65,8 @@ extension Array where Element == ChecklistItem {
     func done() -> [ChecklistItem] {
       return filter { $0.isDone }
     }
+    
+    func todo() -> [ChecklistItem] {
+      return filter { $0.isDone == false }
+    }
 }
