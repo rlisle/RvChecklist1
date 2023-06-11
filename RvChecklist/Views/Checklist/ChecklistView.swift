@@ -66,10 +66,14 @@ struct ChecklistView: View {
                             .imageScale(.large)
                     }
                 }
+                //Temporarily use gear to seed our data
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button(action: {
                         withAnimation {
-                            self.showSettings.toggle()
+                            //self.showSettings.toggle()
+                            for item in SeedData.contents {
+                                modelContext.insert(item)
+                            }
                         }
                     }) {
                         Image(systemName: "gear")
@@ -103,6 +107,5 @@ struct ChecklistView: View {
 
 #Preview { @MainActor in
     ChecklistView()
-//        .frame(minWidth: 500, minHeight: 500)
-        .modelContainer(previewContainer)
+    .modelContainer(previewContainer)   // Use PreviewSampleData
 }
