@@ -124,8 +124,6 @@ struct ChecklistView: View {
                 }
             } //GeometryReader
         }//NavigationView
-        .accentColor( .black)   // Sets back button color
-
     }
         
     func isShown(item: ChecklistItem) -> Bool {
