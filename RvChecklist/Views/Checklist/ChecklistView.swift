@@ -14,16 +14,8 @@ struct ChecklistView: View {
     @State private var showCompleted = true
     @State private var showMenu = false
     @State private var menuSelection: String? = nil
-//    @State private var phase = "Pre-Trip"
     private var phases = ["Pre-Trip", "Departure", "Arrival"]
 
-    init() {
-//        UISegmentedControl.appearance().backgroundColor = .black
-//        UISegmentedControl.appearance().selectedSegmentTintColor = .selectable
-//        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
-//        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .normal)
-    }
-    
     var body: some View {
         
         NavigationView {
@@ -35,15 +27,6 @@ struct ChecklistView: View {
                     VStack {
                         
                         ChecklistHeader()
-
-//                        Picker(selection: $phase, label: Text("Phase")) {
-//                            ForEach(phases, id: \.self) {
-//                                Text($0)
-//                            }
-//                        }
-//                        .pickerStyle(SegmentedPickerStyle())
-//                        .padding(.bottom, 0)
-//                        .background(Color.black)
 
                         // Checklist Section
                         List {
