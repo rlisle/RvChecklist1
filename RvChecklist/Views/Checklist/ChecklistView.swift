@@ -60,8 +60,7 @@ struct ChecklistView: View {
 
                         } // List
                         .padding(.top, -8)
-                        .listStyle(PlainListStyle())    // Changed from GroupedListStyle
-                        //.animation(.easeInOut)
+                        .listStyle(PlainListStyle())
 
                         
                     }//VStack
