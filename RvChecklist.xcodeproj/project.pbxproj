@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,7 +14,6 @@
 		27550DCD25D57C8800894F4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27550DCC25D57C8800894F4D /* Assets.xcassets */; };
 		27550DD025D57C8800894F4D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27550DCF25D57C8800894F4D /* Preview Assets.xcassets */; };
 		27550DDB25D57C8800894F4D /* RvChecklistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27550DDA25D57C8800894F4D /* RvChecklistTests.swift */; };
-		27550DE625D57C8800894F4D /* RvChecklistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27550DE525D57C8800894F4D /* RvChecklistUITests.swift */; };
 		27550E1A25D718E000894F4D /* ChecklistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27550E1925D718E000894F4D /* ChecklistItem.swift */; };
 		27550E1F25D8162700894F4D /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27550E1E25D8162700894F4D /* DetailView.swift */; };
 		275E64EF25E29A310070E6AA /* Checkmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275E64EE25E29A310070E6AA /* Checkmark.swift */; };
@@ -39,13 +38,6 @@
 			remoteGlobalIDString = 27550DC425D57C8800894F4D;
 			remoteInfo = RvChecklist;
 		};
-		27550DE225D57C8800894F4D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 27550DBD25D57C8800894F4D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 27550DC425D57C8800894F4D;
-			remoteInfo = RvChecklist;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -60,9 +52,6 @@
 		27550DD625D57C8800894F4D /* RvChecklistTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RvChecklistTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27550DDA25D57C8800894F4D /* RvChecklistTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RvChecklistTests.swift; sourceTree = "<group>"; };
 		27550DDC25D57C8800894F4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		27550DE125D57C8800894F4D /* RvChecklistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RvChecklistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		27550DE525D57C8800894F4D /* RvChecklistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RvChecklistUITests.swift; sourceTree = "<group>"; };
-		27550DE725D57C8800894F4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27550E1925D718E000894F4D /* ChecklistItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistItem.swift; sourceTree = "<group>"; };
 		27550E1E25D8162700894F4D /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		275E64EE25E29A310070E6AA /* Checkmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkmark.swift; sourceTree = "<group>"; };
@@ -94,13 +83,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		27550DDE25D57C8800894F4D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -117,7 +99,6 @@
 			children = (
 				27550DC725D57C8800894F4D /* RvChecklist */,
 				27550DD925D57C8800894F4D /* RvChecklistTests */,
-				27550DE425D57C8800894F4D /* RvChecklistUITests */,
 				27550DC625D57C8800894F4D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -127,7 +108,6 @@
 			children = (
 				27550DC525D57C8800894F4D /* RvChecklist.app */,
 				27550DD625D57C8800894F4D /* RvChecklistTests.xctest */,
-				27550DE125D57C8800894F4D /* RvChecklistUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -161,15 +141,6 @@
 				27550DDC25D57C8800894F4D /* Info.plist */,
 			);
 			path = RvChecklistTests;
-			sourceTree = "<group>";
-		};
-		27550DE425D57C8800894F4D /* RvChecklistUITests */ = {
-			isa = PBXGroup;
-			children = (
-				27550DE525D57C8800894F4D /* RvChecklistUITests.swift */,
-				27550DE725D57C8800894F4D /* Info.plist */,
-			);
-			path = RvChecklistUITests;
 			sourceTree = "<group>";
 		};
 		275E64F525E29C9B0070E6AA /* Helpers */ = {
@@ -274,24 +245,6 @@
 			productReference = 27550DD625D57C8800894F4D /* RvChecklistTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		27550DE025D57C8800894F4D /* RvChecklistUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 27550DF025D57C8800894F4D /* Build configuration list for PBXNativeTarget "RvChecklistUITests" */;
-			buildPhases = (
-				27550DDD25D57C8800894F4D /* Sources */,
-				27550DDE25D57C8800894F4D /* Frameworks */,
-				27550DDF25D57C8800894F4D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				27550DE325D57C8800894F4D /* PBXTargetDependency */,
-			);
-			name = RvChecklistUITests;
-			productName = RvChecklistUITests;
-			productReference = 27550DE125D57C8800894F4D /* RvChecklistUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -305,10 +258,6 @@
 						CreatedOnToolsVersion = 12.4;
 					};
 					27550DD525D57C8800894F4D = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = 27550DC425D57C8800894F4D;
-					};
-					27550DE025D57C8800894F4D = {
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = 27550DC425D57C8800894F4D;
 					};
@@ -332,7 +281,6 @@
 			targets = (
 				27550DC425D57C8800894F4D /* RvChecklist */,
 				27550DD525D57C8800894F4D /* RvChecklistTests */,
-				27550DE025D57C8800894F4D /* RvChecklistUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -348,13 +296,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		27550DD425D57C8800894F4D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27550DDF25D57C8800894F4D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -396,14 +337,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		27550DDD25D57C8800894F4D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				27550DE625D57C8800894F4D /* RvChecklistUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -411,11 +344,6 @@
 			isa = PBXTargetDependency;
 			target = 27550DC425D57C8800894F4D /* RvChecklist */;
 			targetProxy = 27550DD725D57C8800894F4D /* PBXContainerItemProxy */;
-		};
-		27550DE325D57C8800894F4D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 27550DC425D57C8800894F4D /* RvChecklist */;
-			targetProxy = 27550DE225D57C8800894F4D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -624,46 +552,6 @@
 			};
 			name = Release;
 		};
-		27550DF125D57C8800894F4D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 65NFWK9633;
-				INFOPLIST_FILE = RvChecklistUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.RvChecklistUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = RvChecklist;
-			};
-			name = Debug;
-		};
-		27550DF225D57C8800894F4D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 65NFWK9633;
-				INFOPLIST_FILE = RvChecklistUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = net.lisles.RvChecklistUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = RvChecklist;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -690,15 +578,6 @@
 			buildConfigurations = (
 				27550DEE25D57C8800894F4D /* Debug */,
 				27550DEF25D57C8800894F4D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		27550DF025D57C8800894F4D /* Build configuration list for PBXNativeTarget "RvChecklistUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				27550DF125D57C8800894F4D /* Debug */,
-				27550DF225D57C8800894F4D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
